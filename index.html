@@ -1,209 +1,138 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Casamento de Samuel Fernando Laureano Lopez e Lorena Vittoria Serdeiro Imidio" />
-  <title>Samuel & Lorena | 14.02.2027</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Samuel & Lorena | 14.02.2027</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
-<body><div id="inviteIntro" class="invite-intro"><div class="invite-inner"><p>NÓS VAMOS NOS CASAR</p><h1>Samuel <i>&</i> Lorena</h1><div>14 · 02 · 2027</div><blockquote>“Assim, eles já não são dois, mas sim uma só carne.”<small>Mateus 19:6</small></blockquote><button id="openInvite">ABRIR CONVITE ♡</button></div></div><audio id="bgMusic" loop preload="auto"><source src="assets/musica.mp3" type="audio/mpeg"></audio><button id="musicToggle" class="music-toggle">♫</button>
-  <button class="music-btn" id="musicBtn" aria-label="Abrir nossa música">♪</button>
-  <div class="music-panel" id="musicPanel">
-    <button class="music-close" id="musicClose" aria-label="Fechar">×</button>
-    <p class="eyebrow dark">Nossa música</p>
-    <iframe style="border-radius:12px"
-      src="https://open.spotify.com/embed/track/5LmC1sBzIaofsFkT9CvUw5?utm_source=generator"
-      width="100%" height="152" frameborder="0" allowfullscreen=""
-      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-      loading="lazy"></iframe>
-    <small>Toque no player para ouvir pelo Spotify.</small>
+<body>
+
+<div id="intro" class="intro">
+  <div class="intro-content">
+    <p class="kicker">NÓS VAMOS NOS CASAR</p>
+    <h1>Samuel <em>&</em> Lorena</h1>
+    <p class="date">14 · 02 · 2027</p>
+    <p class="verse">“Assim, eles já não são dois, mas sim uma só carne.”</p>
+    <small>Mateus 19:6</small>
+    <button id="openInvite">ABRIR CONVITE ♡</button>
   </div>
+</div>
 
-  <header class="hero">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <p class="eyebrow">Nós vamos nos casar</p>
-      <h1>Samuel <span>&</span> Lorena</h1>
-      <p class="date">14 • 02 • 2027</p>
-      <p class="verse">“Assim, eles já não são dois, mas sim uma só carne.”</p>
-      <p class="verse-ref">Mateus 19:6</p>
-      <a class="btn btn-light" href="#rsvp">Confirmar presença</a>
+<audio id="bgMusic" loop preload="auto">
+  <source src="assets/musica.mp3" type="audio/mpeg">
+</audio>
+<button id="musicToggle" class="music-toggle" aria-label="Pausar ou tocar música">♫</button>
+
+<header class="hero">
+  <div class="shade"></div>
+  <div class="hero-content">
+    <p class="kicker">NOSSO GRANDE DIA</p>
+    <h1>Samuel <em>&</em> Lorena</h1>
+    <p class="date">14 · 02 · 2027</p>
+    <a href="#rsvp" class="btn light">Confirmar presença</a>
+  </div>
+</header>
+
+<section class="section">
+  <p class="kicker brown">FALTA POUCO</p>
+  <h2>Contagem regressiva</h2>
+  <div class="countdown">
+    <div><b id="days">0</b><span>Dias</span></div>
+    <div><b id="hours">0</b><span>Horas</span></div>
+    <div><b id="minutes">0</b><span>Minutos</span></div>
+    <div><b id="seconds">0</b><span>Segundos</span></div>
+  </div>
+</section>
+
+<section class="section story">
+  <div class="story-grid">
+    <img src="assets/historia.jpg" alt="Samuel e Lorena">
+    <div>
+      <p class="kicker brown">NOSSA HISTÓRIA</p>
+      <h2>Um novo capítulo começa</h2>
+      <p>Deus conduziu nossos caminhos até aqui e, com alegria, queremos celebrar esse momento ao lado das pessoas que fazem parte da nossa história.</p>
+      <p>No dia 14 de fevereiro de 2027 diremos “sim” para uma vida inteira de companheirismo, fé, amor e novos sonhos.</p>
+      <p class="signature">Samuel & Lorena</p>
     </div>
-    <a class="scroll" href="#countdown">⌄</a>
-  </header>
+  </div>
+</section>
 
-  <main>
-    <section class="section countdown-section" id="countdown">
-      <p class="eyebrow dark">Falta pouco</p>
-      <h2>Contagem regressiva</h2>
-      <div class="countdown" id="countdownBox">
-        <div><strong id="days">0</strong><span>Dias</span></div>
-        <div><strong id="hours">0</strong><span>Horas</span></div>
-        <div><strong id="minutes">0</strong><span>Minutos</span></div>
-        <div><strong id="seconds">0</strong><span>Segundos</span></div>
-      </div>
-    </section>
+<section class="section">
+  <p class="kicker brown">ONDE ESTAREMOS</p>
+  <h2>Cerimônia & Recepção</h2>
+  <div class="cards">
+    <article>
+      <h3>Cerimônia</h3>
+      <p><strong>14 de fevereiro de 2027 · 15h</strong></p>
+      <p>Estr. José Moura, 1370<br>Batistini, São Bernardo do Campo - SP<br>09844-190</p>
+      <a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Estr.%20Jos%C3%A9%20Moura%2C%201370%20Batistini%20S%C3%A3o%20Bernardo%20do%20Campo">Google Maps</a>
+    </article>
+    <article>
+      <h3>Recepção</h3>
+      <p><strong>Após a cerimônia</strong></p>
+      <p>R. Carlos Olávo Vicentini, 83<br>Planalto, São Bernardo do Campo - SP<br>09890-160</p>
+      <a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=R.%20Carlos%20Ol%C3%A1vo%20Vicentini%2C%2083%20Planalto%20S%C3%A3o%20Bernardo%20do%20Campo">Google Maps</a>
+    </article>
+  </div>
+</section>
 
-    <section class="section story">
-      <div class="story-grid">
-        <div class="photo-card photo-one"></div>
-        <div class="story-copy">
-          <p class="eyebrow dark">Nossa história</p>
-          <h2>Um novo capítulo começa</h2>
-          <p>
-            Deus conduziu nossos caminhos até aqui e, com alegria, queremos celebrar esse momento
-            ao lado das pessoas que fazem parte da nossa história.
-          </p>
-          <p>
-            No dia 14 de fevereiro de 2027 diremos “sim” para uma vida inteira de companheirismo,
-            fé, amor e novos sonhos.
-          </p>
-          <p class="signature">Samuel & Lorena</p>
-        </div>
-      </div>
-    </section>
+<section class="section gallery">
+  <p class="kicker brown">MEMÓRIAS</p>
+  <h2>Nossos momentos</h2>
+  <div class="gallery-grid">
+    <img src="assets/foto-01.jpg"><img src="assets/foto-02.jpg"><img src="assets/foto-03.jpg">
+    <img src="assets/foto-04.jpg"><img src="assets/foto-05.jpg"><img src="assets/foto-06.jpg">
+    <img src="assets/foto-07.jpg"><img src="assets/foto-08.jpg"><img src="assets/foto-09.jpg">
+    <img src="assets/foto-10.jpg"><img src="assets/foto-11.jpg"><img src="assets/foto-12.jpg">
+  </div>
+</section>
 
-    <section class="section event-section">
-      <p class="eyebrow dark">Onde estaremos</p>
-      <h2>Cerimônia & Recepção</h2>
+<section class="section rsvp" id="rsvp">
+  <div class="rsvp-grid">
+    <div>
+      <p class="kicker">SUA PRESENÇA É ESPECIAL</p>
+      <h2>Confirme sua presença</h2>
+      <p>Preencha os dados e envie sua confirmação diretamente pelo WhatsApp.</p>
+    </div>
+    <form id="rsvpForm">
+      <input name="nome" placeholder="Nome completo" required>
+      <select name="pessoas" required>
+        <option value="">Quantidade de pessoas</option>
+        <option>1 pessoa</option><option>2 pessoas</option><option>3 pessoas</option><option>4 pessoas</option><option>5 pessoas</option>
+      </select>
+      <textarea name="mensagem" placeholder="Mensagem para os noivos"></textarea>
+      <button class="btn light" type="submit">Confirmar pelo WhatsApp</button>
+    </form>
+  </div>
+</section>
 
-      <div class="cards">
-        <article class="event-card">
-          <div class="icon">♡</div>
-          <h3>Cerimônia</h3>
-          <p class="event-date">14 de fevereiro de 2027 • 15h</p>
-          <p>Estr. José Moura, 1370<br>Batistini, São Bernardo do Campo - SP<br>09844-190</p>
-          <a class="btn" target="_blank" rel="noopener"
-             href="https://www.google.com/maps/search/?api=1&query=Estr.%20Jos%C3%A9%20Moura%2C%201370%20-%20Batistini%2C%20S%C3%A3o%20Bernardo%20do%20Campo%20-%20SP%2C%2009844-190">
-            Abrir no Google Maps
-          </a>
-        </article>
+<section class="section gifts">
+  <p class="kicker brown">COM CARINHO</p>
+  <h2>Lista de presentes</h2>
+  <p>Sua presença é o nosso maior presente. Se desejar nos presentear, você pode usar nossa chave Pix.</p>
+  <div class="pix">
+    <small>CHAVE PIX</small>
+    <strong id="pixKey">19 99835-0381</strong>
+    <button class="btn" onclick="copyPix()">Copiar chave Pix</button>
+  </div>
+</section>
 
-        <article class="event-card">
-          <div class="icon">✦</div>
-          <h3>Recepção</h3>
-          <p class="event-date">Após a cerimônia</p>
-          <p>R. Carlos Olávo Vicentini, 83<br>Planalto, São Bernardo do Campo - SP<br>09890-160</p>
-          <a class="btn" target="_blank" rel="noopener"
-             href="https://www.google.com/maps/search/?api=1&query=R.%20Carlos%20Ol%C3%A1vo%20Vicentini%2C%2083%20-%20Planalto%2C%20S%C3%A3o%20Bernardo%20do%20Campo%20-%20SP%2C%2009890-160">
-            Abrir no Google Maps
-          </a>
-        </article>
-      </div>
-    </section>
+<section class="final">
+  <div class="shade"></div>
+  <div>
+    <p class="kicker">14 · 02 · 2027</p>
+    <h2>Esperamos você!</h2>
+    <p>“O amor jamais acaba.” — 1 Coríntios 13:8</p>
+  </div>
+</section>
 
-    <section class="section gallery">
-      <p class="eyebrow dark">Memórias</p>
-      <h2>Nossos momentos</h2>
-      <div class="gallery-grid">
-        <img src="assets/foto-01.jpg" alt="Samuel e Lorena" />
-        <img src="assets/foto-02.jpg" alt="Samuel e Lorena" />
-        <img src="assets/foto-03.jpg" alt="Samuel e Lorena" />
-        <img src="assets/foto-04.jpg" alt="Samuel e Lorena" />
-        <img src="assets/foto-05.jpg" alt="Samuel e Lorena" />
-        <img src="assets/foto-06.jpg" alt="Samuel e Lorena" />
-        <img src="assets/foto-07.jpg" alt="Samuel e Lorena" />
-        <img src="assets/foto-08.jpg" alt="Samuel e Lorena" />
-        <img src="assets/foto-09.jpg" alt="Samuel e Lorena" />
-        <img src="assets/foto-10.jpg" alt="Samuel e Lorena" />
-        <img src="assets/foto-11.jpg" alt="Samuel e Lorena" />
-        <img src="assets/foto-12.jpg" alt="Samuel e Lorena" />
-      </div>
-    </section>
+<footer>Samuel & Lorena · 14 de fevereiro de 2027</footer>
+<div id="toast" class="toast">Chave Pix copiada!</div>
 
-    <section class="section rsvp" id="rsvp">
-      <div class="rsvp-wrap">
-        <div>
-          <p class="eyebrow">Sua presença é especial</p>
-          <h2>Confirme sua presença</h2>
-          <p>Preencha os dados abaixo para nos ajudar na organização desse dia tão especial.</p>
-        </div>
-
-        <form id="rsvpForm">
-          <label>
-            Nome completo
-            <input type="text" name="nome" required placeholder="Seu nome" />
-          </label>
-
-          <label>
-            Quantas pessoas irão?
-            <select name="pessoas" required>
-              <option value="">Selecione</option>
-              <option>1 pessoa</option>
-              <option>2 pessoas</option>
-              <option>3 pessoas</option>
-              <option>4 pessoas</option>
-              <option>5 pessoas</option>
-            </select>
-          </label>
-
-          <label>
-            Mensagem para os noivos
-            <textarea name="mensagem" rows="4" placeholder="Escreva uma mensagem especial"></textarea>
-          </label>
-
-          <button class="btn btn-light" type="submit">Confirmar presença pelo WhatsApp</button>
-
-        </form>
-      </div>
-    </section>
-
-    <section class="section gifts">
-      <p class="eyebrow dark">Com carinho</p>
-      <h2>Lista de presentes</h2>
-      <p class="intro">
-        Sua presença é o nosso maior presente. Mas, se desejar nos presentear, deixamos abaixo
-        algumas opções.
-      </p>
-
-      <div class="gift-grid">
-        <article class="gift-card">
-          <span>✧</span>
-          <h3>Lua de mel</h3>
-          <p>Contribua para tornar nossa viagem ainda mais inesquecível.</p>
-          <button class="btn" onclick="copyPix()">Copiar chave Pix</button>
-        </article>
-
-        <article class="gift-card">
-          <span>⌂</span>
-          <h3>Nossa casa</h3>
-          <p>Ajude a construir os primeiros detalhes do nosso novo lar.</p>
-          <button class="btn" onclick="copyPix()">Copiar chave Pix</button>
-        </article>
-
-        <article class="gift-card">
-          <span>♡</span>
-          <h3>Presente livre</h3>
-          <p>Escolha um valor e envie diretamente via Pix.</p>
-          <button class="btn" onclick="copyPix()">Copiar chave Pix</button>
-        </article>
-      </div>
-
-      <div class="pix-box">
-        <small>CHAVE PIX</small>
-        <strong id="pixKey">19 99835-0381</strong>
-      </div>
-    </section>
-
-    <section class="section final-photo">
-      <div class="final-overlay"></div>
-      <div class="final-content">
-        <p class="eyebrow">14.02.2027</p>
-        <h2>Esperamos você!</h2>
-        <p>“O amor jamais acaba.” — 1 Coríntios 13:8</p>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <p>Samuel & Lorena • 14 de fevereiro de 2027</p>
-  </footer>
-
-  <div class="toast" id="toast">Chave Pix copiada!</div>
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
