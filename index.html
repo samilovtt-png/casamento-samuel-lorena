@@ -90,6 +90,32 @@
     </div>
   </section>
 
+  <section class="journey-section">
+    <div class="journey-map" aria-hidden="true">
+      <div class="south-america-outline">SOUTH<br>AMERICA</div>
+      <span class="route-dot brasil">BR</span>
+      <span class="route-dot argentina">AR</span>
+      <span class="route-dot bolivia">BO</span>
+      <span class="route-dot peru">PE</span>
+      <span class="route-dot chile">CL</span>
+      <div class="route-line line-1"></div>
+      <div class="route-line line-2"></div>
+      <div class="route-line line-3"></div>
+      <div class="route-line line-4"></div>
+      <span class="route-plane">✈</span>
+    </div>
+    <div class="journey-copy reveal">
+      <p class="eyebrow">CAMINHOS QUE DEUS JÁ NOS PERMITIU PERCORRER</p>
+      <h2>Uma história de amor<br>que atravessa fronteiras.</h2>
+      <div class="gold-line left"></div>
+      <p class="journey-quote">“Deus já nos levou por muitos caminhos. Agora escolhemos percorrer juntos todos aqueles para onde Ele nos chamar.”</p>
+      <div class="country-list">
+        <span>Brasil</span><i>•</i><span>Argentina</span><i>•</i><span>Bolívia</span><i>•</i><span>Peru</span><i>•</i><span>Chile</span>
+      </div>
+      <p class="journey-small">Uma história que continua em missão.</p>
+    </div>
+  </section>
+
   <section class="section event-section" id="evento">
     <p class="eyebrow">14 DE FEVEREIRO DE 2027</p>
     <h2>Cerimônia & Recepção</h2>
@@ -206,15 +232,20 @@
         <p>Use a chave acima para contribuir com qualquer um dos três projetos missionários.</p>
         <div class="pix-actions">
           <button class="lux-btn" onclick="copyPix()">Copiar chave Pix</button>
-          <button class="lux-btn secondary" id="copyPayloadBtn" disabled>Pix copia e cola</button>
+          <button class="lux-btn secondary" id="copyPayloadBtn" onclick="copyPixPayload()">Copiar Pix copia e cola</button>
         </div>
-        <small id="pixNote">O QR Code bancário e o Pix copia e cola serão ativados após confirmar o nome e a cidade do titular da chave.</small>
+        <small id="pixNote">Titular: Samuel Fernando Laureano Lopez · Hortolândia/SP</small>
       </div>
-      <div class="pix-qr-placeholder" aria-label="Área reservada para QR Code Pix">
-        <div class="qr-grid" aria-hidden="true"></div>
+      <div class="pix-qr-placeholder" aria-label="QR Code Pix">
+        <img class="pix-qr-img" src="assets/pix-qrcode.png" alt="QR Code Pix">
         <span>QR CODE PIX</span>
-        <small>Aguardando dados do titular</small>
+        <small>Escaneie com o aplicativo do seu banco</small>
       </div>
+    </div>
+    <div class="pix-payload-box">
+      <span>PIX COPIA E COLA</span>
+      <textarea id="pixPayload" readonly>00020126360014BR.GOV.BCB.PIX0114+55199983503815204000053039865802BR5923SAMUEL F LAUREANO LOPEZ6011HORTOLANDIA62070503***63041773</textarea>
+      <button class="lux-btn" onclick="copyPixPayload()">Copiar código Pix</button>
     </div>
   </section>
 
