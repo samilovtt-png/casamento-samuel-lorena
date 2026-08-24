@@ -31,6 +31,9 @@
 
 <header class="hero" id="top">
   <div class="hero-overlay"></div>
+  <div class="mission-route route-one" aria-hidden="true"></div>
+  <div class="mission-route route-two" aria-hidden="true"></div>
+  <div class="mission-map-mark" aria-hidden="true">✈︎</div>
   <nav class="nav">
     <a href="#top" class="brand">S&L</a>
     <div>
@@ -196,11 +199,27 @@
       <span>Samuel & Lorena</span>
     </div>
 
-    <div class="pix-card reveal">
-      <span>CHAVE PIX PARA AS CONTRIBUIÇÕES</span>
-      <strong id="pixKey">19 99835-0381</strong>
-      <button class="lux-btn" onclick="copyPix()">Copiar chave Pix</button>
-      <small>Ao contribuir, você se torna parte desta história missionária conosco.</small>
+    <div class="pix-card reveal pix-donation-card">
+      <div class="pix-info">
+        <span>CHAVE PIX PARA AS CONTRIBUIÇÕES</span>
+        <strong id="pixKey">19 99835-0381</strong>
+        <p>Use a chave acima para contribuir com qualquer um dos três projetos missionários.</p>
+        <div class="pix-actions">
+          <button class="lux-btn" onclick="copyPix()">Copiar chave Pix</button>
+          <button class="lux-btn secondary" id="copyPayloadBtn" onclick="copyPixPayload()">Copiar Pix copia e cola</button>
+        </div>
+        <small id="pixNote">Titular: Samuel Fernando Laureano Lopez · Hortolândia/SP</small>
+      </div>
+      <div class="pix-qr-placeholder" aria-label="QR Code Pix">
+        <img class="pix-qr-img" src="assets/pix-qrcode.png" alt="QR Code Pix">
+        <span>QR CODE PIX</span>
+        <small>Escaneie com o aplicativo do seu banco</small>
+      </div>
+    </div>
+    <div class="pix-payload-box">
+      <span>PIX COPIA E COLA</span>
+      <textarea id="pixPayload" readonly>00020126330014BR.GOV.BCB.PIX0111199983503815204000053039865802BR5923SAMUEL F LAUREANO LOPEZ6011HORTOLANDIA62070503***6304175D</textarea>
+      <button class="lux-btn" onclick="copyPixPayload()">Copiar código Pix</button>
     </div>
   </section>
 
