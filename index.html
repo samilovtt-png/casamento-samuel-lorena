@@ -91,22 +91,28 @@
     <p class="eyebrow">14 DE FEVEREIRO DE 2027</p>
     <h2>Cerimônia & Recepção</h2>
     <div class="event-grid reveal">
-      <article>
+      <article class="event-card">
+        <img class="venue-photo" src="assets/cerimonia.jpg" alt="Local da cerimônia">
+        <div class="event-card-body">
         <span class="event-number">01</span>
         <h3>Cerimônia</h3>
         <p class="time">15h</p>
         <p>Estr. José Moura, 1370<br>Batistini, São Bernardo do Campo - SP<br>09844-190</p>
         <a class="lux-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Estr.%20Jos%C3%A9%20Moura%2C%201370%20-%20Batistini%2C%20S%C3%A3o%20Bernardo%20do%20Campo%20-%20SP%2C%2009844-190">Ver no mapa</a>
+        </div>
       </article>
 
       <div class="divider"></div>
 
-      <article>
+      <article class="event-card">
+        <img class="venue-photo" src="assets/recepcao.jpg" alt="Local da recepção">
+        <div class="event-card-body">
         <span class="event-number">02</span>
         <h3>Recepção</h3>
         <p class="time">Após a cerimônia</p>
         <p>R. Carlos Olávo Vicentini, 83<br>Planalto, São Bernardo do Campo - SP<br>09890-160</p>
         <a class="lux-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=R.%20Carlos%20Ol%C3%A1vo%20Vicentini%2C%2083%20-%20Planalto%2C%20S%C3%A3o%20Bernardo%20do%20Campo%20-%20SP%2C%2009890-160">Ver no mapa</a>
+        </div>
       </article>
     </div>
   </section>
@@ -148,14 +154,53 @@
     </div>
   </section>
 
-  <section class="gift-section section">
-    <p class="eyebrow">PRESENTES</p>
-    <h2>Seu carinho faz parte<br>da nossa história.</h2>
-    <p class="gift-copy">Sua presença é o nosso maior presente. Se desejar nos presentear, disponibilizamos nossa chave Pix.</p>
+  <section class="gift-section section mission-gifts" id="presentes">
+    <p class="eyebrow">UM CASAMENTO COM PROPÓSITO</p>
+    <h2>Nosso presente será<br>transformado em missão.</h2>
+    <p class="gift-copy">Em vez de presentes para nós, escolhemos transformar este momento em esperança. Se desejar nos presentear, contribua com um dos projetos missionários que fazem parte do propósito do nosso casamento.</p>
+
+    <div class="mission-projects reveal">
+      <article class="mission-project-card">
+        <img src="assets/projeto-passagens.jpg" alt="Duas passagens missionárias">
+        <div class="mission-project-content">
+          <span>PROJETO 01</span>
+          <h3>Duas passagens missionárias</h3>
+          <p>Ajude a enviar missionários para servir onde há necessidade.</p>
+          <strong>Alvo: R$ 20.000</strong>
+        </div>
+      </article>
+
+      <article class="mission-project-card">
+        <img src="assets/projeto-container.jpg" alt="Contêiner para as missões">
+        <div class="mission-project-content">
+          <span>PROJETO 02</span>
+          <h3>Contêiner para as missões</h3>
+          <p>Um espaço de apoio, organização e envio para novos projetos missionários.</p>
+          <strong>Alvo: R$ 40.000</strong>
+        </div>
+      </article>
+
+      <article class="mission-project-card">
+        <img src="assets/projeto-guine-bissau.jpg" alt="Construção de salas e igreja em Guiné-Bissau">
+        <div class="mission-project-content">
+          <span>PROJETO 03</span>
+          <h3>Salas e igreja em Guiné-Bissau</h3>
+          <p>Construindo um lugar para ensinar, acolher, servir e compartilhar esperança.</p>
+          <strong>Alvo: R$ 60.000</strong>
+        </div>
+      </article>
+    </div>
+
+    <div class="mission-quote">
+      <p>“Nosso amor celebra um dia. A missão pode transformar uma vida inteira.”</p>
+      <span>Samuel & Lorena</span>
+    </div>
+
     <div class="pix-card reveal">
-      <span>CHAVE PIX</span>
+      <span>CHAVE PIX PARA AS CONTRIBUIÇÕES</span>
       <strong id="pixKey">19 99835-0381</strong>
       <button class="lux-btn" onclick="copyPix()">Copiar chave Pix</button>
+      <small>Ao contribuir, você se torna parte desta história missionária conosco.</small>
     </div>
   </section>
 
