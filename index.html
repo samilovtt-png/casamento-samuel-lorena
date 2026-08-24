@@ -206,20 +206,15 @@
         <p>Use a chave acima para contribuir com qualquer um dos três projetos missionários.</p>
         <div class="pix-actions">
           <button class="lux-btn" onclick="copyPix()">Copiar chave Pix</button>
-          <button class="lux-btn secondary" id="copyPayloadBtn" onclick="copyPixPayload()">Copiar Pix copia e cola</button>
+          <button class="lux-btn secondary" id="copyPayloadBtn" disabled>Pix copia e cola</button>
         </div>
-        <small id="pixNote">Titular: Samuel Fernando Laureano Lopez · Hortolândia/SP</small>
+        <small id="pixNote">O QR Code bancário e o Pix copia e cola serão ativados após confirmar o nome e a cidade do titular da chave.</small>
       </div>
-      <div class="pix-qr-placeholder" aria-label="QR Code Pix">
-        <img class="pix-qr-img" src="assets/pix-qrcode.png" alt="QR Code Pix">
+      <div class="pix-qr-placeholder" aria-label="Área reservada para QR Code Pix">
+        <div class="qr-grid" aria-hidden="true"></div>
         <span>QR CODE PIX</span>
-        <small>Escaneie com o aplicativo do seu banco</small>
+        <small>Aguardando dados do titular</small>
       </div>
-    </div>
-    <div class="pix-payload-box">
-      <span>PIX COPIA E COLA</span>
-      <textarea id="pixPayload" readonly>00020126330014BR.GOV.BCB.PIX0111199983503815204000053039865802BR5923SAMUEL F LAUREANO LOPEZ6011HORTOLANDIA62070503***6304175D</textarea>
-      <button class="lux-btn" onclick="copyPixPayload()">Copiar código Pix</button>
     </div>
   </section>
 

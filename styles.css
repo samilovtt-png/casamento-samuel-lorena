@@ -367,9 +367,3 @@ footer p{font-size:.65rem;letter-spacing:.13em;text-transform:uppercase}
   .pix-donation-card{grid-template-columns:1fr}
   .mission-route{display:none}
 }
-
-.lux-btn.secondary{opacity:1!important;cursor:pointer!important}
-.pix-qr-img{width:190px;height:190px;object-fit:contain;background:#fff;padding:6px;margin-bottom:14px}
-.pix-payload-box{max-width:900px;margin:24px auto 0;padding:28px;background:#fff;border:1px solid rgba(7,26,53,.15);text-align:left}
-.pix-payload-box>span{display:block;font-size:.68rem;letter-spacing:.2em;color:#071a35;margin-bottom:12px}
-.pix-payload-box textarea{width:100%;min-height:104px;padding:14px;border:1px solid #d9dfe6;background:#f8fafc;color:#071a35;font:12px/1.5 monospace;resize:none;word-break:break-all}

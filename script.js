@@ -75,22 +75,3 @@ const observer = new IntersectionObserver((entries) => {
 },{threshold:.12});
 
 document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
-
-async function copyPixPayload(){
-  const payload = `00020126330014BR.GOV.BCB.PIX0111199983503815204000053039865802BR5923SAMUEL F LAUREANO LOPEZ6011HORTOLANDIA62070503***6304175D`;
-  try {
-    await navigator.clipboard.writeText(payload);
-  } catch(e) {
-    const area = document.getElementById("pixPayload");
-    if (area) {
-      area.select();
-      document.execCommand("copy");
-    }
-  }
-  const toast = document.getElementById("toast");
-  if (toast) {
-    toast.textContent = "Pix copia e cola copiado";
-    toast.classList.add("show");
-    setTimeout(() => toast.classList.remove("show"), 1800);
-  }
-}
