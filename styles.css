@@ -769,3 +769,194 @@ footer strong{color:var(--champagne)!important}
   .projects{background:#e9eef3!important}
   .pix-section{background:var(--navy-900)!important}
 }
+
+
+/* =========================================================
+   V10 — CONTROLE DO BUFFET
+   ========================================================= */
+.buffet-section{
+  background:
+    radial-gradient(circle at 12% 10%,rgba(201,165,106,.055),transparent 30%),
+    linear-gradient(145deg,#06182d,#0b2947)!important;
+  color:#fff;
+}
+.buffet-section h2{color:#fff!important}
+.buffet-section .lead{color:rgba(236,242,247,.76)!important}
+.buffet-dashboard{
+  max-width:1120px;
+  margin:48px auto 0;
+}
+.buffet-summary{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+  margin-bottom:18px;
+}
+.buffet-summary article{
+  padding:24px 20px;
+  background:rgba(255,255,255,.045);
+  border:1px solid rgba(220,196,154,.18);
+  text-align:left;
+}
+.buffet-summary span,
+.buffet-extra span{
+  display:block;
+  font-size:.61rem;
+  letter-spacing:.16em;
+  color:rgba(220,196,154,.82);
+  text-transform:uppercase;
+}
+.buffet-summary strong{
+  display:block;
+  margin-top:10px;
+  font:500 2rem "Cormorant Garamond",serif;
+  color:#fff;
+}
+.buffet-control-card{
+  background:#fff;
+  color:#182433;
+  padding:38px;
+  border:1px solid rgba(201,165,106,.26);
+  box-shadow:0 26px 70px rgba(0,0,0,.18);
+  text-align:left;
+}
+.buffet-fields{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:24px 30px;
+}
+.buffet-fields label{
+  font-size:.62rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:#697583;
+}
+.buffet-fields input{
+  width:100%;
+  margin-top:9px;
+  padding:13px 0;
+  border:0;
+  border-bottom:1px solid #d8dee4;
+  background:transparent;
+  color:#071a35;
+  font:400 1rem Montserrat,sans-serif;
+  outline:none;
+}
+.buffet-fields input:focus{border-bottom-color:#c9a56a}
+.buffet-progress-wrap{margin:34px 0 26px}
+.buffet-progress-label{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:.72rem;
+  color:#64707c;
+  margin-bottom:10px;
+}
+.buffet-progress-label b{color:#071a35}
+.buffet-progress{
+  height:8px;
+  background:#e9edf1;
+  overflow:hidden;
+}
+.buffet-progress i{
+  display:block;
+  width:0%;
+  height:100%;
+  background:linear-gradient(90deg,#0b2947,#c9a56a);
+  transition:width .35s ease;
+}
+.buffet-extra{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  padding:24px 0;
+  border-top:1px solid #edf0f2;
+  border-bottom:1px solid #edf0f2;
+}
+.buffet-extra strong{
+  display:block;
+  margin-top:8px;
+  color:#071a35;
+  font:500 1.55rem "Cormorant Garamond",serif;
+}
+.buffet-actions{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:26px;
+}
+.buffet-reset{border-color:#b9c1c8!important;color:#67717c!important}
+.buffet-note{
+  display:block;
+  margin-top:18px;
+  color:#858d95;
+  font-size:.68rem;
+}
+@media(max-width:850px){
+  .buffet-summary{grid-template-columns:1fr 1fr}
+  .buffet-fields{grid-template-columns:1fr}
+  .buffet-extra{grid-template-columns:1fr}
+  .buffet-control-card{padding:28px 22px}
+}
+
+/* V11 — Confirmação de presença + pagamento Pix */
+.confirmation-section{
+  background:linear-gradient(135deg,#082038,#123a5a)!important;
+}
+.confirmation-copy{align-self:center}
+.guest-prices{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin:28px 0 20px;
+}
+.guest-prices div{
+  padding:20px;
+  border:1px solid rgba(220,196,154,.26);
+  background:rgba(255,255,255,.035);
+}
+.guest-prices span{
+  display:block;
+  color:#dcc49a;
+  font-size:.6rem;
+  letter-spacing:.15em;
+  margin-bottom:8px;
+}
+.guest-prices strong{
+  font:500 1.8rem "Cormorant Garamond",serif;
+  color:#fff;
+}
+.confirmation-note{
+  font-size:.78rem!important;
+  color:rgba(235,241,246,.62)!important;
+}
+.guest-count-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:22px;
+}
+.confirmation-total{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  padding:20px 0;
+  border-top:1px solid rgba(220,196,154,.28);
+  border-bottom:1px solid rgba(220,196,154,.28);
+}
+.confirmation-total span{
+  font-size:.62rem;
+  letter-spacing:.15em;
+  color:#dcc49a;
+}
+.confirmation-total strong{
+  font:500 2rem "Cormorant Garamond",serif;
+  color:#fff;
+}
+.pix-jump{
+  display:inline-block;
+  text-align:center;
+}
+@media(max-width:850px){
+  .guest-prices,.guest-count-grid{grid-template-columns:1fr}
+}

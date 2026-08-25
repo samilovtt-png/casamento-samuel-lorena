@@ -24,3 +24,25 @@ Versão refinada do site com:
 - detalhes champagne mais discretos
 - Pix integrado visualmente à seção de presentes
 - transições de cor mais elegantes entre as páginas/seções
+
+
+## V10 — Controle do Buffet
+- seção de controle financeiro do buffet dentro do site
+- valor total contratado
+- total já pago
+- saldo restante automático
+- percentual pago com barra de progresso
+- número de convidados
+- valor médio por convidado
+- próximo vencimento
+- salvamento local no navegador
+
+
+## V11 — Confirmação
+- removido controle financeiro do buffet
+- confirmação de presença com cálculo:
+  - adulto R$ 200,00
+  - criança até 10 anos R$ 100,00
+- valor calculado automaticamente
+- confirmação enviada via WhatsApp
+- botão para pagamento pelo Pix já existente no site

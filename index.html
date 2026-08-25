@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=30260824-4">
+<link rel="stylesheet" href="styles.css?v=20260824-11">
 </head>
 <body>
 
@@ -127,9 +127,9 @@
 </section>
 
 <section class="pix-section section" id="pix">
-  <p class="eyebrow gold">FAÇA PARTE DESSA MISSÃO</p>
-  <h2>Contribua com os projetos missionários</h2>
-  <p class="lead">Escolhemos transformar os presentes do nosso casamento em missão.</p>
+  <p class="eyebrow gold">PAGAMENTO DA CONFIRMAÇÃO</p>
+  <h2>Pagamento via Pix</h2>
+  <p class="lead">Use o Pix Copia e Cola ou o QR Code abaixo para realizar o pagamento da confirmação.</p>
   <div class="pix-grid pix-grid-clean">
     <div class="copy-card">
       <span>PIX COPIA E COLA</span>
@@ -163,13 +163,45 @@
   </div>
 </section>
 
-<section class="rsvp" id="rsvp">
-  <div><p class="eyebrow gold">RSVP</p><h2>Será uma alegria celebrar com você.</h2><p>Confirme sua presença pelo formulário.</p></div>
+
+
+
+<section class="rsvp confirmation-section" id="rsvp">
+  <div class="confirmation-copy">
+    <p class="eyebrow gold">CONFIRMAÇÃO DE PRESENÇA</p>
+    <h2>Será uma alegria celebrar com você.</h2>
+    <p>Para confirmar sua presença, informe os convidados e depois realize o pagamento pelo Pix disponível no site.</p>
+    <div class="guest-prices">
+      <div><span>ADULTO</span><strong>R$ 200,00</strong></div>
+      <div><span>CRIANÇA ATÉ 10 ANOS</span><strong>R$ 100,00</strong></div>
+    </div>
+    <p class="confirmation-note">Após preencher, você poderá confirmar os dados pelo WhatsApp e seguir para o Pix.</p>
+  </div>
   <form id="rsvpForm">
     <label>Nome completo<input name="nome" required></label>
-    <label>Quantidade<select name="pessoas" required><option value="">Selecione</option><option>1 pessoa</option><option>2 pessoas</option><option>3 pessoas</option><option>4 pessoas</option><option>5 pessoas</option></select></label>
-    <label>Mensagem<textarea name="mensagem" rows="4"></textarea></label>
+    <div class="guest-count-grid">
+      <label>Adultos
+        <select name="adultos" id="adultGuests" required>
+          <option value="0">0</option><option value="1">1</option><option value="2">2</option>
+          <option value="3">3</option><option value="4">4</option><option value="5">5</option>
+          <option value="6">6</option><option value="7">7</option><option value="8">8</option>
+        </select>
+      </label>
+      <label>Crianças até 10 anos
+        <select name="criancas" id="childGuests">
+          <option value="0">0</option><option value="1">1</option><option value="2">2</option>
+          <option value="3">3</option><option value="4">4</option><option value="5">5</option>
+          <option value="6">6</option>
+        </select>
+      </label>
+    </div>
+    <div class="confirmation-total">
+      <span>VALOR DA CONFIRMAÇÃO</span>
+      <strong id="confirmationTotal">R$ 0,00</strong>
+    </div>
+    <label>Mensagem aos noivos<textarea name="mensagem" rows="3"></textarea></label>
     <button class="btn light" type="submit">Confirmar pelo WhatsApp</button>
+    <a class="btn light pix-jump" href="#pix">Pagar via Pix</a>
   </form>
 </section>
 
@@ -188,6 +220,6 @@
 
 <footer><strong>S&L</strong><p>Unidos pelo amor · Chamados para a missão</p></footer>
 <div class="toast" id="toast">Pix Copia e Cola copiado</div>
-<script src="script.js?v=30260824-4"></script>
+<script src="script.js?v=20260824-11"></script>
 </body>
 </html>

@@ -41,3 +41,47 @@ async function copyPixPayload(){
   const toast=document.getElementById("toast");
   toast.classList.add("show"); setTimeout(()=>toast.classList.remove("show"),1800);
 }
+
+
+
+/* V11 — confirmação e cálculo por convidado */
+(function(){
+  const adults = document.getElementById("adultGuests");
+  const children = document.getElementById("childGuests");
+  const totalEl = document.getElementById("confirmationTotal");
+  const form = document.getElementById("rsvpForm");
+  if(!adults || !children || !totalEl || !form) return;
+
+  function updateConfirmationTotal(){
+    const a = Number(adults.value || 0);
+    const c = Number(children.value || 0);
+    const total = (a * 200) + (c * 100);
+    totalEl.textContent = total.toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
+    return total;
+  }
+
+  adults.addEventListener("change", updateConfirmationTotal);
+  children.addEventListener("change", updateConfirmationTotal);
+  updateConfirmationTotal();
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    const f = new FormData(form);
+    const a = Number(f.get("adultos") || 0);
+    const c = Number(f.get("criancas") || 0);
+    const total = (a * 200) + (c * 100);
+    if(a + c < 1){
+      alert("Selecione pelo menos um convidado.");
+      return;
+    }
+    const valor = total.toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
+    const text =
+      `Olá! Quero confirmar minha presença no casamento de Samuel & Lorena.\n\n` +
+      `Nome: ${f.get("nome")}\n` +
+      `Adultos: ${a}\n` +
+      `Crianças até 10 anos: ${c}\n` +
+      `Valor da confirmação: ${valor}\n` +
+      `Mensagem: ${f.get("mensagem") || ""}`;
+    window.open("https://wa.me/5519998350381?text="+encodeURIComponent(text),"_blank");
+  });
+})();
