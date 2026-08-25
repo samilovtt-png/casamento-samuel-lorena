@@ -1605,3 +1605,91 @@ html{scroll-behavior:smooth;scroll-padding-top:74px}
   .reveal-section{opacity:1;transform:none;transition:none}
   *{animation-duration:.01ms!important;animation-iteration-count:1!important}
 }
+
+/* V27 — jornada missionária organizada */
+.mission-timeline-clean{
+  background:#f3f5f7!important;
+  padding-top:86px!important;
+  padding-bottom:82px!important;
+  overflow:hidden;
+}
+.mission-timeline-clean h2{
+  max-width:980px;
+  margin:14px auto 16px!important;
+  font-size:clamp(3rem,5.2vw,5.35rem)!important;
+  line-height:.98!important;
+  color:#122033!important;
+}
+.mission-intro{
+  margin:0 auto 58px;
+  color:#7b8793;
+  font-size:.78rem;
+  letter-spacing:.02em;
+}
+.clean-route{
+  max-width:1320px!important;
+  grid-template-columns:180px 1fr 180px 1fr 180px 1fr 180px 1fr 180px!important;
+  gap:0!important;
+  align-items:center!important;
+}
+.clean-route article{
+  min-width:0!important;
+  padding:0 10px!important;
+}
+.clean-route .country-code{
+  display:block;
+  font:600 1.45rem Montserrat,sans-serif;
+  letter-spacing:.08em;
+  color:#142236;
+  margin-bottom:15px;
+}
+.clean-route article>b{
+  font:500 1.75rem "Cormorant Garamond",serif!important;
+  color:#17253a!important;
+}
+.clean-route article>small{
+  max-width:180px;
+  min-height:38px;
+  margin:8px auto 0!important;
+  font-size:.58rem!important;
+  line-height:1.55!important;
+  color:#8a96a2!important;
+}
+.clean-route>i{
+  width:100%;
+  height:1px!important;
+  background:rgba(201,165,106,.48)!important;
+}
+.clean-route>i:after{
+  right:50%!important;
+  transform:translateX(50%);
+  background:#f3f5f7;
+  padding:0 8px;
+}
+.mission-timeline-clean .mission-route-verse{
+  margin-top:62px!important;
+  padding-top:30px;
+  border-top:1px solid rgba(7,26,53,.08);
+  max-width:1050px;
+}
+.mission-timeline-clean .project-goal-bar{display:none!important}
+
+@media(max-width:1050px){
+  .clean-route{
+    grid-template-columns:150px 1fr 150px 1fr 150px 1fr 150px 1fr 150px!important;
+  }
+}
+@media(max-width:850px){
+  .mission-timeline-clean{padding:70px 22px!important}
+  .mission-timeline-clean h2{font-size:3.15rem!important}
+  .mission-intro{margin-bottom:42px}
+  .clean-route{
+    grid-template-columns:1fr!important;
+    max-width:420px!important;
+  }
+  .clean-route article{padding:8px 0!important}
+  .clean-route article>small{min-height:0;max-width:280px}
+  .clean-route>i{width:1px!important;height:30px!important;margin:4px auto!important}
+  .clean-route>i:after{right:auto!important;left:-12px;top:8px!important;transform:none;background:#f3f5f7;padding:2px 5px}
+  .mission-timeline-clean .mission-route-verse{margin-top:38px!important}
+}
