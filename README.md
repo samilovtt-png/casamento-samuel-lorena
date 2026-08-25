@@ -10,3 +10,9 @@ Versão refinada do site com:
 - nova música
 - RSVP via WhatsApp
 - somente Pix Copia e Cola + QR Code
+
+
+## V4
+- seção Caminhos refeita com foto missionária, mapa em marca-d'água e layout mais romântico
+- encerramento mais leve, com foto clara e frase menor
+- restante do site preservado

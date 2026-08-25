@@ -415,3 +415,121 @@ footer strong{font-size:2rem!important}
   }
   .closing h2{font-size:3.7rem!important}
 }
+
+
+/* V4 — refinamento apenas em Caminhos e Encerramento */
+.journey-refined{
+  min-height:680px!important;
+  display:grid!important;
+  grid-template-columns:1.05fr .95fr!important;
+  background:#071a35!important;
+  overflow:hidden;
+}
+.journey-visual{
+  position:relative;
+  min-height:680px;
+  overflow:hidden;
+  background:#081d34;
+}
+.journey-photo{
+  position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover; object-position:center 46%;
+  filter:saturate(.88) contrast(.98) brightness(.82);
+}
+.journey-visual:after{
+  content:""; position:absolute; inset:0; z-index:2;
+  background:
+    linear-gradient(90deg,rgba(7,26,53,.04),rgba(7,26,53,.20) 72%,#071a35 100%),
+    linear-gradient(180deg,rgba(7,26,53,.05),rgba(7,26,53,.18));
+}
+.journey-map-watermark{
+  position:absolute; width:86%; height:86%; left:4%; top:7%;
+  object-fit:contain; opacity:.12; z-index:3;
+  mix-blend-mode:screen; pointer-events:none;
+}
+.journey-stamp{
+  position:absolute; left:7%; bottom:8%; z-index:4;
+  width:112px; height:112px;
+  border:1px solid rgba(219,195,151,.38); border-radius:50%;
+  display:grid; place-items:center; text-align:center;
+  color:rgba(241,222,186,.74);
+  font:500 .54rem/1.55 Montserrat,sans-serif;
+  letter-spacing:.14em; transform:rotate(-8deg);
+  backdrop-filter:blur(2px);
+}
+.journey-stamp span{color:#dbc397}
+.journey-copy-refined{
+  padding:94px 7vw 94px 6vw!important;
+  display:flex!important; flex-direction:column; justify-content:center;
+  background:
+    radial-gradient(circle at 92% 18%,rgba(200,166,106,.045),transparent 26%),
+    #071a35;
+}
+.journey-copy-refined h2{
+  max-width:640px; font-size:clamp(3rem,5vw,5rem)!important;
+  line-height:1.01!important; margin:14px 0 10px!important;
+}
+.journey-copy-refined > p:not(.eyebrow):not(.journey-caption):not(.journey-script){
+  max-width:600px; color:rgba(235,240,245,.78)!important;
+  line-height:1.9!important; font-size:.97rem;
+}
+.journey-caption{
+  margin:26px 0 14px!important;
+  color:rgba(219,195,151,.67)!important;
+}
+.countries-refined{display:flex!important; gap:8px!important; flex-wrap:wrap}
+.countries-refined span{
+  border:0!important; border-bottom:1px solid rgba(219,195,151,.40)!important;
+  background:transparent!important; padding:7px 2px!important; margin-right:15px;
+  color:#ead8b8!important; letter-spacing:.13em!important;
+}
+.journey-script{
+  margin-top:28px!important;
+  font-family:"Cormorant Garamond",serif!important;
+  font-style:italic; font-size:1.5rem!important; color:#d7b77e!important;
+}
+
+/* final mais leve, com a foto como protagonista */
+.closing-refined{
+  height:auto!important; min-height:660px!important; padding:0!important;
+  position:relative; display:grid!important; align-items:end!important;
+  justify-items:start!important; text-align:left!important;
+  background:url('assets/closing.jpg') center 40%/cover no-repeat!important;
+}
+.closing-refined .closing-shade{
+  background:linear-gradient(180deg,
+    rgba(5,18,33,.04) 0%,
+    rgba(5,18,33,.04) 42%,
+    rgba(5,18,33,.34) 76%,
+    rgba(5,18,33,.66) 100%)!important;
+}
+.closing-content{
+  position:relative!important; z-index:2!important;
+  width:min(720px,82vw); margin:0 0 52px 7vw!important; padding:0!important;
+}
+.closing-content .eyebrow{color:#ead8b8;margin-bottom:12px}
+.closing-content h2{
+  max-width:700px!important;
+  font-size:clamp(2.5rem,4.5vw,4.5rem)!important;
+  line-height:1.03!important; margin:0!important;
+  text-shadow:0 4px 22px rgba(0,0,0,.24);
+}
+.closing-line{width:58px;height:1px;background:#d0ad72;margin:22px 0 14px}
+.closing-names{
+  margin:0!important;
+  font-family:"Cormorant Garamond",serif!important;
+  font-size:1.28rem!important; font-style:italic; color:#f4ead8!important;
+}
+
+@media(max-width:850px){
+  .journey-refined{grid-template-columns:1fr!important}
+  .journey-visual{min-height:440px}
+  .journey-photo{object-position:center 42%}
+  .journey-visual:after{background:linear-gradient(180deg,rgba(7,26,53,.03),rgba(7,26,53,.14) 65%,#071a35 100%)}
+  .journey-copy-refined{padding:58px 26px 72px!important}
+  .journey-copy-refined h2{font-size:3.1rem!important}
+  .journey-stamp{width:90px;height:90px}
+  .closing-refined{min-height:590px!important;background-position:center 32%!important}
+  .closing-content{width:auto;margin:0 24px 38px!important}
+  .closing-content h2{font-size:2.75rem!important}
+}
