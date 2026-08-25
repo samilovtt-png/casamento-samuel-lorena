@@ -1,20 +1,12 @@
-# Samuel & Lorena — Luxo / Elegante
+# Samuel & Lorena — Versão Elegante
 
-Versão final com:
-- visual editorial luxuoso
-- capa cinematográfica
-- abertura elegante com música
-- 12 fotos do casal
+Versão refinada do site com:
+- paleta azul-marinho + champagne
+- tipografia editorial e mais espaço visual
+- capa e encerramento com recorte de imagem aprimorado
+- locais da cerimônia e recepção em cartões elegantes
+- projetos missionários com meta total destacada
+- mapa, rotas e campos missionários sutis
+- nova música
 - RSVP via WhatsApp
-- chave Pix
-- Google Maps
-- contagem regressiva
-- responsivo para celular
-
-
-## Pix corrigido
-- Chave telefone no payload: +5519998350381
-- Titular: Samuel F Laureano Lopez
-- Cidade: Hortolandia
-- Pix Copia e Cola:
-00020126360014BR.GOV.BCB.PIX0114+55199983503815204000053039865802BR5923SAMUEL F LAUREANO LOPEZ6011HORTOLANDIA62070503***63041773
+- somente Pix Copia e Cola + QR Code
