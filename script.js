@@ -611,7 +611,7 @@ async function copyPixPayload(){
 })();
 
 
-/* V31 — upload de fotos dos convidados para Supabase Storage */
+/* V45 — upload de fotos: seleção imediata + Supabase inicializado quando disponível */
 (function(){
   const SUPABASE_URL = "https://imupvubqtzsfjcjqbrao.supabase.co";
   const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_cZrGhy5bGOotJBshqI_hSg_uigw20n-";
@@ -629,29 +629,33 @@ async function copyPixPayload(){
   const submit=document.getElementById("guestPhotoSubmit");
   const chooseBtn=document.getElementById("guestPhotoChoose");
   const fileBox=document.getElementById("photoFileBox");
-  if(!form || !window.supabase) return;
+  if(!form || !fileInput) return;
 
-  if(chooseBtn){
-    chooseBtn.addEventListener("click",()=>fileInput.click());
+  // O seletor funciona imediatamente, mesmo antes de o Supabase terminar de carregar.
+  function chooseFiles(e){
+    if(e){ e.preventDefault(); e.stopPropagation(); }
+    fileInput.click();
   }
-  if(fileBox){
+  if(chooseBtn && chooseBtn.dataset.photoBound!=="1"){
+    chooseBtn.dataset.photoBound="1";
+    chooseBtn.addEventListener("click",chooseFiles);
+  }
+  if(fileBox && fileBox.dataset.photoBound!=="1"){
+    fileBox.dataset.photoBound="1";
     fileBox.addEventListener("click",(e)=>{
-      if(e.target!==chooseBtn) fileInput.click();
+      if(e.target===fileInput || e.target===chooseBtn) return;
+      chooseFiles(e);
     });
     fileBox.addEventListener("keydown",(e)=>{
-      if(e.key==="Enter" || e.key===" "){e.preventDefault();fileInput.click();}
+      if(e.key==="Enter" || e.key===" ") chooseFiles(e);
     });
     fileBox.tabIndex=0;
     fileBox.setAttribute("role","button");
     fileBox.setAttribute("aria-label","Escolher fotos para enviar aos noivos");
   }
 
-  const client=window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY,{
-    auth:{persistSession:false,autoRefreshToken:false,detectSessionInUrl:false}
-  });
-
   const safe=(value)=>String(value||"")
-    .normalize("NFD").replace(/[\\u0300-\\u036f]/g,"")
+    .normalize("NFD").replace(/[\u0300-\u036f]/g,"")
     .toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"").slice(0,48)||"convidado";
 
   const extOf=(file)=>{
@@ -666,36 +670,62 @@ async function copyPixPayload(){
     fileLabel.textContent=files.length?`${files.length} ${files.length===1?"foto selecionada":"fotos selecionadas"}`:"Selecione uma ou várias fotos";
     preview.innerHTML="";
     files.slice(0,8).forEach(file=>{
-      const item=document.createElement("div");
-      item.className="guest-photo-thumb";
+      const item=document.createElement("div"); item.className="guest-photo-thumb";
       if(file.type.startsWith("image/") && !/heic|heif/i.test(file.type+file.name)){
-        const img=document.createElement("img");
-        img.alt=file.name;
-        img.src=URL.createObjectURL(file);
-        img.onload=()=>URL.revokeObjectURL(img.src);
-        item.appendChild(img);
-      }else{
-        item.innerHTML="<span>📷</span>";
-      }
-      const cap=document.createElement("small");
-      cap.textContent=file.name;
-      item.appendChild(cap);
-      preview.appendChild(item);
+        const img=document.createElement("img"); img.alt=file.name; img.src=URL.createObjectURL(file);
+        img.onload=()=>URL.revokeObjectURL(img.src); item.appendChild(img);
+      }else{ item.innerHTML="<span>📷</span>"; }
+      const cap=document.createElement("small"); cap.textContent=file.name; item.appendChild(cap); preview.appendChild(item);
     });
-    if(files.length>8){
-      const more=document.createElement("div"); more.className="guest-photo-more"; more.textContent=`+${files.length-8}`; preview.appendChild(more);
-    }
+    if(files.length>8){ const more=document.createElement("div"); more.className="guest-photo-more"; more.textContent=`+${files.length-8}`; preview.appendChild(more); }
+    feedback.textContent=""; feedback.className="guest-photo-feedback";
   });
+
+  let client=null;
+  function ensureClient(){
+    if(client) return client;
+    if(window.supabase && typeof window.supabase.createClient==="function"){
+      client=window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY,{auth:{persistSession:false,autoRefreshToken:false,detectSessionInUrl:false}});
+      return client;
+    }
+    return null;
+  }
+  document.addEventListener("supabase-ready",ensureClient,{once:true});
+  ensureClient();
+
+  async function waitForClient(timeoutMs=12000){
+    const now=ensureClient(); if(now) return now;
+    return await new Promise((resolve)=>{
+      let done=false;
+      const finish=(value)=>{ if(done) return; done=true; clearTimeout(timer); document.removeEventListener("supabase-ready",onReady); resolve(value); };
+      const onReady=()=>finish(ensureClient());
+      const timer=setTimeout(()=>finish(ensureClient()),timeoutMs);
+      document.addEventListener("supabase-ready",onReady);
+    });
+  }
 
   form.addEventListener("submit",async e=>{
     e.preventDefault();
     const nome=nameInput.value.trim();
     const files=[...fileInput.files];
-    if(!nome || !files.length){feedback.textContent="Informe seu nome e escolha pelo menos uma foto.";feedback.className="guest-photo-feedback error";return;}
+    if(!nome || !files.length){ feedback.textContent="Informe seu nome e escolha pelo menos uma foto."; feedback.className="guest-photo-feedback error"; return; }
     const invalid=files.find(f=>f.size>25*1024*1024);
-    if(invalid){feedback.textContent=`A foto “${invalid.name}” ultrapassa 25 MB.`;feedback.className="guest-photo-feedback error";return;}
+    if(invalid){ feedback.textContent=`A foto “${invalid.name}” ultrapassa 25 MB.`; feedback.className="guest-photo-feedback error"; return; }
 
-    submit.disabled=true; progress.hidden=false; feedback.textContent=""; feedback.className="guest-photo-feedback";
+    submit.disabled=true;
+    submit.textContent="Conectando ao álbum...";
+    feedback.textContent="Preparando o envio seguro das fotos...";
+    feedback.className="guest-photo-feedback";
+
+    const storageClient=await waitForClient();
+    if(!storageClient){
+      feedback.textContent="O álbum não conseguiu conectar agora. Atualize a página e tente novamente em alguns segundos.";
+      feedback.className="guest-photo-feedback error";
+      submit.disabled=false; submit.textContent="Enviar fotos para os noivos";
+      return;
+    }
+
+    progress.hidden=false; feedback.textContent=""; submit.textContent="Enviando fotos...";
     let sent=0;
     try{
       const date=new Date();
@@ -705,7 +735,7 @@ async function copyPixPayload(){
         progressText.textContent=`Enviando foto ${i+1} de ${files.length}...`;
         bar.style.width=`${Math.round((i/files.length)*100)}%`;
         const path=`${folder}/${Date.now()}-${Math.random().toString(36).slice(2,8)}.${extOf(file)}`;
-        const {error}=await client.storage.from(BUCKET).upload(path,file,{cacheControl:"3600",upsert:false,contentType:file.type||undefined});
+        const {error}=await storageClient.storage.from(BUCKET).upload(path,file,{cacheControl:"3600",upsert:false,contentType:file.type||undefined});
         if(error) throw error;
         sent++;
       }
@@ -716,10 +746,13 @@ async function copyPixPayload(){
       setTimeout(()=>{progress.hidden=true;bar.style.width="0%"},2500);
     }catch(err){
       console.error("Upload fotos:",err);
-      feedback.textContent="Não foi possível concluir o envio. Verifique sua conexão e tente novamente.";
+      const msg=(err && (err.message||err.error)) ? String(err.message||err.error) : "";
+      feedback.textContent=msg ? `Não foi possível concluir o envio: ${msg}` : "Não foi possível concluir o envio. Verifique sua conexão e tente novamente.";
       feedback.className="guest-photo-feedback error";
       progressText.textContent=sent?`${sent} foto(s) enviada(s) antes da interrupção.`:"Envio não concluído.";
-    }finally{submit.disabled=false;}
+    }finally{
+      submit.disabled=false; submit.textContent="Enviar fotos para os noivos";
+    }
   });
 })();
 

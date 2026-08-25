@@ -144,3 +144,6 @@ A rota `/api/rsvp` já está configurada com o Web App do Google Apps Script for
 - As fotos são organizadas em pastas por data e nome do convidado.
 
 V33: corrigido o botão "Pagar via Pix" para abrir o modal após o carregamento completo do HTML.
+
+
+V45: área de fotos corrigida. O seletor funciona antes do Supabase carregar; o upload aguarda a conexão e o CSS da seção foi restaurado para layout em card responsivo.
