@@ -147,3 +147,6 @@ V33: corrigido o botão "Pagar via Pix" para abrir o modal após o carregamento 
 
 
 V45: área de fotos corrigida. O seletor funciona antes do Supabase carregar; o upload aguarda a conexão e o CSS da seção foi restaurado para layout em card responsivo.
+
+
+V46: upload de fotos usa diretamente a API REST do Supabase Storage, sem CDN supabase-js, com mensagens de diagnóstico HTTP/rede.
