@@ -613,7 +613,7 @@ async function copyPixPayload(){
 
 /* V46 — upload direto para Supabase Storage, sem dependência do CDN supabase-js */
 (function(){
-  const SUPABASE_URL = "https://imupvubqtzsfjcjqbrao.supabase.co";
+  const SUPABASE_URL = "https://imupvubqtzsfcjqqbrao.supabase.co";
   const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_cZrGhy5bGOotJBshqI_hSg_uigw20n-";
   const BUCKET = "fotos-casamento";
 
