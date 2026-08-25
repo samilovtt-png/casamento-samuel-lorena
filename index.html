@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20260824-4">
+<link rel="stylesheet" href="styles.css?v=30260824-4">
 </head>
 <body>
 
@@ -77,12 +77,7 @@
   </div>
 </section>
 
-<section class="journey journey-refined" id="caminhos">
-  <div class="journey-visual">
-    <img class="journey-photo" src="assets/campo-missionario-v2-06.jpg" alt="Samuel e Lorena em missão com equipe">
-    <img class="journey-map-watermark" src="assets/mapa-rotas-v2.svg" alt="" aria-hidden="true">
-    <div class="journey-stamp" aria-hidden="true">ATÉ OS CONFINS<br><span>DA TERRA</span></div>
-  </div>
+<section class="journey journey-refined journey-inverted" id="caminhos">
   <div class="journey-copy journey-copy-refined">
     <p class="eyebrow gold">CAMINHOS QUE DEUS JÁ NOS PERMITIU PERCORRER</p>
     <h2>Uma história de amor que atravessa fronteiras.</h2>
@@ -93,6 +88,11 @@
       <span>Brasil</span><span>Argentina</span><span>Bolívia</span><span>Peru</span><span>Chile</span>
     </div>
     <p class="journey-script">Uma história que continua em missão.</p>
+  </div>
+  <div class="journey-visual">
+    <img class="journey-photo" src="assets/campo-missionario-v2-06.jpg" alt="Samuel e Lorena em missão com equipe">
+    <img class="journey-map-watermark" src="assets/mapa-rotas-v2.svg" alt="" aria-hidden="true">
+    <div class="journey-stamp" aria-hidden="true">ATÉ OS CONFINS<br><span>DA TERRA</span></div>
   </div>
 </section>
 
@@ -126,6 +126,26 @@
   </div>
 </section>
 
+<section class="pix-section section" id="pix">
+  <p class="eyebrow gold">FAÇA PARTE DESSA MISSÃO</p>
+  <h2>Contribua com os projetos missionários</h2>
+  <p class="lead">Escolhemos transformar os presentes do nosso casamento em missão.</p>
+  <div class="pix-grid pix-grid-clean">
+    <div class="copy-card">
+      <span>PIX COPIA E COLA</span>
+      <p>Copie o código abaixo e cole diretamente no aplicativo do seu banco.</p>
+      <textarea id="pixPayload" readonly>00020126360014BR.GOV.BCB.PIX01145204000053039865802BR5923SAMUEL F LAUREANO LOPEZ6011HORTOLANDIA62070503***63041773</textarea>
+      <button class="btn" onclick="copyPixPayload()">Copiar Pix Copia e Cola</button>
+    </div>
+    <div class="qr-card">
+      <img src="assets/pix-qrcode.png?v=3" alt="QR Code Pix">
+      <span>QR CODE PIX</span>
+      <small>Escaneie pelo aplicativo do seu banco.</small>
+    </div>
+  </div>
+  <p class="pix-note">Seu presente pode atravessar fronteiras e alcançar vidas.</p>
+</section>
+
 <section class="mission-gallery-section" id="campos">
   <div class="mission-heading">
     <p class="eyebrow gold">CAMPOS MISSIONÁRIOS</p>
@@ -133,13 +153,13 @@
     <p>“Ide por todo o mundo e pregai o evangelho a toda criatura.” <small>Marcos 16:15</small></p>
   </div>
   <div class="mission-gallery mission-gallery-v2">
-    <figure><img src="assets/campo-missionario-v2-01.jpg?v=2" alt="Missão com crianças"><figcaption>Servir com amor</figcaption></figure>
-    <figure><img src="assets/campo-missionario-v2-02.jpg?v=2" alt="Equipe missionária"><figcaption>Juntos para servir</figcaption></figure>
-    <figure><img src="assets/campo-missionario-v2-03.jpg?v=2" alt="Missão e culturas"><figcaption>Até os confins da Terra</figcaption></figure>
-    <figure><img src="assets/campo-missionario-v2-04.jpg?v=2" alt="Momento missionário"><figcaption>Uma missão que aproxima</figcaption></figure>
-    <figure><img src="assets/campo-missionario-v2-05.jpg?v=2" alt="Equipe em ação"><figcaption>Mãos que transformam</figcaption></figure>
-    <figure><img src="assets/campo-missionario-v2-06.jpg?v=2" alt="Equipe com bandeiras"><figcaption>Chamados para ir</figcaption></figure>
-    <figure><img src="assets/campo-missionario-v2-07.jpg?v=2" alt="Equipe diante de igreja adventista"><figcaption>Uma igreja em missão</figcaption></figure>
+    <figure><img src="assets/campo-missionario-v2-01.jpg?v=3" alt="Missão com crianças"><figcaption>Servir com amor</figcaption></figure>
+    <figure><img src="assets/campo-missionario-v2-02.jpg?v=3" alt="Equipe missionária"><figcaption>Juntos para servir</figcaption></figure>
+    <figure><img src="assets/campo-missionario-v2-03.jpg?v=3" alt="Missão e culturas"><figcaption>Até os confins da Terra</figcaption></figure>
+    <figure><img src="assets/campo-missionario-v2-04.jpg?v=3" alt="Momento missionário"><figcaption>Uma missão que aproxima</figcaption></figure>
+    <figure><img src="assets/campo-missionario-v2-05.jpg?v=3" alt="Equipe em ação"><figcaption>Mãos que transformam</figcaption></figure>
+    <figure><img src="assets/campo-missionario-v2-06.jpg?v=3" alt="Equipe com bandeiras"><figcaption>Chamados para ir</figcaption></figure>
+    <figure><img src="assets/campo-missionario-v2-07.jpg?v=3" alt="Equipe diante de igreja adventista"><figcaption>Uma igreja em missão</figcaption></figure>
   </div>
 </section>
 
@@ -153,25 +173,7 @@
   </form>
 </section>
 
-<section class="pix-section section" id="pix">
-  <p class="eyebrow gold">FAÇA PARTE DESSA MISSÃO</p>
-  <h2>Contribua com os projetos missionários</h2>
-  <p class="lead">Escolhemos transformar os presentes do nosso casamento em missão.</p>
-  <div class="pix-grid pix-grid-clean">
-    <div class="copy-card">
-      <span>PIX COPIA E COLA</span>
-      <p>Copie o código abaixo e cole diretamente no aplicativo do seu banco.</p>
-      <textarea id="pixPayload" readonly>00020126360014BR.GOV.BCB.PIX01145204000053039865802BR5923SAMUEL F LAUREANO LOPEZ6011HORTOLANDIA62070503***63041773</textarea>
-      <button class="btn" onclick="copyPixPayload()">Copiar Pix Copia e Cola</button>
-    </div>
-    <div class="qr-card">
-      <img src="assets/pix-qrcode.png?v=2" alt="QR Code Pix">
-      <span>QR CODE PIX</span>
-      <small>Escaneie pelo aplicativo do seu banco.</small>
-    </div>
-  </div>
-  <p class="pix-note">Seu presente pode atravessar fronteiras e alcançar vidas.</p>
-</section>
+
 
 <section class="closing closing-refined">
   <div class="closing-shade"></div>
@@ -186,6 +188,6 @@
 
 <footer><strong>S&L</strong><p>Unidos pelo amor · Chamados para a missão</p></footer>
 <div class="toast" id="toast">Pix Copia e Cola copiado</div>
-<script src="script.js?v=20260824-4"></script>
+<script src="script.js?v=30260824-4"></script>
 </body>
 </html>

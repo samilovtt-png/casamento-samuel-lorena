@@ -533,3 +533,239 @@ footer strong{font-size:2rem!important}
   .closing-content{width:auto;margin:0 24px 38px!important}
   .closing-content h2{font-size:2.75rem!important}
 }
+
+/* V6 — caminhos com posições invertidas */
+.journey-inverted .journey-visual:after{
+  background:
+    linear-gradient(270deg,rgba(7,26,53,.04),rgba(7,26,53,.20) 72%,#071a35 100%),
+    linear-gradient(180deg,rgba(7,26,53,.05),rgba(7,26,53,.18));
+}
+@media(max-width:850px){
+  .journey-inverted .journey-copy{order:2}
+  .journey-inverted .journey-visual{order:1}
+}
+
+
+/* =========================================================
+   V9 — PALETA AZUL-MARINHO HARMONIZADA
+   ========================================================= */
+:root{
+  --navy-950:#03111f;
+  --navy-900:#06182d;
+  --navy-850:#082038;
+  --navy-800:#0b2947;
+  --navy-700:#123a5a;
+  --navy-mist:#e8eef3;
+  --ivory:#f7f4ee;
+  --paper:#f1eee7;
+  --champagne:#c9a56a;
+  --champagne-soft:#dcc49a;
+  --text:#182433;
+  --muted:#65717f;
+  --line:rgba(201,165,106,.24);
+}
+
+/* Base */
+body{
+  background:var(--ivory)!important;
+  color:var(--text)!important;
+}
+.gold{color:var(--champagne)!important}
+.line,.closing-line{background:var(--champagne)!important}
+
+/* Cabeçalho / hero */
+.hero{
+  background-color:var(--navy-900)!important;
+}
+.hero-shade{
+  background:linear-gradient(
+    180deg,
+    rgba(3,17,31,.08) 0%,
+    rgba(3,17,31,.22) 44%,
+    rgba(3,17,31,.74) 100%
+  )!important;
+}
+.hero nav{
+  background:linear-gradient(180deg,rgba(3,17,31,.78),rgba(3,17,31,.08))!important;
+}
+.music-toggle{
+  background:rgba(6,24,45,.94)!important;
+  border-color:rgba(220,196,154,.58)!important;
+}
+
+/* Contagem */
+.countdown-section{
+  background:#fbfaf7!important;
+}
+.countdown b{color:var(--navy-900)!important}
+
+/* História */
+.story{
+  background:var(--navy-mist)!important;
+}
+.story-copy h2,.story-copy strong{
+  color:var(--navy-900)!important;
+}
+.story-copy p{color:#5e6a77!important}
+
+/* Caminhos */
+.journey,
+.journey-refined,
+.journey-copy-refined{
+  background:
+    radial-gradient(circle at 12% 18%,rgba(201,165,106,.035),transparent 34%),
+    linear-gradient(135deg,var(--navy-950),var(--navy-800))!important;
+}
+.journey-copy-refined > p:not(.eyebrow):not(.journey-caption):not(.journey-script){
+  color:rgba(237,242,247,.82)!important;
+}
+.journey-script{
+  color:var(--champagne-soft)!important;
+}
+
+/* Locais */
+.locations{
+  background:var(--ivory)!important;
+}
+.location-grid article{
+  background:#fff!important;
+  border:1px solid rgba(7,26,53,.06)!important;
+}
+.location-body h3{
+  color:var(--navy-900)!important;
+}
+
+/* Projetos / presentes */
+.projects{
+  background:linear-gradient(180deg,#eef2f5 0%,#e7edf2 100%)!important;
+}
+.project-grid article{
+  background:#fff!important;
+  border:1px solid rgba(7,26,53,.06)!important;
+}
+.project-grid h3,
+.project-grid strong,
+.mission-total strong{
+  color:var(--navy-900)!important;
+}
+.mission-total{
+  border-color:rgba(201,165,106,.34)!important;
+}
+
+/* Pix junto aos presentes */
+.pix-section{
+  background:var(--navy-900)!important;
+  color:#fff!important;
+}
+.pix-section h2{
+  color:#fff!important;
+}
+.pix-section .lead,
+.pix-section .pix-note{
+  color:rgba(237,242,247,.78)!important;
+}
+.pix-section .copy-card,
+.pix-section .qr-card{
+  background:rgba(255,255,255,.98)!important;
+  border:1px solid rgba(220,196,154,.28)!important;
+  box-shadow:0 22px 58px rgba(0,0,0,.18)!important;
+}
+.pix-section .copy-card p,
+.pix-section .qr-card small{
+  color:#5f6b78!important;
+}
+.pix-section .copy-card>span,
+.pix-section .qr-card>span{
+  color:#a98247!important;
+}
+
+/* Galeria missionária */
+.mission-gallery-section{
+  background:
+    linear-gradient(rgba(3,17,31,.965),rgba(6,24,45,.965)),
+    url('assets/mapa-rotas-v2.svg') center/cover no-repeat!important;
+}
+.mission-gallery-v2 figure{
+  border:1px solid rgba(220,196,154,.08)!important;
+}
+.mission-gallery-v2 figcaption{
+  background:rgba(3,17,31,.78)!important;
+  border-left-color:var(--champagne)!important;
+}
+
+/* RSVP */
+.rsvp{
+  background:linear-gradient(135deg,var(--navy-850),var(--navy-700))!important;
+}
+.rsvp input,.rsvp select,.rsvp textarea{
+  border-bottom-color:rgba(220,196,154,.30)!important;
+}
+
+/* Encerramento */
+.closing-refined .closing-shade{
+  background:linear-gradient(
+    180deg,
+    rgba(3,17,31,.02) 0%,
+    rgba(3,17,31,.10) 45%,
+    rgba(3,17,31,.40) 76%,
+    rgba(3,17,31,.72) 100%
+  )!important;
+}
+.closing-content .eyebrow,
+.closing-names{
+  color:#f1e5d0!important;
+}
+
+/* Footer */
+footer{
+  background:var(--navy-950)!important;
+  color:#cbd5df!important;
+}
+footer strong{color:var(--champagne)!important}
+
+/* Botões */
+.btn{
+  border-color:var(--champagne)!important;
+  color:var(--navy-900)!important;
+}
+.btn:hover{
+  background:var(--navy-900)!important;
+  border-color:var(--navy-900)!important;
+  color:#fff!important;
+}
+.pix-section .btn{
+  color:var(--navy-900)!important;
+}
+.pix-section .btn:hover{
+  color:#fff!important;
+}
+
+/* Transições suaves entre blocos */
+.story,
+.journey,
+.locations,
+.projects,
+.pix-section,
+.mission-gallery-section,
+.rsvp{
+  position:relative;
+}
+.story:after,
+.locations:after,
+.projects:after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:-1px;
+  width:min(220px,28vw);
+  height:1px;
+  transform:translateX(-50%);
+  background:linear-gradient(90deg,transparent,var(--champagne),transparent);
+  opacity:.45;
+}
+
+/* Mobile */
+@media(max-width:850px){
+  .projects{background:#e9eef3!important}
+  .pix-section{background:var(--navy-900)!important}
+}
