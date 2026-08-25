@@ -9,6 +9,65 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css?v=20260824-16">
+
+<style id="gallery-lightbox-style">
+.gallery img, .gallery-grid img, [class*="gallery"] img, [class*="galeria"] img {
+  cursor: zoom-in;
+}
+#galleryLightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(3, 18, 33, .96);
+  padding: 24px;
+}
+#galleryLightbox.open { display: flex; }
+#galleryLightbox img {
+  width: auto;
+  height: auto;
+  max-width: 96vw;
+  max-height: 94vh;
+  object-fit: contain;
+  box-shadow: 0 18px 60px rgba(0,0,0,.45);
+}
+#galleryLightbox .gl-close {
+  position: fixed;
+  top: 18px;
+  right: 22px;
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(255,255,255,.55);
+  border-radius: 50%;
+  background: rgba(7,32,55,.65);
+  color: #fff;
+  font-size: 30px;
+  line-height: 40px;
+  cursor: pointer;
+}
+#galleryLightbox .gl-nav {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 64px;
+  border: 0;
+  background: rgba(7,32,55,.55);
+  color: #fff;
+  font-size: 34px;
+  cursor: pointer;
+}
+#galleryLightbox .gl-prev { left: 12px; }
+#galleryLightbox .gl-next { right: 12px; }
+@media (max-width: 700px) {
+  #galleryLightbox { padding: 12px; }
+  #galleryLightbox img { max-width: 100vw; max-height: 88vh; }
+  #galleryLightbox .gl-nav { width: 42px; height: 58px; }
+}
+</style>
+
 </head>
 <body>
 
@@ -17,7 +76,7 @@
     <div class="monogram">S<span>&</span>L</div>
     <p class="eyebrow">CASAMENTO MISSIONÁRIO</p>
     <h1>Samuel <em>&</em> Lorena</h1>
-    <p>14 · 02 · 2027 · 15h<strong>15h</strong></span></p>
+    <p>14 · 02 · 2027 · 14h45<strong>15h</strong></span></p>
     <div class="line"></div>
     <p class="intro-text">Duas vidas, um chamado, uma missão.</p>
     <button id="openInvite">ABRIR CONVITE ♡</button>
@@ -48,7 +107,7 @@
   <div class="hero-copy">
     <p class="eyebrow">UM CASAMENTO COM PROPÓSITO</p>
     <h1>Samuel <em>&</em> Lorena</h1>
-    <p class="date">14 · 02 · 2027 · 15h</p>
+    <p class="date">14 · 02 · 2027 · 14h45</p>
     <p class="tagline">Unidos pelo amor. Chamados para a missão.</p><p class="hero-note-elegant">Uma celebração de amor, fé e propósito.</p>
     <blockquote>“Eu e a minha casa serviremos ao Senhor.” <small>Josué 24:15</small></blockquote>
   </div>
@@ -260,7 +319,7 @@
 <section class="closing closing-refined">
   <div class="closing-shade"></div>
   <div class="closing-content">
-    <p class="eyebrow">14 · 02 · 2027 · 15h</p>
+    <p class="eyebrow">14 · 02 · 2027 · 14h45</p>
     <h2>Que o nosso lar seja um ponto de partida para a missão.</h2>
     <div class="closing-line"></div>
     <p class="closing-names">Samuel & Lorena</p>
@@ -271,5 +330,73 @@
 <footer><strong>S&L</strong><p>Unidos pelo amor · Chamados para a missão</p></footer>
 <div class="toast" id="toast">Pix Copia e Cola copiado</div>
 <script src="script.js?v=20260824-16"></script>
+
+<div id="galleryLightbox" aria-hidden="true">
+  <button class="gl-close" aria-label="Fechar">×</button>
+  <button class="gl-nav gl-prev" aria-label="Foto anterior">‹</button>
+  <img alt="Foto ampliada da galeria">
+  <button class="gl-nav gl-next" aria-label="Próxima foto">›</button>
+</div>
+
+
+<script id="gallery-lightbox-script">
+(function () {
+  const lb = document.getElementById('galleryLightbox');
+  const big = lb.querySelector('img');
+  const close = lb.querySelector('.gl-close');
+  const prev = lb.querySelector('.gl-prev');
+  const next = lb.querySelector('.gl-next');
+
+  // Prefer images inside gallery/galeria sections; fallback to image-heavy gallery-like containers.
+  let imgs = Array.from(document.querySelectorAll(
+    '.gallery img, .gallery-grid img, [class*="gallery"] img, [class*="galeria"] img'
+  )).filter(img => !img.closest('#galleryLightbox'));
+
+  // If the site uses a section title rather than a gallery class, locate its containing section.
+  if (!imgs.length) {
+    const headings = Array.from(document.querySelectorAll('h1,h2,h3,h4,p,span'));
+    const h = headings.find(el => /galeria|momentos|nossa história/i.test(el.textContent || ''));
+    if (h) {
+      const section = h.closest('section') || h.parentElement;
+      if (section) imgs = Array.from(section.querySelectorAll('img'));
+    }
+  }
+
+  let current = 0;
+  function show(i) {
+    if (!imgs.length) return;
+    current = (i + imgs.length) % imgs.length;
+    big.src = imgs[current].currentSrc || imgs[current].src;
+    big.alt = imgs[current].alt || 'Foto ampliada da galeria';
+    lb.classList.add('open');
+    lb.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+  function hide() {
+    lb.classList.remove('open');
+    lb.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  imgs.forEach((img, i) => {
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', e => {
+      e.preventDefault();
+      show(i);
+    });
+  });
+  close.addEventListener('click', hide);
+  prev.addEventListener('click', e => { e.stopPropagation(); show(current - 1); });
+  next.addEventListener('click', e => { e.stopPropagation(); show(current + 1); });
+  lb.addEventListener('click', e => { if (e.target === lb) hide(); });
+  document.addEventListener('keydown', e => {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') hide();
+    if (e.key === 'ArrowLeft') show(current - 1);
+    if (e.key === 'ArrowRight') show(current + 1);
+  });
+})();
+</script>
+
 </body>
 </html>
