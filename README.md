@@ -60,3 +60,20 @@ Versão refinada do site com:
 - campos com melhor contraste
 - botões em dois passos: WhatsApp e Pix
 - layout responsivo aprimorado
+
+
+## V18 — Navegação, Galeria e Mensagem Final
+Navegação:
+Início | Nossa História | Missão | Casamento | Confirmar Presença | Presentes | Galeria
+
+Galeria:
+- 5 fotos do casal selecionadas a partir dos arquivos do projeto
+- mosaico elegante e romântico
+- visualização em tela cheia
+- navegação anterior/próxima e teclado
+
+Mensagem final:
+- frase sobre casamento, amor e missão
+- Josué 24:15
+- foto final do casal
+- agradecimento aos convidados

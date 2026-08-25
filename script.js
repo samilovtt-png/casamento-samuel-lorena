@@ -85,3 +85,53 @@ async function copyPixPayload(){
     window.open("https://wa.me/5519998350381?text="+encodeURIComponent(text),"_blank");
   });
 })();
+
+/* V18 — Galeria em tela cheia */
+(function(){
+  const items = Array.from(document.querySelectorAll(".couple-gallery-item img"));
+  const box = document.getElementById("galleryLightbox");
+  const image = document.getElementById("galleryLightboxImage");
+  const close = document.getElementById("galleryClose");
+  const prev = document.getElementById("galleryPrev");
+  const next = document.getElementById("galleryNext");
+  const counter = document.getElementById("galleryCounter");
+  if(!items.length || !box || !image) return;
+
+  let index = 0;
+
+  function show(i){
+    index = (i + items.length) % items.length;
+    image.src = items[index].src;
+    image.alt = items[index].alt || "Foto de Samuel e Lorena";
+    counter.textContent = `${index + 1} / ${items.length}`;
+  }
+  function open(i){
+    show(i);
+    box.classList.add("open");
+    box.setAttribute("aria-hidden","false");
+    document.body.style.overflow = "hidden";
+  }
+  function hide(){
+    box.classList.remove("open");
+    box.setAttribute("aria-hidden","true");
+    document.body.style.overflow = "";
+  }
+
+  items.forEach((img,i)=>{
+    const figure = img.closest(".couple-gallery-item");
+    figure.addEventListener("click",()=>open(i));
+    figure.addEventListener("keydown",e=>{
+      if(e.key==="Enter" || e.key===" "){e.preventDefault();open(i);}
+    });
+  });
+  close.addEventListener("click",hide);
+  prev.addEventListener("click",()=>show(index-1));
+  next.addEventListener("click",()=>show(index+1));
+  box.addEventListener("click",e=>{if(e.target===box) hide();});
+  document.addEventListener("keydown",e=>{
+    if(!box.classList.contains("open")) return;
+    if(e.key==="Escape") hide();
+    if(e.key==="ArrowLeft") show(index-1);
+    if(e.key==="ArrowRight") show(index+1);
+  });
+})();
