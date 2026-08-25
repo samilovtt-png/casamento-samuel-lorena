@@ -7,26 +7,33 @@ function tick(){
   const hours = Math.floor(d/3600000); d%=3600000;
   const minutes = Math.floor(d/60000);
   const seconds = Math.floor((d%60000)/1000);
-  document.getElementById("days").textContent=days;
-  document.getElementById("hours").textContent=hours;
-  document.getElementById("minutes").textContent=minutes;
-  document.getElementById("seconds").textContent=seconds;
+  const dEl=document.getElementById("days"), hEl=document.getElementById("hours"), mEl=document.getElementById("minutes"), sEl=document.getElementById("seconds");
+  if(dEl) dEl.textContent=days;
+  if(hEl) hEl.textContent=hours;
+  if(mEl) mEl.textContent=minutes;
+  if(sEl) sEl.textContent=seconds;
 }
 tick(); setInterval(tick,1000);
 
 const intro=document.getElementById("intro");
 const music=document.getElementById("bgMusic");
 const musicToggle=document.getElementById("musicToggle");
-document.getElementById("openInvite").onclick=async()=>{
-  intro.classList.add("hidden");
-  try{await music.play(); musicToggle.textContent="❚❚"}catch(e){}
-};
-musicToggle.onclick=async()=>{
-  if(music.paused){try{await music.play();musicToggle.textContent="❚❚"}catch(e){}}
-  else{music.pause();musicToggle.textContent="♫"}
-};
+const openInviteBtn=document.getElementById("openInvite");
+if(openInviteBtn && intro){
+  openInviteBtn.addEventListener("click", async()=>{
+    intro.classList.add("hidden");
+    try{if(music) await music.play(); if(musicToggle) musicToggle.textContent="❚❚"}catch(e){}
+  });
+}
+if(musicToggle && music){
+  musicToggle.onclick=async()=>{
+    if(music.paused){try{await music.play();musicToggle.textContent="❚❚"}catch(e){}}
+    else{music.pause();musicToggle.textContent="♫"}
+  };
+}
 
-document.getElementById("rsvpForm").addEventListener("legacy-rsvp-submit",e=>{
+const legacyRsvpForm=document.getElementById("rsvpForm");
+if(legacyRsvpForm) legacyRsvpForm.addEventListener("legacy-rsvp-submit",e=>{
   e.preventDefault();
   const f=new FormData(e.target);
   const text=`Olá! Quero confirmar minha presença no casamento de Samuel & Lorena.\n\nNome: ${f.get("nome")}\nQuantidade: ${f.get("pessoas")}\nMensagem: ${f.get("mensagem")||""}`;

@@ -110,6 +110,28 @@
   </div>
 </div>
 
+<script>
+/* V44 — bootstrap crítico: abrir convite nunca depende de CDN externo */
+(function(){
+  function bindCritical(){
+    var btn=document.getElementById('openInvite');
+    var intro=document.getElementById('intro');
+    if(btn && intro && !btn.dataset.criticalBound){
+      btn.dataset.criticalBound='1';
+      btn.addEventListener('click', function(e){
+        e.preventDefault();
+        intro.classList.add('hidden');
+        intro.style.pointerEvents='none';
+        setTimeout(function(){ intro.style.display='none'; }, 700);
+        var music=document.getElementById('bgMusic');
+        if(music && music.play) music.play().catch(function(){});
+      });
+    }
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',bindCritical); else bindCritical();
+})();
+</script>
+
 <audio id="bgMusic" loop preload="auto"><source src="assets/musica.mp3" type="audio/mpeg"></audio>
 <button id="musicToggle" class="music-toggle" aria-label="Pausar ou tocar música"><span class="music-icon">♪</span><span class="music-label">Música</span></button>
 
@@ -486,6 +508,7 @@
 
 <div class="toast" id="toast">Pix Copia e Cola copiado</div>
 
+
 <div id="galleryLightbox" aria-hidden="true">
   <button class="gl-close" aria-label="Fechar">×</button>
   <button class="gl-nav gl-prev" aria-label="Foto anterior">‹</button>
@@ -586,60 +609,18 @@
   </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="script.js?v=20260825-43"></script>
+<a href="#rsvp" class="floating-rsvp" id="floatingRsvp">Confirmar presença</a>
+
+<script src="script.js?v=20260825-44"></script>
 <script>
+/* Supabase é carregado em segundo plano; nunca bloqueia a abertura do convite. */
 (function(){
-  function readyFixes(){
-    // Reforço do seletor de fotos para desktop e celular
-    const choose=document.getElementById('guestPhotoChoose');
-    const input=document.getElementById('guestPhotoFiles');
-    if(choose && input){
-      choose.onclick=function(e){ e.preventDefault(); e.stopPropagation(); input.click(); };
-    }
-
-    // Reforço do botão Pix
-    const pixBtn=document.getElementById('openPixModal');
-    const pixModal=document.getElementById('pixModal');
-    if(pixBtn && pixModal){
-      pixBtn.onclick=function(e){
-        e.preventDefault();
-        pixModal.classList.add('open');
-        pixModal.setAttribute('aria-hidden','false');
-        document.body.style.overflow='hidden';
-      };
-    }
-
-    // Reforço dos três projetos
-    const projectModal=document.getElementById('projectModal');
-    const title=document.getElementById('projectModalTitle');
-    const text=document.getElementById('projectModalText');
-    const goal=document.getElementById('projectModalGoal');
-    const key=document.getElementById('donationProjectKey');
-    const data={
-      passagens:{title:'Duas passagens missionárias',text:'Ajude-nos a chegar onde há vidas esperando por cuidado, esperança e pela mensagem do amor de Deus. Cada passagem abre caminho para uma nova missão.',goal:'Meta: R$ 20.000'},
-      container:{title:'Contêiner para as missões',text:'Um espaço que será nossa base de apoio missionário, preparado para organizar materiais, equipamentos e recursos que seguirão conosco para novos campos.',goal:'Meta: R$ 40.000'},
-      guine:{title:'Salas e igreja em Guiné-Bissau',text:'Ajude-nos a construir um lugar de fé e esperança em Guiné-Bissau: salas para ensinar e acolher, e uma igreja onde a comunidade poderá crescer e adorar.',goal:'Meta: R$ 60.000'}
-    };
-    document.querySelectorAll('.project-detail-btn').forEach(function(btn){
-      btn.onclick=function(e){
-        e.preventDefault();
-        const d=data[btn.dataset.project];
-        if(!d || !projectModal) return;
-        if(title) title.textContent=d.title;
-        if(text) text.textContent=d.text;
-        if(goal) goal.textContent=d.goal;
-        if(key) key.value=btn.dataset.project||'';
-        projectModal.classList.add('open');
-        projectModal.setAttribute('aria-hidden','false');
-        document.body.style.overflow='hidden';
-      };
-    });
-  }
-  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',readyFixes); else readyFixes();
+  var sc=document.createElement('script');
+  sc.src='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';
+  sc.async=true;
+  sc.onload=function(){ document.dispatchEvent(new Event('supabase-ready')); };
+  document.head.appendChild(sc);
 })();
 </script>
-
-<a href="#rsvp" class="floating-rsvp" id="floatingRsvp">Confirmar presença</a>
 </body>
 </html>
