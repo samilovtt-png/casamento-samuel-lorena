@@ -279,3 +279,189 @@ async function copyPixPayload(){
   const pmp=document.getElementById("projectModalPix");
   if(pmp)pmp.addEventListener("click",closeProject);
 })();
+
+/* V25 — controle de música suave com fade-in */
+(function(){
+  const music = document.getElementById("bgMusic");
+  const toggle = document.getElementById("musicToggle");
+  const openInvite = document.getElementById("openInvite");
+  if(!music) return;
+
+  const TARGET_VOLUME = 0.18;
+  const FADE_MS = 5000;
+  const FADE_STEP = 100;
+  let fadeTimer = null;
+  let userPaused = localStorage.getItem("samuelLorenaMusicPaused") === "1";
+
+  function stopFade(){
+    if(fadeTimer){ clearInterval(fadeTimer); fadeTimer = null; }
+  }
+
+  function setButtonState(){
+    if(!toggle) return;
+    toggle.classList.toggle("is-playing", !music.paused);
+    const label = toggle.querySelector(".music-label");
+    if(label) label.textContent = music.paused ? "Música" : "Música";
+    toggle.setAttribute("aria-label", music.paused ? "Tocar música" : "Pausar música");
+  }
+
+  function fadeIn(){
+    stopFade();
+    music.volume = 0;
+    const steps = Math.max(1, Math.floor(FADE_MS / FADE_STEP));
+    const inc = TARGET_VOLUME / steps;
+    fadeTimer = setInterval(()=>{
+      if(music.paused){ stopFade(); return; }
+      music.volume = Math.min(TARGET_VOLUME, music.volume + inc);
+      if(music.volume >= TARGET_VOLUME - 0.001){
+        music.volume = TARGET_VOLUME;
+        stopFade();
+      }
+    }, FADE_STEP);
+  }
+
+  async function playSoft(){
+    if(userPaused) return;
+    try{
+      music.volume = 0;
+      await music.play();
+      fadeIn();
+      setButtonState();
+    }catch(e){
+      setButtonState();
+    }
+  }
+
+  function pauseMusic(){
+    stopFade();
+    music.pause();
+    userPaused = true;
+    localStorage.setItem("samuelLorenaMusicPaused","1");
+    setButtonState();
+  }
+
+  async function resumeMusic(){
+    userPaused = false;
+    localStorage.removeItem("samuelLorenaMusicPaused");
+    try{
+      music.volume = 0;
+      await music.play();
+      fadeIn();
+      setButtonState();
+    }catch(e){
+      setButtonState();
+    }
+  }
+
+  // Start only after the visitor opens the invitation.
+  if(openInvite){
+    openInvite.addEventListener("click", ()=>{
+      if(!userPaused) setTimeout(playSoft, 120);
+    }, true);
+  }
+
+  // Replace normal button behavior with our soft control.
+  if(toggle){
+    toggle.addEventListener("click", (e)=>{
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      if(music.paused) resumeMusic();
+      else pauseMusic();
+    }, true);
+  }
+
+  // Keep volume capped even if older scripts try to change it.
+  music.addEventListener("volumechange", ()=>{
+    if(music.volume > TARGET_VOLUME) music.volume = TARGET_VOLUME;
+  });
+
+  music.volume = 0;
+  setButtonState();
+})();
+
+/* V26 FINAL — UX refinada */
+(function(){
+  // Loader
+  const loader=document.getElementById("siteLoader");
+  const hideLoader=()=>{if(loader)loader.classList.add("hide")};
+  window.addEventListener("load",()=>setTimeout(hideLoader,250));
+  setTimeout(hideLoader,2200);
+
+  // Reveal discreto
+  const sections=[...document.querySelectorAll("main section, body>section")];
+  sections.forEach(s=>s.classList.add("reveal-section"));
+  if("IntersectionObserver" in window){
+    const obs=new IntersectionObserver(entries=>{
+      entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("revealed");obs.unobserve(e.target)}});
+    },{threshold:.08});
+    sections.forEach(s=>obs.observe(s));
+  }else sections.forEach(s=>s.classList.add("revealed"));
+
+  // Menu mobile
+  const mt=document.getElementById("mobileMenuToggle");
+  const links=document.querySelector(".premium-links");
+  if(mt&&links){
+    mt.addEventListener("click",()=>{mt.classList.toggle("open");links.classList.toggle("open")});
+    links.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{mt.classList.remove("open");links.classList.remove("open")}));
+  }
+
+  // RSVP flutuante depois do hero; some perto do formulário
+  const float=document.getElementById("floatingRsvp");
+  const rsvp=document.getElementById("rsvp");
+  function floating(){
+    if(!float)return;
+    const y=window.scrollY;
+    let near=false;
+    if(rsvp){const rr=rsvp.getBoundingClientRect();near=rr.top<innerHeight*.8&&rr.bottom>0}
+    float.classList.toggle("show",y>innerHeight*.75&&!near);
+  }
+  addEventListener("scroll",floating,{passive:true});floating();
+
+  // Resumo RSVP
+  const adults=document.getElementById("adultGuests"), children=document.getElementById("childGuests"), summary=document.getElementById("guestSummary");
+  function updateSummary(){
+    if(!adults||!children||!summary)return;
+    const a=Number(adults.value||0),c=Number(children.value||0),total=a*200+c*100;
+    if(a+c===0){summary.textContent="Selecione os convidados para ver o resumo.";return}
+    const parts=[];
+    if(a)parts.push(`${a} ${a===1?"adulto":"adultos"}`);
+    if(c)parts.push(`${c} ${c===1?"criança":"crianças"}`);
+    summary.textContent=`${parts.join(" + ")} — Total ${total.toLocaleString("pt-BR",{style:"currency",currency:"BRL"})}`;
+  }
+  if(adults)adults.addEventListener("change",updateSummary);
+  if(children)children.addEventListener("change",updateSummary);
+  updateSummary();
+
+  // Swipe no lightbox
+  const lb=document.getElementById("galleryLightbox");
+  if(lb){
+    let sx=0;
+    lb.addEventListener("touchstart",e=>{sx=e.changedTouches[0].screenX},{passive:true});
+    lb.addEventListener("touchend",e=>{
+      const dx=e.changedTouches[0].screenX-sx;
+      if(Math.abs(dx)<45)return;
+      const btn=lb.querySelector(dx<0?".gl-next":".gl-prev");
+      if(btn)btn.click();
+    },{passive:true});
+  }
+
+  // Música: início em 12%, crescendo suavemente até 18%.
+  const music=document.getElementById("bgMusic");
+  if(music){
+    document.addEventListener("visibilitychange",()=>{
+      if(document.hidden&&!music.paused){
+        let v=music.volume;
+        const t=setInterval(()=>{v=Math.max(.04,v-.02);music.volume=v;if(v<=.04)clearInterval(t)},90);
+      }
+    });
+  }
+
+  // Feedback Pix
+  const cp=document.getElementById("copyPixModal");
+  if(cp){
+    cp.addEventListener("click",()=>{
+      cp.classList.add("copied");
+      setTimeout(()=>cp.classList.remove("copied"),1800);
+    });
+  }
+})();

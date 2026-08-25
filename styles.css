@@ -1520,3 +1520,88 @@ html{scroll-behavior:smooth;scroll-padding-top:74px}
   .editorial-favorites .favorite-main{grid-column:1/3;grid-row:1}
   .project-modal-card{padding:30px 22px}
 }
+
+/* V25 — música mais suave */
+.music-toggle{
+  width:auto!important;
+  min-width:74px;
+  height:40px!important;
+  padding:0 13px!important;
+  border-radius:999px!important;
+  display:flex!important;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  background:rgba(5,24,45,.72)!important;
+  border:1px solid rgba(220,196,154,.38)!important;
+  color:#fff!important;
+  font-size:13px!important;
+  box-shadow:0 8px 24px rgba(0,0,0,.14)!important;
+  backdrop-filter:blur(8px);
+}
+.music-toggle .music-icon{
+  color:#d7b77e;
+  font-size:15px;
+}
+.music-toggle .music-label{
+  font-size:.56rem;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+}
+.music-toggle.is-playing .music-label::after{
+  content:" · Pausar";
+}
+@media(max-width:600px){
+  .music-toggle{
+    min-width:42px;
+    width:42px!important;
+    padding:0!important;
+  }
+  .music-toggle .music-label{display:none}
+}
+
+/* =========================================================
+   V26 FINAL — acabamento, mobile e performance percebida
+   ========================================================= */
+.site-loader{position:fixed;inset:0;z-index:200000;background:#03111f;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;transition:opacity .65s ease,visibility .65s ease}
+.site-loader.hide{opacity:0;visibility:hidden}
+.loader-monogram{font:500 3rem "Cormorant Garamond",serif;letter-spacing:.08em}
+.loader-monogram span{color:#c9a56a;font-style:italic}
+.site-loader small{margin-top:10px;color:#c9a56a;font-size:.55rem;letter-spacing:.2em}
+
+.reveal-section{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s ease}
+.reveal-section.revealed{opacity:1;transform:none}
+
+.mobile-menu-toggle{display:none;width:38px;height:38px;border:0;background:transparent;position:relative;cursor:pointer}
+.mobile-menu-toggle i{position:absolute;left:9px;width:20px;height:1px;background:#fff;transition:.25s}
+.mobile-menu-toggle i:first-child{top:15px}.mobile-menu-toggle i:last-child{top:22px}
+.mobile-menu-toggle.open i:first-child{top:19px;transform:rotate(45deg)}
+.mobile-menu-toggle.open i:last-child{top:19px;transform:rotate(-45deg)}
+
+.floating-rsvp{position:fixed;z-index:9800;right:18px;bottom:18px;padding:12px 17px;background:#c9a56a;color:#071a35;text-decoration:none;font-size:.57rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase;box-shadow:0 12px 35px rgba(0,0,0,.2);opacity:0;visibility:hidden;transform:translateY(10px);transition:.3s}
+.floating-rsvp.show{opacity:1;visibility:visible;transform:none}
+
+.guest-summary{margin:0 0 12px;padding:11px 14px;background:#f3f5f6;border-left:2px solid #c9a56a;color:#53606c;font-size:.72rem;line-height:1.5}
+
+.pix-modal-copy.copied{background:#2f6d3b!important}
+
+@media(max-width:900px){
+  .mobile-menu-toggle{display:block}
+  .premium-nav{justify-content:space-between}
+  .premium-links{position:fixed;top:58px;left:0;right:0;display:flex!important;flex-direction:column;gap:0;background:rgba(3,17,31,.97);padding:8px 20px 18px;transform:translateY(-140%);opacity:0;transition:.28s;pointer-events:none}
+  .premium-links.open{transform:none;opacity:1;pointer-events:auto}
+  .premium-links a{padding:13px 4px;border-bottom:1px solid rgba(255,255,255,.07)}
+  .premium-rsvp{display:none}
+}
+@media(max-width:600px){
+  body{overflow-x:hidden}
+  section{overflow:hidden}
+  .floating-rsvp{left:16px;right:16px;bottom:14px;text-align:center}
+  .confirmation-btn,.pix-modal-copy,.send-receipt-btn,.payment-done-btn{min-height:48px}
+  .journey-photo{object-position:center center!important}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal-section{opacity:1;transform:none;transition:none}
+  *{animation-duration:.01ms!important;animation-iteration-count:1!important}
+}

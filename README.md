@@ -98,3 +98,25 @@ Versão refinada do site com:
 - galeria editorial com fotos favoritas
 - imagens WebP e lazy-loading para melhor performance
 - transparência sobre registro local do status de pagamento
+
+
+## V25 — Música suave
+- volume máximo reduzido para 18%
+- fade-in de aproximadamente 5 segundos
+- música começa somente após abrir o convite
+- botão mais discreto para tocar/pausar
+- pausa respeitada e salva neste navegador
+- volume limitado para evitar entrada agressiva
+
+
+## V26 FINAL
+- transições discretas ao rolar
+- loader S & L
+- menu mobile compacto
+- RSVP flutuante no celular
+- resumo automático de convidados e valor
+- swipe na galeria em tela cheia
+- feedback visual ao copiar Pix
+- meta tags para compartilhamento
+- acessibilidade com reduced motion
+- refinamentos de enquadramento e botões mobile

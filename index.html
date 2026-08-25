@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20260824-24">
+<link rel="stylesheet" href="styles.css?v=20260824-26">
 
 <style id="gallery-lightbox-style">
 .gallery img, .gallery-grid img, [class*="gallery"] img, [class*="galeria"] img {
@@ -68,11 +68,22 @@
 }
 </style>
 
+
+<meta name="theme-color" content="#071a35">
+<meta property="og:title" content="Samuel & Lorena — 14.02.2027">
+<meta property="og:description" content="Nosso casamento. Nossa missão. Nossa história começa aqui.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+
 </head>
 <body>
+<div class="site-loader" id="siteLoader">
+  <div class="loader-monogram">S <span>&</span> L</div>
+  <small>14 · 02 · 2027</small>
+</div>
 
 <nav class="premium-nav" aria-label="Navegação principal">
-  <a class="premium-brand" href="#inicio">S <span>&</span> L</a>
+  <a class="premium-brand" href="#inicio">S <span>&</span> L</a><button id="mobileMenuToggle" class="mobile-menu-toggle" type="button" aria-label="Abrir menu"><i></i><i></i></button>
   <div class="premium-links">
     <a href="#inicio">Início</a>
     <a href="#historia">Nossa História</a>
@@ -98,7 +109,7 @@
 </div>
 
 <audio id="bgMusic" loop preload="auto"><source src="assets/musica.mp3" type="audio/mpeg"></audio>
-<button id="musicToggle" class="music-toggle" aria-label="Pausar ou tocar música">♫</button>
+<button id="musicToggle" class="music-toggle" aria-label="Pausar ou tocar música"><span class="music-icon">♪</span><span class="music-label">Música</span></button>
 
 <header class="hero" id="inicio">
   <div class="hero-shade"></div>
@@ -381,7 +392,7 @@
         </div>
       </div>
 
-      <div class="confirmation-total confirmation-total-refined">
+      <div class="guest-summary" id="guestSummary">Selecione os convidados para ver o resumo.</div><div class="confirmation-total confirmation-total-refined">
         <div>
           <span>VALOR DA CONFIRMAÇÃO</span>
           <small>Calculado automaticamente</small>
@@ -444,7 +455,7 @@
 </footer>
 
 <div class="toast" id="toast">Pix Copia e Cola copiado</div>
-<script src="script.js?v=20260824-24"></script>
+<script src="script.js?v=20260824-26"></script>
 
 <div id="galleryLightbox" aria-hidden="true">
   <button class="gl-close" aria-label="Fechar">×</button>
@@ -538,5 +549,6 @@
   </div>
 </div>
 
+<a href="#rsvp" class="floating-rsvp" id="floatingRsvp">Confirmar presença</a>
 </body>
 </html>
