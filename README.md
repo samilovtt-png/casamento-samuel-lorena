@@ -60,3 +60,16 @@ Versão refinada do site com:
 - campos com melhor contraste
 - botões em dois passos: WhatsApp e Pix
 - layout responsivo aprimorado
+
+
+## V22 — versão completa
+- contagem regressiva até 14/02/2027 às 14h45
+- botões rápidos de confirmar presença e como chegar
+- RSVP com confirmação visual
+- pagamento Pix em modal elegante
+- galeria em tela cheia com legendas e navegação
+- linha do tempo missionária Brasil, Argentina, Bolívia, Peru e Chile
+- seção de versículo
+- informações aos convidados: chegada, traje e localização
+- final com frase mais marcante
+- imagens otimizadas para carregamento mais rápido

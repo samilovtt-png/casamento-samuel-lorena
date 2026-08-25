@@ -85,3 +85,67 @@ async function copyPixPayload(){
     window.open("https://wa.me/5519998350381?text="+encodeURIComponent(text),"_blank");
   });
 })();
+
+
+/* V22 — recursos adicionais */
+(function(){
+  // Contagem regressiva
+  const target = new Date("2027-02-14T14:45:00-03:00").getTime();
+  function updateCountdownPro(){
+    const now = Date.now();
+    let diff = Math.max(0, target - now);
+    const d = Math.floor(diff / 86400000); diff %= 86400000;
+    const h = Math.floor(diff / 3600000); diff %= 3600000;
+    const m = Math.floor(diff / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    const map = {cdDays:d, cdHours:h, cdMinutes:m, cdSeconds:s};
+    Object.entries(map).forEach(([id,v]) => { const el=document.getElementById(id); if(el) el.textContent=v; });
+  }
+  updateCountdownPro();
+  setInterval(updateCountdownPro,1000);
+
+  // Sucesso visual do RSVP
+  const form = document.getElementById("rsvpForm");
+  const success = document.getElementById("rsvpSuccess");
+  if(form && success){
+    form.addEventListener("submit", () => {
+      setTimeout(()=>success.classList.add("show"), 250);
+    });
+  }
+
+  // Modal Pix
+  const modal = document.getElementById("pixModal");
+  const openBtn = document.getElementById("openPixModal");
+  const closeBtn = modal ? modal.querySelector(".pix-modal-close") : null;
+  if(openBtn && modal){
+    openBtn.addEventListener("click",()=>{modal.classList.add("open");modal.setAttribute("aria-hidden","false");document.body.style.overflow="hidden";});
+  }
+  function closePix(){
+    if(!modal) return;
+    modal.classList.remove("open"); modal.setAttribute("aria-hidden","true"); document.body.style.overflow="";
+  }
+  if(closeBtn) closeBtn.addEventListener("click",closePix);
+  if(modal) modal.addEventListener("click",e=>{if(e.target===modal) closePix();});
+  document.addEventListener("keydown",e=>{if(e.key==="Escape") closePix();});
+
+  const copyPix = document.getElementById("copyPixModal");
+  const pixText = document.getElementById("pixModalPayload");
+  if(copyPix && pixText){
+    copyPix.addEventListener("click",async()=>{
+      try{await navigator.clipboard.writeText(pixText.value)}catch(e){pixText.select();document.execCommand("copy")}
+      copyPix.textContent="Pix copiado ✓";
+      setTimeout(()=>copyPix.textContent="Copiar Pix Copia e Cola",1600);
+    });
+  }
+
+  // Legendas no lightbox existente
+  const lb = document.getElementById("galleryLightbox");
+  if(lb){
+    const imgs = Array.from(document.querySelectorAll('.mission-gallery img,[class*="gallery"] img')).filter(i=>!i.closest('#galleryLightbox'));
+    imgs.forEach(img=>{
+      img.addEventListener("click",()=>{
+        setTimeout(()=>lb.setAttribute("data-caption", img.getAttribute("data-caption") || img.alt || ""),20);
+      });
+    });
+  }
+})();
