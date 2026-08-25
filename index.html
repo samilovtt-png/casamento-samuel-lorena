@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20260824-13">
+<link rel="stylesheet" href="styles.css?v=20260824-16">
 </head>
 <body>
 
@@ -17,7 +17,7 @@
     <div class="monogram">S<span>&</span>L</div>
     <p class="eyebrow">CASAMENTO MISSIONÁRIO</p>
     <h1>Samuel <em>&</em> Lorena</h1>
-    <p>14 · 02 · 2027 · 15H</p>
+    <p>14 · 02 · 2027<span class="wedding-time-highlight"><small>HORÁRIO DO CASAMENTO</small><strong>15h</strong></span></p>
     <div class="line"></div>
     <p class="intro-text">Duas vidas, um chamado, uma missão.</p>
     <button id="openInvite">ABRIR CONVITE ♡</button>
@@ -90,7 +90,7 @@
     <p class="journey-script">Uma história que continua em missão.</p>
   </div>
   <div class="journey-visual">
-    <img class="journey-photo" src="assets/foto-caminhos-girassol-v12.jpg?v=12" alt="Samuel e Lorena entre girassóis">
+    <img class="journey-photo" src="assets/foto-caminhos-peru-v14.jpg?v=14" alt="Samuel e Lorena em viagem missionária">
     <img class="journey-map-watermark" src="assets/mapa-rotas-v2.svg" alt="" aria-hidden="true">
     <div class="journey-stamp" aria-hidden="true">ATÉ OS CONFINS<br><span>DA TERRA</span></div>
   </div>
@@ -166,43 +166,93 @@
 
 
 
-<section class="rsvp confirmation-section" id="rsvp">
-  <div class="confirmation-copy">
+<section class="rsvp confirmation-section confirmation-refined" id="rsvp">
+  <div class="confirmation-intro">
     <p class="eyebrow gold">CONFIRMAÇÃO DE PRESENÇA</p>
-    <h2>Será uma alegria celebrar com você.</h2>
-    <p>Para confirmar sua presença, informe os convidados e depois realize o pagamento pelo Pix disponível no site.</p>
-    <div class="guest-prices">
-      <div><span>ADULTO</span><strong>R$ 200,00</strong></div>
-      <div><span>CRIANÇA ATÉ 10 ANOS</span><strong>R$ 100,00</strong></div>
+    <h2>Será uma alegria<br>celebrar com você.</h2>
+    <p class="confirmation-description">Para confirmar sua presença, informe a quantidade de convidados e finalize pelo Pix disponível no site.</p>
+
+    <div class="guest-prices guest-prices-refined">
+      <article>
+        <span>ADULTO</span>
+        <strong>R$ 200,00</strong>
+      </article>
+      <article>
+        <span>CRIANÇA ATÉ 10 ANOS</span>
+        <strong>R$ 100,00</strong>
+      </article>
     </div>
-    <p class="confirmation-note">Após preencher, você poderá confirmar os dados pelo WhatsApp e seguir para o Pix.</p>
+
+    <div class="confirmation-detail">
+      <span>✦</span>
+      <p>Após preencher, confirme pelo WhatsApp e realize o pagamento pelo Pix.</p>
+    </div>
   </div>
-  <form id="rsvpForm">
-    <label>Nome completo<input name="nome" required></label>
-    <div class="guest-count-grid">
-      <label>Adultos
-        <select name="adultos" id="adultGuests" required>
-          <option value="0">0</option><option value="1">1</option><option value="2">2</option>
-          <option value="3">3</option><option value="4">4</option><option value="5">5</option>
-          <option value="6">6</option><option value="7">7</option><option value="8">8</option>
-        </select>
-      </label>
-      <label>Crianças até 10 anos
-        <select name="criancas" id="childGuests">
-          <option value="0">0</option><option value="1">1</option><option value="2">2</option>
-          <option value="3">3</option><option value="4">4</option><option value="5">5</option>
-          <option value="6">6</option>
-        </select>
-      </label>
-    </div>
-    <div class="confirmation-total">
-      <span>VALOR DA CONFIRMAÇÃO</span>
-      <strong id="confirmationTotal">R$ 0,00</strong>
-    </div>
-    <label>Mensagem aos noivos<textarea name="mensagem" rows="3"></textarea></label>
-    <button class="btn light" type="submit">Confirmar pelo WhatsApp</button>
-    <a class="btn light pix-jump" href="#pix">Pagar via Pix</a>
-  </form>
+
+  <div class="confirmation-form-card">
+    <form id="rsvpForm">
+      <div class="field-group field-full">
+        <label for="guestName">Nome completo</label>
+        <input id="guestName" name="nome" placeholder="Digite seu nome" required>
+      </div>
+
+      <div class="guest-count-grid guest-count-refined">
+        <div class="field-group">
+          <label for="adultGuests">Adultos</label>
+          <select name="adultos" id="adultGuests" required>
+            <option value="0">0 adulto</option>
+            <option value="1">1 adulto</option>
+            <option value="2">2 adultos</option>
+            <option value="3">3 adultos</option>
+            <option value="4">4 adultos</option>
+            <option value="5">5 adultos</option>
+            <option value="6">6 adultos</option>
+            <option value="7">7 adultos</option>
+            <option value="8">8 adultos</option>
+          </select>
+        </div>
+
+        <div class="field-group">
+          <label for="childGuests">Crianças até 10 anos</label>
+          <select name="criancas" id="childGuests">
+            <option value="0">0 criança</option>
+            <option value="1">1 criança</option>
+            <option value="2">2 crianças</option>
+            <option value="3">3 crianças</option>
+            <option value="4">4 crianças</option>
+            <option value="5">5 crianças</option>
+            <option value="6">6 crianças</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="confirmation-total confirmation-total-refined">
+        <div>
+          <span>VALOR DA CONFIRMAÇÃO</span>
+          <small>Calculado automaticamente</small>
+        </div>
+        <strong id="confirmationTotal">R$ 0,00</strong>
+      </div>
+
+      <div class="field-group field-full">
+        <label for="guestMessage">Mensagem aos noivos <small>(opcional)</small></label>
+        <textarea id="guestMessage" name="mensagem" rows="3" placeholder="Escreva uma mensagem para nós"></textarea>
+      </div>
+
+      <div class="confirmation-actions">
+        <button class="confirmation-btn whatsapp-btn" type="submit">
+          <span class="btn-icon">✓</span>
+          <span><small>1º PASSO</small>Confirmar pelo WhatsApp</span>
+        </button>
+        <a class="confirmation-btn pix-btn" href="#pix">
+          <span class="btn-icon">◇</span>
+          <span><small>2º PASSO</small>Pagar via Pix</span>
+        </a>
+      </div>
+
+      <p class="confirmation-secure">Confirmação rápida • Pagamento pelo Pix do site</p>
+    </form>
+  </div>
 </section>
 
 
@@ -220,6 +270,6 @@
 
 <footer><strong>S&L</strong><p>Unidos pelo amor · Chamados para a missão</p></footer>
 <div class="toast" id="toast">Pix Copia e Cola copiado</div>
-<script src="script.js?v=20260824-13"></script>
+<script src="script.js?v=20260824-16"></script>
 </body>
 </html>

@@ -51,3 +51,12 @@ Versão refinada do site com:
 ## V12
 - foto da seção Caminhos substituída pela foto do casal com girassol
 - restante do site preservado
+
+
+## V16 — Confirmação refinada
+- formulário em cartão claro para melhor leitura
+- preços de adulto e criança destacados
+- total automático em maior evidência
+- campos com melhor contraste
+- botões em dois passos: WhatsApp e Pix
+- layout responsivo aprimorado
