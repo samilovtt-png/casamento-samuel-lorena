@@ -142,3 +142,5 @@ A rota `/api/rsvp` já está configurada com o Web App do Google Apps Script for
 - Tipos: JPEG, PNG, WEBP, HEIC/HEIF; limite de 25 MB por arquivo.
 - A chave usada no navegador é a chave publicável (`sb_publishable_...`), nunca a chave secreta.
 - As fotos são organizadas em pastas por data e nome do convidado.
+
+V33: corrigido o botão "Pagar via Pix" para abrir o modal após o carregamento completo do HTML.

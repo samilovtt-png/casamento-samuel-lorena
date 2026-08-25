@@ -80,10 +80,8 @@
 <link rel="apple-touch-icon" href="assets/favicon.png">
 </head>
 <body>
-<div class="site-loader" id="siteLoader">
-  <div class="loader-monogram">S <span>&</span> L</div>
-  <small>14 · 02 · 2027</small>
-</div>
+<!-- Loader removido para abertura imediata e confiável do site -->
+
 
 <nav class="premium-nav" aria-label="Navegação principal">
   <a class="premium-brand" href="#inicio">S <span>&</span> L</a><button id="mobileMenuToggle" class="mobile-menu-toggle" type="button" aria-label="Abrir menu"><i></i><i></i></button>
@@ -172,15 +170,7 @@
 
 
 <main>
-<div class="lux-separator" aria-hidden="true"><span>✦</span></div>
-<section class="section countdown-section">
-  <p class="eyebrow gold">NOSSO GRANDE DIA</p>
-  <h2>Contagem regressiva</h2>
-  <div class="countdown">
-    <div><b id="days">0</b><span>Dias</span></div><div><b id="hours">0</b><span>Horas</span></div>
-    <div><b id="minutes">0</b><span>Minutos</span></div><div><b id="seconds">0</b><span>Segundos</span></div>
-  </div>
-</section>
+
 
 <section class="story" id="historia">
   <div class="story-image"><img loading="lazy" src="assets/story.webp?v=24" alt="Samuel e Lorena"></div>
@@ -341,11 +331,12 @@
     <label>Seu nome
       <input id="guestPhotoName" type="text" autocomplete="name" required placeholder="Digite seu nome">
     </label>
-    <label class="photo-file-box" for="guestPhotoFiles">
+    <div class="photo-file-box" id="photoFileBox">
       <strong>Escolher fotos</strong>
       <span id="guestPhotoFileLabel">Selecione uma ou várias fotos</span>
-      <input id="guestPhotoFiles" type="file" accept="image/jpeg,image/png,image/webp,image/heic,image/heif" multiple required>
-    </label>
+      <button type="button" id="guestPhotoChoose" class="guest-photo-choose">Escolher fotos do computador ou celular</button>
+      <input id="guestPhotoFiles" type="file" accept="image/jpeg,image/png,image/webp,image/heic,image/heif" multiple required hidden>
+    </div>
     <div id="guestPhotoPreview" class="guest-photo-preview" aria-live="polite"></div>
     <div class="photo-upload-progress" id="photoUploadProgress" hidden>
       <div><span id="photoUploadBar"></span></div>
@@ -495,7 +486,7 @@
 
 <div class="toast" id="toast">Pix Copia e Cola copiado</div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="script.js?v=20260825-31"></script>
+<script src="script.js?v=20260825-42"></script>
 
 <div id="galleryLightbox" aria-hidden="true">
   <button class="gl-close" aria-label="Fechar">×</button>

@@ -620,7 +620,24 @@ async function copyPixPayload(){
   const progressText=document.getElementById("photoUploadText");
   const feedback=document.getElementById("guestPhotoFeedback");
   const submit=document.getElementById("guestPhotoSubmit");
+  const chooseBtn=document.getElementById("guestPhotoChoose");
+  const fileBox=document.getElementById("photoFileBox");
   if(!form || !window.supabase) return;
+
+  if(chooseBtn){
+    chooseBtn.addEventListener("click",()=>fileInput.click());
+  }
+  if(fileBox){
+    fileBox.addEventListener("click",(e)=>{
+      if(e.target!==chooseBtn) fileInput.click();
+    });
+    fileBox.addEventListener("keydown",(e)=>{
+      if(e.key==="Enter" || e.key===" "){e.preventDefault();fileInput.click();}
+    });
+    fileBox.tabIndex=0;
+    fileBox.setAttribute("role","button");
+    fileBox.setAttribute("aria-label","Escolher fotos para enviar aos noivos");
+  }
 
   const client=window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY,{
     auth:{persistSession:false,autoRefreshToken:false,detectSessionInUrl:false}
@@ -697,4 +714,54 @@ async function copyPixPayload(){
       progressText.textContent=sent?`${sent} foto(s) enviada(s) antes da interrupção.`:"Envio não concluído.";
     }finally{submit.disabled=false;}
   });
+})();
+
+/* V33 — correção: modal Pix inicializado após o HTML estar pronto */
+(function(){
+  function initPixModalV33(){
+    const modal = document.getElementById('pixModal');
+    const openBtn = document.getElementById('openPixModal');
+    if(!modal || !openBtn || openBtn.dataset.pixV33Bound === '1') return;
+    openBtn.dataset.pixV33Bound = '1';
+
+    const closeBtn = modal.querySelector('.pix-modal-close');
+    const copyBtn = document.getElementById('copyPixModal');
+    const payload = document.getElementById('pixModalPayload');
+
+    function openPix(){
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden','false');
+      document.body.style.overflow='hidden';
+    }
+    function closePix(){
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden','true');
+      document.body.style.overflow='';
+    }
+
+    openBtn.addEventListener('click', openPix);
+    if(closeBtn) closeBtn.addEventListener('click', closePix);
+    modal.addEventListener('click', function(e){ if(e.target === modal) closePix(); });
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && modal.classList.contains('open')) closePix(); });
+
+    if(copyBtn && payload && copyBtn.dataset.pixV33Bound !== '1'){
+      copyBtn.dataset.pixV33Bound = '1';
+      copyBtn.addEventListener('click', async function(){
+        try {
+          await navigator.clipboard.writeText(payload.value);
+        } catch(e) {
+          payload.focus(); payload.select(); document.execCommand('copy');
+        }
+        copyBtn.textContent = 'Pix copiado ✓';
+        copyBtn.classList.add('copied');
+        setTimeout(function(){
+          copyBtn.textContent = 'Copiar Pix Copia e Cola';
+          copyBtn.classList.remove('copied');
+        }, 1600);
+      });
+    }
+  }
+
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initPixModalV33);
+  else initPixModalV33();
 })();
