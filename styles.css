@@ -1703,3 +1703,33 @@ html{scroll-behavior:smooth;scroll-padding-top:74px}
 .donation-pix-btn{background:#b7955d;color:#fff}.donation-register-btn{background:#071a35;color:#fff}
 .donation-register-btn:disabled{opacity:.6;cursor:wait}.donation-feedback{margin:0!important;font-size:.85rem!important;min-height:22px}.donation-feedback.ok{color:#2f6d3b!important}.donation-feedback.error{color:#9b3030!important}
 \n\n/* V31 — envio de fotos dos convidados */\n.guest-photo-upload{display:grid;grid-template-columns:minmax(0,.9fr) minmax(360px,1.1fr);gap:64px;align-items:center;background:#f7f5f0;padding-top:92px!important;padding-bottom:92px!important}\n.photo-upload-copy{max-width:560px}.photo-upload-copy h2{font-size:clamp(2.7rem,5vw,5rem);line-height:.98;margin:12px 0 22px;color:#102139}.photo-upload-copy>p{color:#66717c;line-height:1.8;max-width:520px}\n.photo-upload-notes{display:flex;flex-wrap:wrap;gap:9px;margin-top:24px}.photo-upload-notes span{background:#fff;border:1px solid #e5dfd4;padding:9px 11px;font-size:.72rem;color:#59636d}\n.guest-photo-form{background:#fff;padding:30px;box-shadow:0 20px 60px rgba(18,32,51,.08);display:grid;gap:16px}.guest-photo-form>label:not(.photo-file-box){display:grid;gap:8px;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:#52606d}.guest-photo-form input[type=text]{border:1px solid #dce1e5;padding:14px 15px;font:inherit;color:#102139;outline:none}.guest-photo-form input[type=text]:focus{border-color:#b7955d;box-shadow:0 0 0 3px rgba(183,149,93,.12)}\n.photo-file-box{border:1px dashed #b7955d;background:#faf7f1;min-height:118px;padding:22px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;cursor:pointer}.photo-file-box strong{font-size:.86rem;text-transform:uppercase;letter-spacing:.08em;color:#102139}.photo-file-box span{margin-top:6px;font-size:.8rem;color:#7a8289}.photo-file-box input{position:absolute;opacity:0;pointer-events:none}\n.guest-photo-preview{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}.guest-photo-thumb,.guest-photo-more{aspect-ratio:1;background:#eef1f3;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center}.guest-photo-thumb img{width:100%;height:100%;object-fit:cover}.guest-photo-thumb span{font-size:1.7rem}.guest-photo-thumb small{position:absolute;left:0;right:0;bottom:0;background:rgba(3,17,31,.72);color:#fff;padding:5px 6px;font-size:.55rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.guest-photo-more{font-weight:700;color:#102139}\n.photo-upload-progress>div{height:7px;background:#e9ecef;overflow:hidden}.photo-upload-progress span{display:block;width:0;height:100%;background:#b7955d;transition:width .25s}.photo-upload-progress small{display:block;margin-top:7px;color:#6c747b;font-size:.75rem}.guest-photo-submit{border:0;background:#071a35;color:#fff;padding:15px 18px;text-transform:uppercase;letter-spacing:.09em;font-size:.7rem;cursor:pointer}.guest-photo-submit:disabled{opacity:.55;cursor:wait}.guest-photo-feedback{min-height:22px;margin:0;font-size:.86rem}.guest-photo-feedback.ok{color:#2f6d3b}.guest-photo-feedback.error{color:#9b3030}\n@media(max-width:850px){.guest-photo-upload{grid-template-columns:1fr;gap:34px;padding:70px 22px!important}.guest-photo-form{padding:22px}.guest-photo-preview{grid-template-columns:repeat(3,minmax(0,1fr))}}\n
+
+/* V34 — seletor de fotos compatível com desktop e celular */
+#guestPhotoFiles[hidden]{display:none!important;}
+.photo-file-box{
+  border:1px dashed #b7955d!important;
+  background:#faf7f1!important;
+  min-height:138px!important;
+  padding:22px!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+  align-items:center!important;
+  text-align:center!important;
+  cursor:pointer!important;
+  box-sizing:border-box!important;
+}
+.photo-file-box:focus{outline:2px solid #b7955d;outline-offset:3px;}
+.photo-file-box strong{font-size:.86rem;text-transform:uppercase;letter-spacing:.08em;color:#102139;}
+.photo-file-box span{margin:6px 0 14px;font-size:.8rem;color:#7a8289;}
+.guest-photo-choose{
+  border:0;
+  background:#071a35;
+  color:#fff;
+  padding:12px 18px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  font-size:.66rem;
+  cursor:pointer;
+}
+.guest-photo-choose:hover{filter:brightness(1.12);}

@@ -142,3 +142,16 @@ A rota `/api/rsvp` já está configurada com o Web App do Google Apps Script for
 - Tipos: JPEG, PNG, WEBP, HEIC/HEIF; limite de 25 MB por arquivo.
 - A chave usada no navegador é a chave publicável (`sb_publishable_...`), nunca a chave secreta.
 - As fotos são organizadas em pastas por data e nome do convidado.
+
+V33: corrigido o botão "Pagar via Pix" para abrir o modal após o carregamento completo do HTML.
+
+## V35 — Doações por projeto corrigidas
+- Corrigida a inicialização tardia do modal dos três projetos missionários.
+- “Doar para este projeto” agora abre a janela de doação corretamente.
+- Mantidos Pix Copia e Cola e registro da doação em `/api/doacao`.
+
+
+## V36
+- Seção de países mantida em “Caminhos”.
+- Segunda seção reformulada para “O que a missão nos ensinou”, evitando repetição de países.
+- Novos pilares: Servir, Cuidar, Ensinar, Compartilhar e Ir.
