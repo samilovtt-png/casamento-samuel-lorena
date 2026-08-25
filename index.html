@@ -92,6 +92,7 @@
     <a href="#historia">Nossa História</a>
     <a href="#locais">Casamento</a>
     <a href="#galeria">Galeria</a>
+    <a href="#fotos-convidados">Enviar fotos</a>
     <a href="#presentes">Presentes</a>
     <a href="#rsvp">Confirmar</a>
   </div>
@@ -129,6 +130,7 @@
       <a href="#locais">Locais</a>
       <a href="#projetos">Presentes missionários</a>
       <a href="#campos">Campos missionários</a>
+      <a href="#fotos-convidados">Enviar fotos</a>
       <a href="#pix">Pix solidário</a>
     </div>
   </nav>
@@ -264,9 +266,9 @@
   <h2>Nosso presente será missão.</h2>
   <p class="lead">Em vez de presentes para nós, convidamos você a fazer parte dos sonhos missionários que estão em nosso coração.</p>
   <div class="mission-total"><span>Meta missionária total</span><strong>R$ 120.000</strong></div><div class="project-grid">
-    <article><img loading="lazy" src="assets/projeto-passagens.webp?v=24"><div><span>✈ PROJETO 01</span><h3>Duas passagens missionárias</h3><p>Para que possamos continuar indo, servindo e anunciando esperança.</p><strong>Meta · R$ 20.000</strong></div></article>
-    <article><img loading="lazy" src="assets/projeto-container.webp?v=24"><div><span>▣ PROJETO 02</span><h3>Contêiner para as missões</h3><p>Um espaço de apoio, organização, materiais e envio para novos campos.</p><strong>Meta · R$ 40.000</strong></div></article>
-    <article><img loading="lazy" src="assets/projeto-guine.webp?v=24"><div><span>⌂ PROJETO 03</span><h3>Salas e igreja em Guiné-Bissau</h3><p>Construindo um lugar para ensinar, acolher, servir e compartilhar esperança.</p><strong>Meta · R$ 60.000</strong></div></article>
+    <article><img loading="lazy" src="assets/projeto-passagens.webp?v=24"><div><span>✈ PROJETO 01</span><h3>Duas passagens missionárias</h3><p>Para que possamos continuar indo, servindo e anunciando esperança.</p><strong>Meta · R$ 20.000</strong><button type="button" class="project-detail-btn" data-project="passagens">Doar para este projeto</button></div></article>
+    <article><img loading="lazy" src="assets/projeto-container.webp?v=24"><div><span>▣ PROJETO 02</span><h3>Contêiner para as missões</h3><p>Um espaço de apoio, organização, materiais e envio para novos campos.</p><strong>Meta · R$ 40.000</strong><button type="button" class="project-detail-btn" data-project="container">Doar para este projeto</button></div></article>
+    <article><img loading="lazy" src="assets/projeto-guine.webp?v=24"><div><span>⌂ PROJETO 03</span><h3>Salas e igreja em Guiné-Bissau</h3><p>Construindo um lugar para ensinar, acolher, servir e compartilhar esperança.</p><strong>Meta · R$ 60.000</strong><button type="button" class="project-detail-btn" data-project="guine">Doar para este projeto</button></div></article>
   </div>
 </section>
 
@@ -322,6 +324,37 @@
 
 
 
+
+
+<section class="guest-photo-upload section" id="fotos-convidados">
+  <div class="photo-upload-copy">
+    <p class="eyebrow gold">SUAS FOTOS TAMBÉM CONTAM NOSSA HISTÓRIA</p>
+    <h2>Compartilhe os momentos que você registrou.</h2>
+    <p>Envie suas fotos do casamento diretamente pelo celular. Elas serão guardadas com carinho em nosso álbum privado.</p>
+    <div class="photo-upload-notes">
+      <span>📸 Até 25 MB por foto</span>
+      <span>🖼 JPG, PNG, WEBP e HEIC</span>
+      <span>🔒 Álbum privado dos noivos</span>
+    </div>
+  </div>
+  <form id="guestPhotoForm" class="guest-photo-form">
+    <label>Seu nome
+      <input id="guestPhotoName" type="text" autocomplete="name" required placeholder="Digite seu nome">
+    </label>
+    <label class="photo-file-box" for="guestPhotoFiles">
+      <strong>Escolher fotos</strong>
+      <span id="guestPhotoFileLabel">Selecione uma ou várias fotos</span>
+      <input id="guestPhotoFiles" type="file" accept="image/jpeg,image/png,image/webp,image/heic,image/heif" multiple required>
+    </label>
+    <div id="guestPhotoPreview" class="guest-photo-preview" aria-live="polite"></div>
+    <div class="photo-upload-progress" id="photoUploadProgress" hidden>
+      <div><span id="photoUploadBar"></span></div>
+      <small id="photoUploadText">Preparando envio...</small>
+    </div>
+    <button type="submit" id="guestPhotoSubmit" class="guest-photo-submit">Enviar fotos para os noivos</button>
+    <p id="guestPhotoFeedback" class="guest-photo-feedback" aria-live="polite"></p>
+  </form>
+</section>
 
 <section class="guest-info section" id="informacoes">
   <p class="eyebrow gold">INFORMAÇÕES AOS CONVIDADOS</p>
@@ -461,7 +494,8 @@
 </footer>
 
 <div class="toast" id="toast">Pix Copia e Cola copiado</div>
-<script src="script.js?v=20260824-26"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="script.js?v=20260825-31"></script>
 
 <div id="galleryLightbox" aria-hidden="true">
   <button class="gl-close" aria-label="Fechar">×</button>
@@ -551,7 +585,15 @@
     <h3 id="projectModalTitle"></h3>
     <p id="projectModalText"></p>
     <strong id="projectModalGoal"></strong>
-    <a href="#pix" id="projectModalPix">Contribuir via Pix</a>
+    <form id="donationForm" class="donation-form">
+      <input type="hidden" id="donationProjectKey" name="projetoKey">
+      <label>Seu nome<input id="donationName" name="nome" type="text" required placeholder="Digite seu nome"></label>
+      <label>Valor da doação (R$)<input id="donationAmount" name="valor" type="number" min="1" step="0.01" required placeholder="Ex.: 200,00"></label>
+      <p class="donation-help">1. Copie o Pix e faça a transferência. 2. Depois clique em “Registrar minha doação”.</p>
+      <button type="button" id="donationCopyPix" class="donation-pix-btn">Copiar Pix para doar</button>
+      <button type="submit" id="donationRegister" class="donation-register-btn">Registrar minha doação</button>
+      <p id="donationFeedback" class="donation-feedback" aria-live="polite"></p>
+    </form>
   </div>
 </div>
 

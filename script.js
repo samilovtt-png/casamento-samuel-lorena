@@ -26,7 +26,7 @@ musicToggle.onclick=async()=>{
   else{music.pause();musicToggle.textContent="♫"}
 };
 
-document.getElementById("rsvpForm").addEventListener("submit",e=>{
+document.getElementById("rsvpForm").addEventListener("legacy-rsvp-submit",e=>{
   e.preventDefault();
   const f=new FormData(e.target);
   const text=`Olá! Quero confirmar minha presença no casamento de Samuel & Lorena.\n\nNome: ${f.get("nome")}\nQuantidade: ${f.get("pessoas")}\nMensagem: ${f.get("mensagem")||""}`;
@@ -64,7 +64,7 @@ async function copyPixPayload(){
   children.addEventListener("change", updateConfirmationTotal);
   updateConfirmationTotal();
 
-  form.addEventListener("submit", function(e){
+  form.addEventListener("legacy-rsvp-submit", function(e){
     e.preventDefault();
     const f = new FormData(form);
     const a = Number(f.get("adultos") || 0);
@@ -108,7 +108,7 @@ async function copyPixPayload(){
   const form = document.getElementById("rsvpForm");
   const success = document.getElementById("rsvpSuccess");
   if(form && success){
-    form.addEventListener("submit", () => {
+    form.addEventListener("rsvp-saved", () => {
       setTimeout(()=>success.classList.add("show"), 250);
     });
   }
@@ -464,4 +464,237 @@ async function copyPixPayload(){
       setTimeout(()=>cp.classList.remove("copied"),1800);
     });
   }
+})();
+
+
+/* V28 — RSVP salvo automaticamente na planilha online */
+(function(){
+  const form = document.getElementById("rsvpForm");
+  const success = document.getElementById("rsvpSuccess");
+  if(!form) return;
+
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const originalHtml = submitBtn ? submitBtn.innerHTML : "";
+
+  function confirmationId(){
+    return "SL-" + Date.now().toString(36).toUpperCase() + "-" + Math.random().toString(36).slice(2,6).toUpperCase();
+  }
+
+  form.addEventListener("submit", async function(e){
+    e.preventDefault();
+    const f = new FormData(form);
+    const adultos = Number(f.get("adultos") || 0);
+    const criancas = Number(f.get("criancas") || 0);
+    if(adultos + criancas < 1){ alert("Selecione pelo menos um convidado."); return; }
+
+    const total = adultos * 200 + criancas * 100;
+    const id = confirmationId();
+    const payload = {
+      id,
+      nome: String(f.get("nome") || "").trim(),
+      adultos,
+      criancas,
+      mensagem: String(f.get("mensagem") || "").trim(),
+      valor: total,
+      status: "Confirmado",
+      origem: "Site do casamento",
+      familia: new URLSearchParams(location.search).get("familia") || ""
+    };
+
+    if(submitBtn){ submitBtn.disabled = true; submitBtn.textContent = "Salvando confirmação..."; }
+    try{
+      const res = await fetch("/api/rsvp", {
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify(payload)
+      });
+      const data = await res.json().catch(()=>({}));
+      if(!res.ok || !data.ok) throw new Error(data.error || "Não foi possível salvar");
+
+      localStorage.setItem("samuelLorenaLastRsvpId", id);
+      form.dispatchEvent(new CustomEvent("rsvp-saved", {detail:payload}));
+      if(success){
+        const strong=success.querySelector("strong"), p=success.querySelector("p");
+        if(strong) strong.textContent="Presença registrada com sucesso!";
+        if(p) p.textContent=`Confirmação ${id} salva no controle dos noivos. Agora você pode enviar a mensagem e finalizar o Pix.`;
+        success.classList.add("show");
+      }
+
+      const valor = total.toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
+      const text = `Olá! Minha presença já foi registrada no site do casamento de Samuel & Lorena.\n\nConfirmação: ${id}\nNome: ${payload.nome}\nAdultos: ${adultos}\nCrianças até 10 anos: ${criancas}\nValor: ${valor}\nMensagem: ${payload.mensagem}`;
+      window.open("https://wa.me/5519998350381?text="+encodeURIComponent(text),"_blank");
+    }catch(err){
+      alert("Não conseguimos registrar automaticamente. Tente novamente. Se continuar, confirme pelo WhatsApp.");
+      console.error(err);
+    }finally{
+      if(submitBtn){ submitBtn.disabled=false; submitBtn.innerHTML=originalHtml; }
+    }
+  });
+})();
+
+/* V30 — doações por projeto salvas na planilha */
+(function(){
+  const modal=document.getElementById("projectModal");
+  const form=document.getElementById("donationForm");
+  if(!modal || !form) return;
+
+  const projectKey=document.getElementById("donationProjectKey");
+  const nameInput=document.getElementById("donationName");
+  const amountInput=document.getElementById("donationAmount");
+  const copyBtn=document.getElementById("donationCopyPix");
+  const submitBtn=document.getElementById("donationRegister");
+  const feedback=document.getElementById("donationFeedback");
+  const projectTitle=document.getElementById("projectModalTitle");
+  const PIX_PAYLOAD="00020126360014BR.GOV.BCB.PIX01145204000053039865802BR5923SAMUEL F LAUREANO LOPEZ6011HORTOLANDIA62070503***63041773";
+
+  document.querySelectorAll(".project-detail-btn").forEach(btn=>{
+    btn.addEventListener("click",()=>{
+      if(projectKey) projectKey.value=btn.dataset.project||"";
+      if(feedback){feedback.textContent="";feedback.className="donation-feedback";}
+    });
+  });
+
+  if(copyBtn){
+    copyBtn.addEventListener("click",async()=>{
+      try{ await navigator.clipboard.writeText(PIX_PAYLOAD); }
+      catch(e){
+        const ta=document.createElement("textarea");ta.value=PIX_PAYLOAD;document.body.appendChild(ta);ta.select();document.execCommand("copy");ta.remove();
+      }
+      copyBtn.textContent="Pix copiado ✓";
+      setTimeout(()=>copyBtn.textContent="Copiar Pix para doar",1600);
+    });
+  }
+
+  function donationId(){
+    return "DOA-"+Date.now().toString(36).toUpperCase()+"-"+Math.random().toString(36).slice(2,6).toUpperCase();
+  }
+
+  form.addEventListener("submit",async e=>{
+    e.preventDefault();
+    const valor=Number(amountInput.value||0);
+    const nome=String(nameInput.value||"").trim();
+    const projeto=String(projectTitle.textContent||"").trim();
+    if(!nome || valor<=0 || !projeto){
+      feedback.textContent="Informe seu nome e o valor da doação.";feedback.className="donation-feedback error";return;
+    }
+    const payload={
+      tipo:"doacao", id:donationId(), nome, valor, projeto,
+      projetoKey:projectKey.value||"", status:"Informada pelo convidado",
+      origem:"Site do casamento", rsvpId:localStorage.getItem("samuelLorenaLastRsvpId")||""
+    };
+    submitBtn.disabled=true;submitBtn.textContent="Registrando...";
+    feedback.textContent="";feedback.className="donation-feedback";
+    try{
+      const res=await fetch("/api/doacao",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)});
+      const data=await res.json().catch(()=>({}));
+      if(!res.ok||!data.ok) throw new Error(data.error||"Falha ao registrar");
+      feedback.textContent=`Doação registrada para “${projeto}”. Muito obrigado!`;
+      feedback.className="donation-feedback ok";
+      localStorage.setItem("samuelLorenaLastDonationId",payload.id);
+      form.reset();
+      if(projectKey) projectKey.value=payload.projetoKey;
+    }catch(err){
+      feedback.textContent="Não foi possível registrar agora. Tente novamente.";
+      feedback.className="donation-feedback error";
+      console.error(err);
+    }finally{
+      submitBtn.disabled=false;submitBtn.textContent="Registrar minha doação";
+    }
+  });
+})();
+
+
+/* V31 — upload de fotos dos convidados para Supabase Storage */
+(function(){
+  const SUPABASE_URL = "https://imupvubqtzsfjcjqbrao.supabase.co";
+  const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_cZrGhy5bGOotJBshqI_hSg_uigw20n-";
+  const BUCKET = "fotos-casamento";
+
+  const form=document.getElementById("guestPhotoForm");
+  const nameInput=document.getElementById("guestPhotoName");
+  const fileInput=document.getElementById("guestPhotoFiles");
+  const fileLabel=document.getElementById("guestPhotoFileLabel");
+  const preview=document.getElementById("guestPhotoPreview");
+  const progress=document.getElementById("photoUploadProgress");
+  const bar=document.getElementById("photoUploadBar");
+  const progressText=document.getElementById("photoUploadText");
+  const feedback=document.getElementById("guestPhotoFeedback");
+  const submit=document.getElementById("guestPhotoSubmit");
+  if(!form || !window.supabase) return;
+
+  const client=window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY,{
+    auth:{persistSession:false,autoRefreshToken:false,detectSessionInUrl:false}
+  });
+
+  const safe=(value)=>String(value||"")
+    .normalize("NFD").replace(/[\\u0300-\\u036f]/g,"")
+    .toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"").slice(0,48)||"convidado";
+
+  const extOf=(file)=>{
+    const byName=(file.name.split(".").pop()||"").toLowerCase().replace(/[^a-z0-9]/g,"");
+    if(byName) return byName;
+    const map={"image/jpeg":"jpg","image/png":"png","image/webp":"webp","image/heic":"heic","image/heif":"heif"};
+    return map[file.type]||"jpg";
+  };
+
+  fileInput.addEventListener("change",()=>{
+    const files=[...fileInput.files];
+    fileLabel.textContent=files.length?`${files.length} ${files.length===1?"foto selecionada":"fotos selecionadas"}`:"Selecione uma ou várias fotos";
+    preview.innerHTML="";
+    files.slice(0,8).forEach(file=>{
+      const item=document.createElement("div");
+      item.className="guest-photo-thumb";
+      if(file.type.startsWith("image/") && !/heic|heif/i.test(file.type+file.name)){
+        const img=document.createElement("img");
+        img.alt=file.name;
+        img.src=URL.createObjectURL(file);
+        img.onload=()=>URL.revokeObjectURL(img.src);
+        item.appendChild(img);
+      }else{
+        item.innerHTML="<span>📷</span>";
+      }
+      const cap=document.createElement("small");
+      cap.textContent=file.name;
+      item.appendChild(cap);
+      preview.appendChild(item);
+    });
+    if(files.length>8){
+      const more=document.createElement("div"); more.className="guest-photo-more"; more.textContent=`+${files.length-8}`; preview.appendChild(more);
+    }
+  });
+
+  form.addEventListener("submit",async e=>{
+    e.preventDefault();
+    const nome=nameInput.value.trim();
+    const files=[...fileInput.files];
+    if(!nome || !files.length){feedback.textContent="Informe seu nome e escolha pelo menos uma foto.";feedback.className="guest-photo-feedback error";return;}
+    const invalid=files.find(f=>f.size>25*1024*1024);
+    if(invalid){feedback.textContent=`A foto “${invalid.name}” ultrapassa 25 MB.`;feedback.className="guest-photo-feedback error";return;}
+
+    submit.disabled=true; progress.hidden=false; feedback.textContent=""; feedback.className="guest-photo-feedback";
+    let sent=0;
+    try{
+      const date=new Date();
+      const folder=`${date.getFullYear()}-${String(date.getMonth()+1).padStart(2,"0")}-${String(date.getDate()).padStart(2,"0")}/${safe(nome)}`;
+      for(let i=0;i<files.length;i++){
+        const file=files[i];
+        progressText.textContent=`Enviando foto ${i+1} de ${files.length}...`;
+        bar.style.width=`${Math.round((i/files.length)*100)}%`;
+        const path=`${folder}/${Date.now()}-${Math.random().toString(36).slice(2,8)}.${extOf(file)}`;
+        const {error}=await client.storage.from(BUCKET).upload(path,file,{cacheControl:"3600",upsert:false,contentType:file.type||undefined});
+        if(error) throw error;
+        sent++;
+      }
+      bar.style.width="100%"; progressText.textContent="Envio concluído ✓";
+      feedback.textContent=`${sent} ${sent===1?"foto enviada":"fotos enviadas"} com sucesso. Obrigado por compartilhar esse momento conosco!`;
+      feedback.className="guest-photo-feedback ok";
+      form.reset(); preview.innerHTML=""; fileLabel.textContent="Selecione uma ou várias fotos";
+      setTimeout(()=>{progress.hidden=true;bar.style.width="0%"},2500);
+    }catch(err){
+      console.error("Upload fotos:",err);
+      feedback.textContent="Não foi possível concluir o envio. Verifique sua conexão e tente novamente.";
+      feedback.className="guest-photo-feedback error";
+      progressText.textContent=sent?`${sent} foto(s) enviada(s) antes da interrupção.`:"Envio não concluído.";
+    }finally{submit.disabled=false;}
+  });
 })();

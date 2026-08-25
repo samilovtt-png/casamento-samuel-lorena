@@ -120,3 +120,25 @@ Versão refinada do site com:
 - meta tags para compartilhamento
 - acessibilidade com reduced motion
 - refinamentos de enquadramento e botões mobile
+
+
+## V29 — Google Sheets conectado
+A rota `/api/rsvp` já está configurada com o Web App do Google Apps Script fornecido para este casamento. A variável `GOOGLE_SHEETS_WEBHOOK_URL` continua suportada na Vercel e, se definida, substitui a URL embutida.
+
+## V30 — Doações por projeto
+- cada projeto missionário possui botão “Doar para este projeto”
+- convidado informa nome e valor da doação
+- projeto escolhido é gravado automaticamente
+- nova aba `Doacoes` na Planilha Google
+- campos: ID, data/hora, nome, projeto, valor, status, ID RSVP, origem, confirmação dos noivos e observações
+- o Pix não é conciliado automaticamente; o registro é uma declaração do convidado e pode ser confirmado posteriormente pelos noivos
+- após substituir o `Code.gs`, crie uma nova versão da implantação do Apps Script mantendo a mesma URL do Web App
+
+
+## V31 — Fotos dos convidados
+- Integração com Supabase Storage.
+- Bucket: `fotos-casamento` (privado).
+- Upload permitido para papel anônimo somente via INSERT, conforme política criada no Supabase.
+- Tipos: JPEG, PNG, WEBP, HEIC/HEIF; limite de 25 MB por arquivo.
+- A chave usada no navegador é a chave publicável (`sb_publishable_...`), nunca a chave secreta.
+- As fotos são organizadas em pastas por data e nome do convidado.

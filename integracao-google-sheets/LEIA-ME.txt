@@ -1,0 +1,16 @@
+INTEGRAÇÃO AUTOMÁTICA — SITE → GOOGLE SHEETS
+
+1. Crie uma Planilha Google vazia para o casamento.
+2. Na planilha: Extensões > Apps Script.
+3. Apague o conteúdo e cole o arquivo Code.gs desta pasta.
+4. Clique em Implantar > Nova implantação > Aplicativo da Web.
+5. Executar como: você. Quem tem acesso: qualquer pessoa.
+6. Copie a URL gerada.
+7. Na Vercel do site: Settings > Environment Variables.
+8. Crie a variável GOOGLE_SHEETS_WEBHOOK_URL e cole a URL do Apps Script.
+9. Faça um novo Deploy do site.
+
+Depois disso, cada confirmação enviada pelo site entra automaticamente na aba Convidados.
+O visitante recebe um ID único de confirmação e o WhatsApp abre somente depois de a planilha confirmar o registro.
+
+IMPORTANTE: a URL do Apps Script fica protegida no servidor da Vercel e não aparece no JavaScript público do site.
