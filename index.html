@@ -1,270 +1,181 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#111111">
-  <meta name="description" content="Casamento Samuel & Lorena — 14 de fevereiro de 2027">
-  <title>Samuel & Lorena — 14.02.2027</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#071a35">
+<title>Samuel & Lorena | Casamento Missionário</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=20260824-2">
 </head>
 <body>
 
 <div class="intro" id="intro">
   <div class="intro-card">
     <div class="monogram">S<span>&</span>L</div>
-    <p class="overline">14 · 02 · 2027</p>
+    <p class="eyebrow">CASAMENTO MISSIONÁRIO</p>
     <h1>Samuel <em>&</em> Lorena</h1>
-    <div class="gold-line"></div>
-    <p class="intro-copy">Um convite para celebrar o início da nossa história para sempre.</p>
-    <button id="openInvite" class="lux-btn light">Abrir convite</button>
+    <p>14 · 02 · 2027</p>
+    <div class="line"></div>
+    <p class="intro-text">Duas vidas, um chamado, uma missão.</p>
+    <button id="openInvite">ABRIR CONVITE ♡</button>
   </div>
 </div>
 
-<audio id="bgMusic" loop preload="auto">
-  <source src="assets/musica.mp3" type="audio/mpeg">
-</audio>
-<button class="music-control" id="musicToggle" aria-label="Pausar ou tocar música">♫</button>
+<audio id="bgMusic" loop preload="auto"><source src="assets/musica.mp3" type="audio/mpeg"></audio>
+<button id="musicToggle" class="music-toggle" aria-label="Pausar ou tocar música">♫</button>
 
-<header class="hero" id="top">
-  <div class="hero-overlay"></div>
-  <div class="mission-route route-one" aria-hidden="true"></div>
-  <div class="mission-route route-two" aria-hidden="true"></div>
-  <div class="mission-map-mark" aria-hidden="true">✈︎</div>
-  <nav class="nav">
-    <a href="#top" class="brand">S&L</a>
+<header class="hero" id="inicio">
+  <div class="hero-shade"></div>
+  <div class="world-watermark">WORLD MISSION</div>
+  <img class="mission-map-overlay" src="assets/mapa-rotas-v2.svg" alt="" aria-hidden="true">
+  <div class="mission-compass" aria-hidden="true">N<br><span>✦</span><br>S</div>
+  <div class="route route-a"></div><div class="route route-b"></div>
+  <span class="plane plane-a">✈</span><span class="plane plane-b">✈</span>
+  <nav>
+    <a class="brand" href="#inicio">S&L</a>
     <div>
-      <a href="#historia">História</a>
-      <a href="#evento">Evento</a>
-      <a href="#galeria">Galeria</a>
-      <a href="#rsvp">RSVP</a>
+      <a href="#historia">Nossa história</a>
+      <a href="#caminhos">Caminhos</a>
+      <a href="#locais">Locais</a>
+      <a href="#projetos">Presentes missionários</a>
+      <a href="#campos">Campos missionários</a>
+      <a href="#pix">Pix solidário</a>
     </div>
   </nav>
-
-  <div class="hero-copy reveal">
-    <p class="overline">Duas vidas · Um chamado · Uma missão</p>
+  <div class="hero-copy">
+    <p class="eyebrow">UM CASAMENTO COM PROPÓSITO</p>
     <h1>Samuel <em>&</em> Lorena</h1>
-    <p class="hero-date">14 · 02 · 2027</p><p class="mission-tagline">Unidos pelo amor. Chamados para a missão.</p>
-    <p class="hero-verse">“Assim, eles já não são dois, mas sim uma só carne.”</p>
-    <span>Mateus 19:6</span>
+    <p class="date">14 · 02 · 2027</p>
+    <p class="tagline">Unidos pelo amor. Chamados para a missão.</p>
+    <blockquote>“Eu e a minha casa serviremos ao Senhor.” <small>Josué 24:15</small></blockquote>
   </div>
-
-  <a class="hero-arrow" href="#countdown">↓</a>
 </header>
 
-<main><div class="mission-watermark mission-watermark-one" aria-hidden="true">✦  AFRICA  ·  AMERICA  ·  ASIA  ·  MISSÃO  ✦</div>
-  <section class="countdown-section section" id="countdown">
-    <p class="eyebrow">NOSSO GRANDE DIA</p>
-    <h2>Contagem regressiva</h2>
-    <div class="countdown reveal">
-      <div><strong id="days">0</strong><span>Dias</span></div>
-      <div><strong id="hours">0</strong><span>Horas</span></div>
-      <div><strong id="minutes">0</strong><span>Minutos</span></div>
-      <div><strong id="seconds">0</strong><span>Segundos</span></div>
-    </div>
-  </section>
+<main>
+<section class="section countdown-section">
+  <p class="eyebrow gold">NOSSO GRANDE DIA</p>
+  <h2>Contagem regressiva</h2>
+  <div class="countdown">
+    <div><b id="days">0</b><span>Dias</span></div><div><b id="hours">0</b><span>Horas</span></div>
+    <div><b id="minutes">0</b><span>Minutos</span></div><div><b id="seconds">0</b><span>Segundos</span></div>
+  </div>
+</section>
 
-  <section class="story-section" id="historia">
-    <div class="story-image reveal">
-      <img src="assets/story.jpg" alt="Samuel e Lorena">
-    </div>
-    <div class="story-text reveal">
-      <p class="eyebrow">NOSSA HISTÓRIA</p>
-      <h2>Dois caminhos,<br>um só destino.</h2>
-      <div class="gold-line left"></div>
-      <p>Deus conduziu nossos passos até aqui e, com alegria, queremos celebrar esse momento ao lado das pessoas que fazem parte da nossa história.</p>
-      <p>Em 14 de fevereiro de 2027, diremos “sim” para uma vida inteira de companheirismo, fé, amor e novos sonhos.</p>
-      <p class="signature">Samuel & Lorena</p>
-    </div>
-  </section>
+<section class="story" id="historia">
+  <div class="story-image"><img src="assets/story.jpg" alt="Samuel e Lorena"></div>
+  <div class="story-copy">
+    <p class="eyebrow gold">NOSSA HISTÓRIA</p>
+    <h2>Deus nos uniu para servir juntos.</h2>
+    <div class="line left"></div>
+    <p>De diferentes caminhos, Ele nos conduziu até aqui e agora nos envia juntos para novos horizontes.</p>
+    <p>Nosso casamento é a celebração de um amor que também tem missão.</p>
+    <strong>Juntos, seguimos para onde Ele nos chamar.</strong>
+  </div>
+</section>
 
-  <section class="editorial-photo">
-    <img src="assets/flowers.jpg" alt="Samuel e Lorena entre flores">
-    <div class="editorial-caption reveal">
-      <span>LOVE</span>
-      <p>“O amor jamais acaba.”</p>
-      <small>1 Coríntios 13:8</small>
-    </div>
-  </section>
+<section class="journey" id="caminhos">
+  <div class="map-panel">
+    <div class="map-title">AMÉRICA DO SUL</div>
+    <span class="dot br">BR</span><span class="dot ar">AR</span><span class="dot bo">BO</span><span class="dot pe">PE</span><span class="dot cl">CL</span>
+    <div class="map-route r1"></div><div class="map-route r2"></div><div class="map-route r3"></div><div class="map-route r4"></div>
+    <span class="map-plane">✈</span>
+  </div>
+  <div class="journey-copy">
+    <p class="eyebrow gold">CAMINHOS QUE DEUS JÁ NOS PERMITIU PERCORRER</p>
+    <h2>Uma história de amor que atravessa fronteiras.</h2>
+    <p>Deus já nos levou por muitos caminhos. Agora escolhemos percorrer juntos todos aqueles para onde Ele nos chamar.</p>
+    <div class="countries"><span>Brasil</span><span>Argentina</span><span>Bolívia</span><span>Peru</span><span>Chile</span></div>
+  </div>
+</section>
 
-  <section class="journey-section">
-    <div class="journey-map" aria-hidden="true">
-      <div class="south-america-outline">SOUTH<br>AMERICA</div>
-      <span class="route-dot brasil">BR</span>
-      <span class="route-dot argentina">AR</span>
-      <span class="route-dot bolivia">BO</span>
-      <span class="route-dot peru">PE</span>
-      <span class="route-dot chile">CL</span>
-      <div class="route-line line-1"></div>
-      <div class="route-line line-2"></div>
-      <div class="route-line line-3"></div>
-      <div class="route-line line-4"></div>
-      <span class="route-plane">✈</span>
-    </div>
-    <div class="journey-copy reveal">
-      <p class="eyebrow">CAMINHOS QUE DEUS JÁ NOS PERMITIU PERCORRER</p>
-      <h2>Uma história de amor<br>que atravessa fronteiras.</h2>
-      <div class="gold-line left"></div>
-      <p class="journey-quote">“Deus já nos levou por muitos caminhos. Agora escolhemos percorrer juntos todos aqueles para onde Ele nos chamar.”</p>
-      <div class="country-list">
-        <span>Brasil</span><i>•</i><span>Argentina</span><i>•</i><span>Bolívia</span><i>•</i><span>Peru</span><i>•</i><span>Chile</span>
-      </div>
-      <p class="journey-small">Uma história que continua em missão.</p>
-    </div>
-  </section>
+<section class="section locations" id="locais">
+  <p class="eyebrow gold">LOCAIS DA CELEBRAÇÃO</p>
+  <h2>Cerimônia & Recepção</h2>
+  <div class="location-grid">
+    <article>
+      <img src="assets/cerimonia.jpg" alt="Local da cerimônia">
+      <div class="location-body"><span>01</span><h3>Cerimônia</h3><p><strong>14 de fevereiro de 2027 · 15h</strong></p>
+      <p>Estr. José Moura, 1370<br>Batistini, São Bernardo do Campo - SP<br>09844-190</p>
+      <a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Estr.%20Jos%C3%A9%20Moura%2C%201370%20Batistini%20S%C3%A3o%20Bernardo%20do%20Campo">Ver no mapa</a></div>
+    </article>
+    <article>
+      <img src="assets/recepcao.jpg" alt="Local da recepção">
+      <div class="location-body"><span>02</span><h3>Recepção</h3><p><strong>Após a cerimônia</strong></p>
+      <p>R. Carlos Olávo Vicentini, 83<br>Planalto, São Bernardo do Campo - SP<br>09890-160</p>
+      <a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=R.%20Carlos%20Ol%C3%A1vo%20Vicentini%2C%2083%20Planalto%20S%C3%A3o%20Bernardo%20do%20Campo">Ver no mapa</a></div>
+    </article>
+  </div>
+</section>
 
-  <section class="section event-section" id="evento">
-    <p class="eyebrow">14 DE FEVEREIRO DE 2027</p>
-    <h2>Cerimônia & Recepção</h2>
-    <div class="event-grid reveal">
-      <article class="event-card">
-        <img class="venue-photo" src="assets/cerimonia.jpg" alt="Local da cerimônia">
-        <div class="event-card-body">
-        <span class="event-number">01</span>
-        <h3>Cerimônia</h3>
-        <p class="time">15h</p>
-        <p>Estr. José Moura, 1370<br>Batistini, São Bernardo do Campo - SP<br>09844-190</p>
-        <a class="lux-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Estr.%20Jos%C3%A9%20Moura%2C%201370%20-%20Batistini%2C%20S%C3%A3o%20Bernardo%20do%20Campo%20-%20SP%2C%2009844-190">Ver no mapa</a>
-        </div>
-      </article>
+<section class="projects section" id="projetos">
+  <p class="eyebrow gold">UM CASAMENTO COM PROPÓSITO</p>
+  <h2>Nosso presente será missão.</h2>
+  <p class="lead">Em vez de presentes para nós, convidamos você a fazer parte dos sonhos missionários que estão em nosso coração.</p>
+  <div class="project-grid">
+    <article><img src="assets/projeto-passagens.jpg"><div><span>✈ PROJETO 01</span><h3>Duas passagens missionárias</h3><p>Para que possamos continuar indo, servindo e anunciando esperança.</p><strong>Meta · R$ 20.000</strong></div></article>
+    <article><img src="assets/projeto-container.jpg"><div><span>▣ PROJETO 02</span><h3>Contêiner para as missões</h3><p>Um espaço de apoio, organização, materiais e envio para novos campos.</p><strong>Meta · R$ 40.000</strong></div></article>
+    <article><img src="assets/projeto-guine.jpg"><div><span>⌂ PROJETO 03</span><h3>Salas e igreja em Guiné-Bissau</h3><p>Construindo um lugar para ensinar, acolher, servir e compartilhar esperança.</p><strong>Meta · R$ 60.000</strong></div></article>
+  </div>
+</section>
 
-      <div class="divider"></div>
+<section class="mission-gallery-section" id="campos">
+  <div class="mission-heading">
+    <p class="eyebrow gold">CAMPOS MISSIONÁRIOS</p>
+    <h2>Memórias de uma vida em missão.</h2>
+    <p>“Ide por todo o mundo e pregai o evangelho a toda criatura.” <small>Marcos 16:15</small></p>
+  </div>
+  <div class="mission-gallery mission-gallery-v2">
+    <figure><img src="assets/campo-missionario-v2-01.jpg?v=2" alt="Missão com crianças"><figcaption>Servir com amor</figcaption></figure>
+    <figure><img src="assets/campo-missionario-v2-02.jpg?v=2" alt="Equipe missionária"><figcaption>Juntos para servir</figcaption></figure>
+    <figure><img src="assets/campo-missionario-v2-03.jpg?v=2" alt="Missão e culturas"><figcaption>Até os confins da Terra</figcaption></figure>
+    <figure><img src="assets/campo-missionario-v2-04.jpg?v=2" alt="Momento missionário"><figcaption>Uma missão que aproxima</figcaption></figure>
+    <figure><img src="assets/campo-missionario-v2-05.jpg?v=2" alt="Equipe em ação"><figcaption>Mãos que transformam</figcaption></figure>
+    <figure><img src="assets/campo-missionario-v2-06.jpg?v=2" alt="Equipe com bandeiras"><figcaption>Chamados para ir</figcaption></figure>
+    <figure><img src="assets/campo-missionario-v2-07.jpg?v=2" alt="Equipe diante de igreja adventista"><figcaption>Uma igreja em missão</figcaption></figure>
+  </div>
+</section>
 
-      <article class="event-card">
-        <img class="venue-photo" src="assets/recepcao.jpg" alt="Local da recepção">
-        <div class="event-card-body">
-        <span class="event-number">02</span>
-        <h3>Recepção</h3>
-        <p class="time">Após a cerimônia</p>
-        <p>R. Carlos Olávo Vicentini, 83<br>Planalto, São Bernardo do Campo - SP<br>09890-160</p>
-        <a class="lux-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=R.%20Carlos%20Ol%C3%A1vo%20Vicentini%2C%2083%20-%20Planalto%2C%20S%C3%A3o%20Bernardo%20do%20Campo%20-%20SP%2C%2009890-160">Ver no mapa</a>
-        </div>
-      </article>
-    </div>
-  </section>
+<section class="rsvp" id="rsvp">
+  <div><p class="eyebrow gold">RSVP</p><h2>Será uma alegria ter você conosco.</h2><p>Confirme sua presença pelo formulário.</p></div>
+  <form id="rsvpForm">
+    <label>Nome completo<input name="nome" required></label>
+    <label>Quantidade<select name="pessoas" required><option value="">Selecione</option><option>1 pessoa</option><option>2 pessoas</option><option>3 pessoas</option><option>4 pessoas</option><option>5 pessoas</option></select></label>
+    <label>Mensagem<textarea name="mensagem" rows="4"></textarea></label>
+    <button class="btn light" type="submit">Confirmar pelo WhatsApp</button>
+  </form>
+</section>
 
-  <section class="gallery-section" id="galeria">
-    <div class="gallery-heading">
-      <p class="eyebrow">NOSSOS MOMENTOS</p>
-      <h2>Memórias que nos trouxeram até aqui</h2>
-    </div>
-    <div class="lux-gallery curated">
-      <img src="assets/selecionada-01.jpg" alt="Samuel e Lorena">
-      <img src="assets/selecionada-02.jpg" alt="Samuel e Lorena">
-      <img src="assets/selecionada-03.jpg" alt="Samuel e Lorena">
-      <img src="assets/selecionada-04.jpg" alt="Samuel e Lorena">
-      <img src="assets/selecionada-05.jpg" alt="Samuel e Lorena">
-      <img src="assets/selecionada-06.jpg" alt="Samuel e Lorena">
-    </div>
-  </section>
-
-  <section class="rsvp-section" id="rsvp">
-    <div class="rsvp-inner">
-      <div class="rsvp-copy reveal">
-        <p class="eyebrow light-text">RSVP</p>
-        <h2>Será uma alegria<br>ter você conosco.</h2>
-        <p>Confirme sua presença pelo formulário. Ao enviar, sua confirmação será aberta no WhatsApp dos noivos.</p>
-      </div>
-
-      <form class="rsvp-form reveal" id="rsvpForm">
-        <label>Nome completo<input name="nome" required></label>
-        <label>Quantidade de pessoas
-          <select name="pessoas" required>
-            <option value="">Selecione</option>
-            <option>1 pessoa</option><option>2 pessoas</option><option>3 pessoas</option><option>4 pessoas</option><option>5 pessoas</option>
-          </select>
-        </label>
-        <label>Mensagem<textarea name="mensagem" rows="4"></textarea></label>
-        <button class="lux-btn light" type="submit">Confirmar presença</button>
-      </form>
-    </div>
-  </section>
-
-  <section class="gift-section section mission-gifts" id="presentes">
-    <p class="eyebrow">UM CASAMENTO COM PROPÓSITO</p>
-    <h2>Nosso presente será<br>transformado em missão.</h2>
-    <p class="gift-copy">Em vez de presentes para nós, escolhemos transformar este momento em esperança. Se desejar nos presentear, contribua com um dos projetos missionários que fazem parte do propósito do nosso casamento.</p>
-
-    <div class="mission-projects reveal">
-      <article class="mission-project-card">
-        <img src="assets/projeto-passagens.jpg" alt="Duas passagens missionárias">
-        <div class="mission-project-content">
-          <span>PROJETO 01</span>
-          <h3>Duas passagens missionárias</h3>
-          <p>Ajude a enviar missionários para servir onde há necessidade.</p>
-          <strong>Alvo: R$ 20.000</strong>
-        </div>
-      </article>
-
-      <article class="mission-project-card">
-        <img src="assets/projeto-container.jpg" alt="Contêiner para as missões">
-        <div class="mission-project-content">
-          <span>PROJETO 02</span>
-          <h3>Contêiner para as missões</h3>
-          <p>Um espaço de apoio, organização e envio para novos projetos missionários.</p>
-          <strong>Alvo: R$ 40.000</strong>
-        </div>
-      </article>
-
-      <article class="mission-project-card">
-        <img src="assets/projeto-guine-bissau.jpg" alt="Construção de salas e igreja em Guiné-Bissau">
-        <div class="mission-project-content">
-          <span>PROJETO 03</span>
-          <h3>Salas e igreja em Guiné-Bissau</h3>
-          <p>Construindo um lugar para ensinar, acolher, servir e compartilhar esperança.</p>
-          <strong>Alvo: R$ 60.000</strong>
-        </div>
-      </article>
-    </div>
-
-    <div class="mission-quote">
-      <p>“Nosso amor celebra um dia. A missão pode transformar uma vida inteira.”</p>
-      <span>Samuel & Lorena</span>
-    </div>
-
-    <div class="pix-card reveal pix-donation-card">
-      <div class="pix-info">
-        <span>CHAVE PIX PARA AS CONTRIBUIÇÕES</span>
-        <strong id="pixKey">19 99835-0381</strong>
-        <p>Use a chave acima para contribuir com qualquer um dos três projetos missionários.</p>
-        <div class="pix-actions">
-          <button class="lux-btn" onclick="copyPix()">Copiar chave Pix</button>
-          <button class="lux-btn secondary" id="copyPayloadBtn" onclick="copyPixPayload()">Copiar Pix copia e cola</button>
-        </div>
-        <small id="pixNote">Titular: Samuel Fernando Laureano Lopez · Hortolândia/SP</small>
-      </div>
-      <div class="pix-qr-placeholder" aria-label="QR Code Pix">
-        <img class="pix-qr-img" src="assets/pix-qrcode.png" alt="QR Code Pix">
-        <span>QR CODE PIX</span>
-        <small>Escaneie com o aplicativo do seu banco</small>
-      </div>
-    </div>
-    <div class="pix-payload-box">
+<section class="pix-section section" id="pix">
+  <p class="eyebrow gold">FAÇA PARTE DESSA MISSÃO</p>
+  <h2>Contribua com os projetos missionários</h2>
+  <p class="lead">Escolhemos transformar os presentes do nosso casamento em missão.</p>
+  <div class="pix-grid pix-grid-clean">
+    <div class="copy-card">
       <span>PIX COPIA E COLA</span>
-      <textarea id="pixPayload" readonly>00020126360014BR.GOV.BCB.PIX0114+55199983503815204000053039865802BR5923SAMUEL F LAUREANO LOPEZ6011HORTOLANDIA62070503***63041773</textarea>
-      <button class="lux-btn" onclick="copyPixPayload()">Copiar código Pix</button>
+      <p>Copie o código abaixo e cole diretamente no aplicativo do seu banco.</p>
+      <textarea id="pixPayload" readonly>00020126360014BR.GOV.BCB.PIX01145204000053039865802BR5923SAMUEL F LAUREANO LOPEZ6011HORTOLANDIA62070503***63041773</textarea>
+      <button class="btn" onclick="copyPixPayload()">Copiar Pix Copia e Cola</button>
     </div>
-  </section>
+    <div class="qr-card">
+      <img src="assets/pix-qrcode.png?v=2" alt="QR Code Pix">
+      <span>QR CODE PIX</span>
+      <small>Escaneie pelo aplicativo do seu banco.</small>
+    </div>
+  </div>
+  <p class="pix-note">Seu presente pode atravessar fronteiras e alcançar vidas.</p>
+</section>
 
-  <section class="closing">
-    <div class="closing-overlay"></div>
-    <div class="closing-copy reveal">
-      <p class="overline">14 · 02 · 2027</p>
-      <h2>Para sempre começa aqui.</h2>
-      <p>Samuel & Lorena</p>
-    </div>
-  </section>
+<section class="closing">
+  <div class="closing-shade"></div>
+  <div><p class="eyebrow">14 · 02 · 2027</p><h2>Que o nosso lar seja um ponto de partida para a missão.</h2><p>Samuel & Lorena</p></div>
+</section>
 </main>
 
-<footer>
-  <div class="footer-mark">S&L</div>
-  <p>14 de fevereiro de 2027 · São Bernardo do Campo</p>
-</footer>
-
-<div class="toast" id="toast">Chave Pix copiada</div>
-<script src="script.js"></script>
+<footer><strong>S&L</strong><p>Unidos pelo amor · Chamados para a missão</p></footer>
+<div class="toast" id="toast">Pix Copia e Cola copiado</div>
+<script src="script.js?v=20260824-2"></script>
 </body>
 </html>
