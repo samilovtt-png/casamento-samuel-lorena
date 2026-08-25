@@ -1,4 +1,4 @@
-# Samuel & Lorena — Versão Elegante
+# Samuel & Lorena — V43 — correção Pix, doações e upload
 
 Versão refinada do site com:
 - paleta azul-marinho + champagne
