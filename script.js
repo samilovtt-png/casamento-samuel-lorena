@@ -149,3 +149,36 @@ async function copyPixPayload(){
     });
   }
 })();
+
+/* V23 — filtros da galeria e confirmação de pagamento */
+(function(){
+  const filterBtns = Array.from(document.querySelectorAll("[data-gallery-filter]"));
+  const galleryImgs = Array.from(document.querySelectorAll('.mission-gallery img,[class*="mission-gallery"] img'));
+  filterBtns.forEach(btn=>{
+    btn.addEventListener("click",()=>{
+      filterBtns.forEach(b=>b.classList.remove("active"));
+      btn.classList.add("active");
+      const f=btn.dataset.galleryFilter;
+      galleryImgs.forEach(img=>{
+        img.classList.toggle("gallery-hidden", f!=="all" && img.dataset.category!==f);
+      });
+    });
+  });
+
+  const paidBtn=document.getElementById("paymentDoneBtn");
+  const paidMsg=document.getElementById("paymentDoneMsg");
+  if(paidBtn){
+    const restore=()=>{
+      const done=localStorage.getItem("samuelLorenaPaymentDone")==="1";
+      paidBtn.classList.toggle("done",done);
+      paidBtn.textContent=done?"✓ Pagamento marcado como realizado":"✓ Já realizei o pagamento";
+      if(paidMsg) paidMsg.classList.toggle("show",done);
+    };
+    paidBtn.addEventListener("click",()=>{
+      const done=localStorage.getItem("samuelLorenaPaymentDone")==="1";
+      localStorage.setItem("samuelLorenaPaymentDone",done?"0":"1");
+      restore();
+    });
+    restore();
+  }
+})();

@@ -73,3 +73,15 @@ Versão refinada do site com:
 - informações aos convidados: chegada, traje e localização
 - final com frase mais marcante
 - imagens otimizadas para carregamento mais rápido
+
+
+## V23 — refinamento premium
+- navegação fixa e discreta
+- capa com hierarquia visual refinada
+- nova seção Nossa História
+- resumo elegante de data, horário e chegada
+- galeria com filtros Nós dois / Nossa missão
+- metas dos projetos com barras preparadas para progresso
+- opção local “Já realizei o pagamento”
+- rodapé premium
+- melhorias de responsividade e espaçamento

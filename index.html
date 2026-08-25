@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20260824-22">
+<link rel="stylesheet" href="styles.css?v=20260824-23">
 
 <style id="gallery-lightbox-style">
 .gallery img, .gallery-grid img, [class*="gallery"] img, [class*="galeria"] img {
@@ -70,6 +70,20 @@
 
 </head>
 <body>
+
+<nav class="premium-nav" aria-label="Navegação principal">
+  <a class="premium-brand" href="#inicio">S <span>&</span> L</a>
+  <div class="premium-links">
+    <a href="#inicio">Início</a>
+    <a href="#historia">Nossa História</a>
+    <a href="#locais">Casamento</a>
+    <a href="#galeria">Galeria</a>
+    <a href="#presentes">Presentes</a>
+    <a href="#rsvp">Confirmar</a>
+  </div>
+  <a class="premium-rsvp" href="#rsvp">RSVP</a>
+</nav>
+
 
 <div class="intro" id="intro">
   <div class="intro-card">
@@ -176,11 +190,11 @@
   <p class="eyebrow gold">NOSSA JORNADA MISSIONÁRIA</p>
   <h2>De país em país, Deus foi escrevendo nossa história.</h2>
   <div class="mission-route-line">
-    <article><span class="flag">🇧🇷</span><b>Brasil</b><small>Onde nossa história continua sendo escrita</small></article>
+    <article data-goal="R$ 20.000"><span class="flag">🇧🇷</span><b>Brasil</b><small>Onde nossa história continua sendo escrita</small><div class="project-goal-bar"><div><span>Meta do projeto</span><strong>R$ 20.000</strong></div><i><b style="width:0%"></b></i><small>Progresso poderá ser atualizado pelos noivos</small></div></article>
     <i></i>
-    <article><span class="flag">🇦🇷</span><b>Argentina</b><small>Serviço, amizade e missão</small></article>
+    <article data-goal="R$ 40.000"><span class="flag">🇦🇷</span><b>Argentina</b><small>Serviço, amizade e missão</small><div class="project-goal-bar"><div><span>Meta do projeto</span><strong>R$ 40.000</strong></div><i><b style="width:0%"></b></i><small>Progresso poderá ser atualizado pelos noivos</small></div></article>
     <i></i>
-    <article><span class="flag">🇧🇴</span><b>Bolívia</b><small>Caminhos que aproximam</small></article>
+    <article data-goal="R$ 60.000"><span class="flag">🇧🇴</span><b>Bolívia</b><small>Caminhos que aproximam</small><div class="project-goal-bar"><div><span>Meta do projeto</span><strong>R$ 60.000</strong></div><i><b style="width:0%"></b></i><small>Progresso poderá ser atualizado pelos noivos</small></div></article>
     <i></i>
     <article><span class="flag">🇵🇪</span><b>Peru</b><small>Memórias que atravessam fronteiras</small></article>
     <i></i>
@@ -249,20 +263,26 @@
   <p class="pix-note">Seu presente pode atravessar fronteiras e alcançar vidas.</p>
 </section>
 
-<section class="mission-gallery-section" id="campos">
+<section class="mission-gallery-section" id="galeria" id="campos">
   <div class="mission-heading">
     <p class="eyebrow gold">CAMPOS MISSIONÁRIOS</p>
     <h2>Memórias de uma vida em missão.</h2>
     <p>“Ide por todo o mundo e pregai o evangelho a toda criatura.” <small>Marcos 16:15</small></p>
   </div>
-  <div class="mission-gallery mission-gallery-v2">
-    <figure><img src="assets/campo-missionario-v2-01.jpg?v=3" alt="Missão com crianças" data-caption="Servir com amor"><figcaption>Servir com amor</figcaption></figure>
-    <figure><img src="assets/campo-missionario-v2-02.jpg?v=3" alt="Equipe missionária" data-caption="Juntos para servir"><figcaption>Juntos para servir</figcaption></figure>
-    <figure><img src="assets/campo-missionario-v2-03.jpg?v=3" alt="Missão e culturas" data-caption="Até os confins da Terra"><figcaption>Até os confins da Terra</figcaption></figure>
-    <figure><img src="assets/campo-missionario-v2-04.jpg?v=3" alt="Momento missionário" data-caption="Uma missão que aproxima"><figcaption>Uma missão que aproxima</figcaption></figure>
-    <figure><img src="assets/campo-missionario-v2-05.jpg?v=3" alt="Equipe em ação" data-caption="Mãos que transformam"><figcaption>Mãos que transformam</figcaption></figure>
-    <figure><img src="assets/campo-missionario-v2-06.jpg?v=3" alt="Equipe com bandeiras" data-caption="Chamados para ir"><figcaption>Chamados para ir</figcaption></figure>
-    <figure><img src="assets/campo-missionario-v2-07.jpg?v=3" alt="Equipe diante de igreja adventista" data-caption="Uma igreja em missão"><figcaption>Uma igreja em missão</figcaption></figure>
+  
+<div class="gallery-category-tabs">
+  <button type="button" class="active" data-gallery-filter="all">Todos</button>
+  <button type="button" data-gallery-filter="casal">Nós dois</button>
+  <button type="button" data-gallery-filter="missao">Nossa missão</button>
+</div>
+<div class="mission-gallery mission-gallery-v2">
+    <figure><img src="assets/campo-missionario-v2-01.jpg?v=3" alt="Missão com crianças" data-caption="Servir com amor" data-category="casal"><figcaption>Servir com amor</figcaption></figure>
+    <figure><img src="assets/campo-missionario-v2-02.jpg?v=3" alt="Equipe missionária" data-caption="Juntos para servir" data-category="casal"><figcaption>Juntos para servir</figcaption></figure>
+    <figure><img src="assets/campo-missionario-v2-03.jpg?v=3" alt="Missão e culturas" data-caption="Até os confins da Terra" data-category="missao"><figcaption>Até os confins da Terra</figcaption></figure>
+    <figure><img src="assets/campo-missionario-v2-04.jpg?v=3" alt="Momento missionário" data-caption="Uma missão que aproxima" data-category="missao"><figcaption>Uma missão que aproxima</figcaption></figure>
+    <figure><img src="assets/campo-missionario-v2-05.jpg?v=3" alt="Equipe em ação" data-caption="Mãos que transformam" data-category="casal"><figcaption>Mãos que transformam</figcaption></figure>
+    <figure><img src="assets/campo-missionario-v2-06.jpg?v=3" alt="Equipe com bandeiras" data-caption="Chamados para ir" data-category="missao"><figcaption>Chamados para ir</figcaption></figure>
+    <figure><img src="assets/campo-missionario-v2-07.jpg?v=3" alt="Equipe diante de igreja adventista" data-caption="Uma igreja em missão" data-category="missao"><figcaption>Uma igreja em missão</figcaption></figure>
   </div>
 </section>
 
@@ -363,7 +383,10 @@
         </button>
       </div>
 
-      <p class="confirmation-secure">Confirmação rápida • Pagamento pelo Pix do site</p>
+      
+<button type="button" id="paymentDoneBtn" class="payment-done-btn">✓ Já realizei o pagamento</button>
+<div id="paymentDoneMsg" class="payment-done-msg">Pagamento marcado neste dispositivo. Obrigado por confirmar conosco.</div>
+<p class="confirmation-secure">Confirmação rápida • Pagamento pelo Pix do site</p>
     </form>
     <div id="rsvpSuccess" class="rsvp-success" aria-live="polite">
       <span>✓</span>
@@ -385,9 +408,15 @@
 </section>
 </main>
 
-<footer><strong>S&L</strong><p>Unidos pelo amor · Chamados para a missão</p></footer>
+
+<footer class="premium-footer">
+  <div class="footer-monogram">S <span>&</span> L</div>
+  <p>Samuel & Lorena <i>•</i> 14.02.2027 <i>•</i> 14h45</p>
+  <small>Até os confins da Terra.</small>
+</footer>
+
 <div class="toast" id="toast">Pix Copia e Cola copiado</div>
-<script src="script.js?v=20260824-22"></script>
+<script src="script.js?v=20260824-23"></script>
 
 <div id="galleryLightbox" aria-hidden="true">
   <button class="gl-close" aria-label="Fechar">×</button>

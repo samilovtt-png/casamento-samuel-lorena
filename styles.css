@@ -1363,3 +1363,80 @@ footer strong{color:var(--champagne)!important}
   .countdown-pro-grid div:nth-child(-n+2){border-bottom:1px solid rgba(201,165,106,.22)}
   .countdown-pro-grid strong{font-size:2.5rem}
 }
+
+/* =========================================================
+   V23 — REFINAMENTO PREMIUM
+   ========================================================= */
+html{scroll-behavior:smooth;scroll-padding-top:74px}
+.premium-nav{
+  position:fixed;top:0;left:0;right:0;z-index:9990;
+  height:66px;padding:0 4vw;display:flex;align-items:center;justify-content:space-between;
+  background:rgba(3,17,31,.82);border-bottom:1px solid rgba(220,196,154,.13);
+  backdrop-filter:blur(13px);-webkit-backdrop-filter:blur(13px);
+}
+.premium-brand{font:500 1.25rem "Cormorant Garamond",serif;color:#fff;text-decoration:none;letter-spacing:.08em}
+.premium-brand span{color:#c9a56a;font-style:italic}
+.premium-links{display:flex;gap:25px}
+.premium-links a{color:rgba(255,255,255,.75);text-decoration:none;font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;transition:.2s}
+.premium-links a:hover{color:#d7b77e}
+.premium-rsvp{padding:8px 13px;border:1px solid rgba(201,165,106,.6);color:#e9d8b8;text-decoration:none;font-size:.55rem;letter-spacing:.13em}
+
+.hero{padding-top:66px}
+.hero h1{font-size:clamp(4.8rem,9vw,9rem)!important;line-height:.82!important}
+.hero .eyebrow{letter-spacing:.19em}
+.hero-quick-actions a{border-radius:0!important}
+
+.couple-story{display:grid;grid-template-columns:1.15fr .85fr;gap:80px;align-items:center;background:#fbfaf7;padding-block:110px!important}
+.couple-story-copy{max-width:720px}
+.couple-story-copy h2{font-size:clamp(3.2rem,5vw,5.4rem);line-height:1;margin:12px 0 28px;color:#071a35}
+.couple-story-copy>p{color:#64717d;line-height:1.9;max-width:650px}
+.couple-story-copy blockquote{margin:30px 0 0;padding-left:20px;border-left:1px solid #c9a56a;font:italic 1.55rem "Cormorant Garamond",serif;color:#9b773e}
+.couple-story-detail{min-height:340px;border:1px solid rgba(7,26,53,.08);display:flex;align-items:center;justify-content:center;gap:13px;position:relative;background:#f2f5f7}
+.couple-story-detail span{font:500 2.1rem "Cormorant Garamond",serif;color:#071a35}
+.couple-story-detail b{color:#c9a56a;font:italic 1.5rem "Cormorant Garamond",serif}
+.couple-story-detail i{width:38px;height:1px;background:#c9a56a}
+.couple-story-detail small{position:absolute;bottom:32px;font-size:.55rem;letter-spacing:.17em;color:#77838e}
+
+.ceremony-summary{max-width:1020px;margin:32px auto 48px;display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:center;padding:24px 28px;border-block:1px solid rgba(201,165,106,.28)}
+.ceremony-summary>div{text-align:center}
+.ceremony-summary small{display:block;color:#a27d43;font-size:.55rem;letter-spacing:.15em;margin-bottom:7px}
+.ceremony-summary strong{font:500 1.45rem "Cormorant Garamond",serif;color:#071a35}
+.ceremony-summary>i{height:35px;width:1px;background:rgba(201,165,106,.28)}
+
+.gallery-category-tabs{display:flex;justify-content:center;gap:8px;margin:0 auto 30px;flex-wrap:wrap}
+.gallery-category-tabs button{padding:9px 14px;border:1px solid rgba(220,196,154,.28);background:transparent;color:#dbc397;font-size:.56rem;letter-spacing:.13em;text-transform:uppercase;cursor:pointer}
+.gallery-category-tabs button.active,.gallery-category-tabs button:hover{background:#c9a56a;color:#071a35}
+.mission-gallery img.gallery-hidden{display:none!important}
+
+.project-goal-bar{margin-top:20px;padding-top:16px;border-top:1px solid rgba(7,26,53,.08)}
+.project-goal-bar>div{display:flex;justify-content:space-between;gap:10px;align-items:center}
+.project-goal-bar span,.project-goal-bar small{font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:#7a858f}
+.project-goal-bar strong{font-size:.75rem!important;color:#9b773e!important}
+.project-goal-bar>i{display:block;height:4px;background:#e8ebed;margin:10px 0 7px;overflow:hidden}
+.project-goal-bar>i b{display:block;height:100%;background:linear-gradient(90deg,#0b2947,#c9a56a)}
+
+.payment-done-btn{width:100%;margin-top:12px;padding:12px;border:1px solid #cbd2d8;background:#fff;color:#51606d;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+.payment-done-btn.done{border-color:#8bb394;background:#eff7f0;color:#2f6d3b}
+.payment-done-msg{display:none;padding:10px 12px;margin-top:8px;background:#eff7f0;color:#3e6746;font-size:.68rem;text-align:center}
+.payment-done-msg.show{display:block}
+
+.premium-footer{background:#03111f!important;text-align:center;padding:58px 20px!important;color:#fff}
+.footer-monogram{font:500 2.1rem "Cormorant Garamond",serif;letter-spacing:.08em}
+.footer-monogram span{color:#c9a56a;font-style:italic}
+.premium-footer p{font-size:.62rem;letter-spacing:.13em;text-transform:uppercase;color:#b9c3cc;margin:14px 0 9px}
+.premium-footer p i{color:#c9a56a;margin:0 6px}
+.premium-footer small{font:italic 1.05rem "Cormorant Garamond",serif;color:#d7b77e}
+
+@media(max-width:900px){
+  .premium-links{display:none}
+  .couple-story{grid-template-columns:1fr;gap:42px;padding-block:80px!important}
+  .couple-story-detail{min-height:250px}
+  .ceremony-summary{grid-template-columns:1fr;gap:18px}
+  .ceremony-summary>i{width:50px;height:1px;margin:auto}
+}
+@media(max-width:600px){
+  .premium-nav{height:58px;padding:0 18px}
+  .hero{padding-top:58px}
+  .hero h1{font-size:4.5rem!important}
+  .couple-story-copy h2{font-size:3.2rem}
+}
