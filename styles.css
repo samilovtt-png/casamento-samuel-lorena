@@ -960,3 +960,12 @@ footer strong{color:var(--champagne)!important}
 @media(max-width:850px){
   .guest-prices,.guest-count-grid{grid-template-columns:1fr}
 }
+
+/* V12 — nova foto na seção Caminhos */
+.journey-photo{
+  object-position:center 50%!important;
+  filter:saturate(.92) contrast(.98) brightness(.86)!important;
+}
+@media(max-width:850px){
+  .journey-photo{object-position:center 48%!important}
+}

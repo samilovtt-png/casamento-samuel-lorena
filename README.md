@@ -46,3 +46,8 @@ Versão refinada do site com:
 - valor calculado automaticamente
 - confirmação enviada via WhatsApp
 - botão para pagamento pelo Pix já existente no site
+
+
+## V12
+- foto da seção Caminhos substituída pela foto do casal com girassol
+- restante do site preservado
