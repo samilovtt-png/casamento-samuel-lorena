@@ -1733,3 +1733,8 @@ html{scroll-behavior:smooth;scroll-padding-top:74px}
   cursor:pointer;
 }
 .guest-photo-choose:hover{filter:brightness(1.12);}
+
+/* V39 fail-safe: a abertura nunca pode bloquear o site indefinidamente */
+@keyframes loaderFailSafeV39{0%,75%{opacity:1;visibility:visible}100%{opacity:0;visibility:hidden;pointer-events:none}}
+.site-loader{animation:loaderFailSafeV39 2.4s forwards;}
+.site-loader.hide{animation:none;opacity:0;visibility:hidden;pointer-events:none;}

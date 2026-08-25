@@ -81,7 +81,20 @@
 </head>
 <body>
 <div class="site-loader" id="siteLoader">
-  <div class="loader-monogram">S <span>&</span> L</div>
+  <div class="loader-monogram">S <span>&</span> L</div><script>
+// V39 safety: fecha a tela de abertura mesmo se outro script falhar.
+(function(){
+  function closeWeddingLoader(){
+    var el=document.getElementById('siteLoader');
+    if(!el) return;
+    el.classList.add('hide');
+    window.setTimeout(function(){ if(el && el.parentNode) el.parentNode.removeChild(el); },700);
+  }
+  window.setTimeout(closeWeddingLoader,1800);
+  window.addEventListener('load',function(){window.setTimeout(closeWeddingLoader,250);},{once:true});
+})();
+</script>
+
   <small>14 · 02 · 2027</small>
 </div>
 
@@ -488,7 +501,7 @@
 
 <div class="toast" id="toast">Pix Copia e Cola copiado</div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="script.js?v=20260825-35"></script>
+<script src="script.js?v=20260825-39"></script>
 
 <div id="galleryLightbox" aria-hidden="true">
   <button class="gl-close" aria-label="Fechar">×</button>
