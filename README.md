@@ -85,3 +85,16 @@ Versão refinada do site com:
 - opção local “Já realizei o pagamento”
 - rodapé premium
 - melhorias de responsividade e espaçamento
+
+
+## V24 — Ultra
+- convite personalizado por família via URL: ?familia=Nome&max=4
+- botão compartilhar convite
+- arquivo .ics para adicionar ao calendário
+- rota cerimônia → recepção
+- projetos missionários interativos
+- prazo RSVP configurável no JS (oculto enquanto não definido)
+- envio de comprovante pelo WhatsApp
+- galeria editorial com fotos favoritas
+- imagens WebP e lazy-loading para melhor performance
+- transparência sobre registro local do status de pagamento

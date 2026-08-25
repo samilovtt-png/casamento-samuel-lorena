@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20260824-23">
+<link rel="stylesheet" href="styles.css?v=20260824-24">
 
 <style id="gallery-lightbox-style">
 .gallery img, .gallery-grid img, [class*="gallery"] img, [class*="galeria"] img {
@@ -92,7 +92,7 @@
     <h1>Samuel <em>&</em> Lorena</h1>
     <p>14 · 02 · 2027 · 14h45</span></p>
     <div class="line"></div>
-    <p class="intro-text">Duas vidas, um chamado, uma missão.</p>
+    <p class="intro-text">Nosso casamento. Nossa missão. Nossa história começa aqui.</p>
     <button id="openInvite">ABRIR CONVITE ♡</button>
   </div>
 </div>
@@ -103,7 +103,7 @@
 <header class="hero" id="inicio">
   <div class="hero-shade"></div>
   <div class="world-watermark">WORLD MISSION</div>
-  <img class="mission-map-overlay" src="assets/mapa-rotas-v2.svg" alt="" aria-hidden="true">
+  <img loading="lazy" class="mission-map-overlay" src="assets/mapa-rotas-v2.svg" alt="" aria-hidden="true">
   <div class="mission-compass" aria-hidden="true">N<br><span>✦</span><br>S</div>
   <div class="route route-a"></div><div class="route route-b"></div>
   <span class="plane plane-a">✈</span><span class="plane plane-b">✈</span>
@@ -119,6 +119,11 @@
     </div>
   </nav>
   <div class="hero-copy">
+<div class="family-greeting" id="familyGreeting" hidden>
+  <span>CONVITE ESPECIAL PARA</span>
+  <strong id="familyGreetingName"></strong>
+</div>
+
     <p class="eyebrow">UM CASAMENTO COM PROPÓSITO</p>
     <h1>Samuel <em>&</em> Lorena</h1>
     <p class="date">14 · 02 · 2027 · 14h45</p>
@@ -128,6 +133,11 @@
   <a href="#rsvp">Confirmar presença</a>
   <a href="#locais">Como chegar</a>
 </div>
+<div class="wedding-utility-actions">
+  <button type="button" id="shareWedding">Compartilhar convite</button>
+  <a href="assets/samuel-lorena-casamento.ics" download>Adicionar ao calendário</a>
+</div>
+
 
   </div>
 </header>
@@ -157,7 +167,7 @@
 </section>
 
 <section class="story" id="historia">
-  <div class="story-image"><img src="assets/story.jpg" alt="Samuel e Lorena"></div>
+  <div class="story-image"><img loading="lazy" src="assets/story.webp?v=24" alt="Samuel e Lorena"></div>
   <div class="story-copy">
     <p class="eyebrow gold">NOSSA HISTÓRIA</p>
     <h2>Deus nos uniu para servir juntos.</h2>
@@ -181,8 +191,8 @@
     <p class="journey-script">Uma história que continua em missão.</p>
   </div>
   <div class="journey-visual">
-    <img class="journey-photo" src="assets/foto-caminhos-peru-v14.jpg?v=14" alt="Samuel e Lorena em viagem missionária">
-    <img class="journey-map-watermark" src="assets/mapa-rotas-v2.svg" alt="" aria-hidden="true">
+    <img loading="lazy" class="journey-photo" src="assets/foto-caminhos-peru-v14.webp?v=24" alt="Samuel e Lorena em viagem missionária">
+    <img loading="lazy" class="journey-map-watermark" src="assets/mapa-rotas-v2.svg" alt="" aria-hidden="true">
     <div class="journey-stamp" aria-hidden="true">ATÉ OS CONFINS<br><span>DA TERRA</span></div>
   </div>
 </section>
@@ -209,13 +219,13 @@
   <h2>Cerimônia & Recepção</h2>
   <div class="location-grid">
     <article>
-      <img src="assets/cerimonia.jpg" alt="Local da cerimônia">
+      <img loading="lazy" src="assets/cerimonia.webp?v=24" alt="Local da cerimônia">
       <div class="location-body"><span>01</span><h3>Cerimônia</h3><p><strong>14 de fevereiro de 2027 · 15h</strong></p>
       <p>Estr. José Moura, 1370<br>Batistini, São Bernardo do Campo - SP<br>09844-190</p>
       <a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Estr.%20Jos%C3%A9%20Moura%2C%201370%20Batistini%20S%C3%A3o%20Bernardo%20do%20Campo">Como chegar</a></div>
     </article>
     <article>
-      <img src="assets/recepcao.jpg" alt="Local da recepção">
+      <img loading="lazy" src="assets/recepcao.webp?v=24" alt="Local da recepção">
       <div class="location-body"><span>02</span><h3>Recepção</h3><p><strong>Após a cerimônia</strong></p>
       <p>R. Carlos Olávo Vicentini, 83<br>Planalto, São Bernardo do Campo - SP<br>09890-160</p>
       <a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=R.%20Carlos%20Ol%C3%A1vo%20Vicentini%2C%2083%20Planalto%20S%C3%A3o%20Bernardo%20do%20Campo">Como chegar</a></div>
@@ -237,9 +247,9 @@
   <h2>Nosso presente será missão.</h2>
   <p class="lead">Em vez de presentes para nós, convidamos você a fazer parte dos sonhos missionários que estão em nosso coração.</p>
   <div class="mission-total"><span>Meta missionária total</span><strong>R$ 120.000</strong></div><div class="project-grid">
-    <article><img src="assets/projeto-passagens.jpg"><div><span>✈ PROJETO 01</span><h3>Duas passagens missionárias</h3><p>Para que possamos continuar indo, servindo e anunciando esperança.</p><strong>Meta · R$ 20.000</strong></div></article>
-    <article><img src="assets/projeto-container.jpg"><div><span>▣ PROJETO 02</span><h3>Contêiner para as missões</h3><p>Um espaço de apoio, organização, materiais e envio para novos campos.</p><strong>Meta · R$ 40.000</strong></div></article>
-    <article><img src="assets/projeto-guine.jpg"><div><span>⌂ PROJETO 03</span><h3>Salas e igreja em Guiné-Bissau</h3><p>Construindo um lugar para ensinar, acolher, servir e compartilhar esperança.</p><strong>Meta · R$ 60.000</strong></div></article>
+    <article><img loading="lazy" src="assets/projeto-passagens.webp?v=24"><div><span>✈ PROJETO 01</span><h3>Duas passagens missionárias</h3><p>Para que possamos continuar indo, servindo e anunciando esperança.</p><strong>Meta · R$ 20.000</strong></div></article>
+    <article><img loading="lazy" src="assets/projeto-container.webp?v=24"><div><span>▣ PROJETO 02</span><h3>Contêiner para as missões</h3><p>Um espaço de apoio, organização, materiais e envio para novos campos.</p><strong>Meta · R$ 40.000</strong></div></article>
+    <article><img loading="lazy" src="assets/projeto-guine.webp?v=24"><div><span>⌂ PROJETO 03</span><h3>Salas e igreja em Guiné-Bissau</h3><p>Construindo um lugar para ensinar, acolher, servir e compartilhar esperança.</p><strong>Meta · R$ 60.000</strong></div></article>
   </div>
 </section>
 
@@ -255,7 +265,7 @@
       <button class="btn" onclick="copyPixPayload()">Copiar Pix Copia e Cola</button>
     </div>
     <div class="qr-card">
-      <img src="assets/pix-qrcode.png?v=3" alt="QR Code Pix">
+      <img loading="lazy" src="assets/pix-qrcode.webp?v=24" alt="QR Code Pix">
       <span>QR CODE PIX</span>
       <small>Escaneie pelo aplicativo do seu banco.</small>
     </div>
@@ -270,19 +280,25 @@
     <p>“Ide por todo o mundo e pregai o evangelho a toda criatura.” <small>Marcos 16:15</small></p>
   </div>
   
+
+<div class="editorial-favorites">
+  <div class="favorite-main"><img loading="lazy" src="assets/campo-missionario-v2-01.webp?v=24" alt="Samuel e Lorena"></div>
+  <div><img loading="lazy" src="assets/campo-missionario-v2-04.webp?v=24" alt="Momento especial"></div>
+  <div><img loading="lazy" src="assets/campo-missionario-v2-06.webp?v=24" alt="Missão"></div>
+</div>
 <div class="gallery-category-tabs">
   <button type="button" class="active" data-gallery-filter="all">Todos</button>
   <button type="button" data-gallery-filter="casal">Nós dois</button>
   <button type="button" data-gallery-filter="missao">Nossa missão</button>
 </div>
 <div class="mission-gallery mission-gallery-v2">
-    <figure><img src="assets/campo-missionario-v2-01.jpg?v=3" alt="Missão com crianças" data-caption="Servir com amor" data-category="casal"><figcaption>Servir com amor</figcaption></figure>
-    <figure><img src="assets/campo-missionario-v2-02.jpg?v=3" alt="Equipe missionária" data-caption="Juntos para servir" data-category="casal"><figcaption>Juntos para servir</figcaption></figure>
-    <figure><img src="assets/campo-missionario-v2-03.jpg?v=3" alt="Missão e culturas" data-caption="Até os confins da Terra" data-category="missao"><figcaption>Até os confins da Terra</figcaption></figure>
-    <figure><img src="assets/campo-missionario-v2-04.jpg?v=3" alt="Momento missionário" data-caption="Uma missão que aproxima" data-category="missao"><figcaption>Uma missão que aproxima</figcaption></figure>
-    <figure><img src="assets/campo-missionario-v2-05.jpg?v=3" alt="Equipe em ação" data-caption="Mãos que transformam" data-category="casal"><figcaption>Mãos que transformam</figcaption></figure>
-    <figure><img src="assets/campo-missionario-v2-06.jpg?v=3" alt="Equipe com bandeiras" data-caption="Chamados para ir" data-category="missao"><figcaption>Chamados para ir</figcaption></figure>
-    <figure><img src="assets/campo-missionario-v2-07.jpg?v=3" alt="Equipe diante de igreja adventista" data-caption="Uma igreja em missão" data-category="missao"><figcaption>Uma igreja em missão</figcaption></figure>
+    <figure><img loading="lazy" src="assets/campo-missionario-v2-01.webp?v=24" alt="Missão com crianças" data-caption="Servir com amor" data-category="casal"><figcaption>Servir com amor</figcaption></figure>
+    <figure><img loading="lazy" src="assets/campo-missionario-v2-02.webp?v=24" alt="Equipe missionária" data-caption="Juntos para servir" data-category="casal"><figcaption>Juntos para servir</figcaption></figure>
+    <figure><img loading="lazy" src="assets/campo-missionario-v2-03.webp?v=24" alt="Missão e culturas" data-caption="Até os confins da Terra" data-category="missao"><figcaption>Até os confins da Terra</figcaption></figure>
+    <figure><img loading="lazy" src="assets/campo-missionario-v2-04.webp?v=24" alt="Momento missionário" data-caption="Uma missão que aproxima" data-category="missao"><figcaption>Uma missão que aproxima</figcaption></figure>
+    <figure><img loading="lazy" src="assets/campo-missionario-v2-05.webp?v=24" alt="Equipe em ação" data-caption="Mãos que transformam" data-category="casal"><figcaption>Mãos que transformam</figcaption></figure>
+    <figure><img loading="lazy" src="assets/campo-missionario-v2-06.webp?v=24" alt="Equipe com bandeiras" data-caption="Chamados para ir" data-category="missao"><figcaption>Chamados para ir</figcaption></figure>
+    <figure><img loading="lazy" src="assets/campo-missionario-v2-07.webp?v=24" alt="Equipe diante de igreja adventista" data-caption="Uma igreja em missão" data-category="missao"><figcaption>Uma igreja em missão</figcaption></figure>
   </div>
 </section>
 
@@ -322,7 +338,13 @@
     </div>
   </div>
 
-  <div class="confirmation-form-card">
+  
+<div class="rsvp-deadline-box" id="rsvpDeadlineBox" hidden>
+  <span>CONFIRME ATÉ</span>
+  <strong id="rsvpDeadlineText"></strong>
+  <small id="rsvpDeadlineCountdown"></small>
+</div>
+<div class="confirmation-form-card">
     <form id="rsvpForm">
       <div class="field-group field-full">
         <label for="guestName">Nome completo</label>
@@ -385,7 +407,13 @@
 
       
 <button type="button" id="paymentDoneBtn" class="payment-done-btn">✓ Já realizei o pagamento</button>
+<a class="send-receipt-btn" id="sendReceiptWhatsapp" target="_blank" rel="noopener">
+  Enviar comprovante pelo WhatsApp
+</a>
+
 <div id="paymentDoneMsg" class="payment-done-msg">Pagamento marcado neste dispositivo. Obrigado por confirmar conosco.</div>
+
+<p class="organizer-note">A confirmação é enviada pelo WhatsApp dos noivos. O marcador “já paguei” fica salvo neste dispositivo.</p>
 <p class="confirmation-secure">Confirmação rápida • Pagamento pelo Pix do site</p>
     </form>
     <div id="rsvpSuccess" class="rsvp-success" aria-live="polite">
@@ -416,12 +444,12 @@
 </footer>
 
 <div class="toast" id="toast">Pix Copia e Cola copiado</div>
-<script src="script.js?v=20260824-23"></script>
+<script src="script.js?v=20260824-24"></script>
 
 <div id="galleryLightbox" aria-hidden="true">
   <button class="gl-close" aria-label="Fechar">×</button>
   <button class="gl-nav gl-prev" aria-label="Foto anterior">‹</button>
-  <img alt="Foto ampliada da galeria">
+  <img loading="lazy" alt="Foto ampliada da galeria">
   <button class="gl-nav gl-next" aria-label="Próxima foto">›</button>
 </div>
 
@@ -492,9 +520,21 @@
     <p class="eyebrow gold">PAGAMENTO VIA PIX</p>
     <h3>Finalize sua confirmação</h3>
     <p class="pix-modal-text">Escaneie o QR Code ou copie o código Pix abaixo.</p>
-    <img src="assets/pix-qrcode.png?v=3" alt="QR Code Pix" class="pix-modal-qr">
+    <img loading="lazy" src="assets/pix-qrcode.webp?v=24" alt="QR Code Pix" class="pix-modal-qr">
     <textarea id="pixModalPayload" readonly>00020126360014BR.GOV.BCB.PIX01145204000053039865802BR5923SAMUEL F LAUREANO LOPEZ6011HORTOLANDIA62070503***63041773</textarea>
     <button type="button" id="copyPixModal" class="pix-modal-copy">Copiar Pix Copia e Cola</button>
+  </div>
+</div>
+
+
+<div class="project-modal" id="projectModal" aria-hidden="true">
+  <div class="project-modal-card">
+    <button type="button" class="project-modal-close">×</button>
+    <p class="eyebrow gold">NOSSO PRESENTE SERÁ MISSÃO</p>
+    <h3 id="projectModalTitle"></h3>
+    <p id="projectModalText"></p>
+    <strong id="projectModalGoal"></strong>
+    <a href="#pix" id="projectModalPix">Contribuir via Pix</a>
   </div>
 </div>
 

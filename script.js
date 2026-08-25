@@ -182,3 +182,100 @@ async function copyPixPayload(){
     restore();
   }
 })();
+
+
+/* V24 — personalização, compartilhamento, projetos e RSVP */
+(function(){
+  const params = new URLSearchParams(location.search);
+
+  // Personalização por família:
+  // ?familia=Silva&max=4
+  const family = params.get("familia");
+  const maxGuests = Number(params.get("max") || 0);
+  const greet = document.getElementById("familyGreeting");
+  const greetName = document.getElementById("familyGreetingName");
+  if(family && greet && greetName){
+    greetName.textContent = decodeURIComponent(family);
+    greet.hidden = false;
+  }
+
+  // Limitar convidados se ?max=N estiver presente
+  if(maxGuests > 0){
+    const adult = document.getElementById("adultGuests");
+    const child = document.getElementById("childGuests");
+    function trimSelect(sel){
+      if(!sel) return;
+      [...sel.options].forEach(opt=>{
+        if(Number(opt.value)>maxGuests) opt.remove();
+      });
+    }
+    trimSelect(adult); trimSelect(child);
+    if(adult && child){
+      const enforce=()=>{
+        let a=Number(adult.value||0), c=Number(child.value||0);
+        if(a+c>maxGuests){
+          child.value=String(Math.max(0,maxGuests-a));
+          child.dispatchEvent(new Event("change"));
+        }
+      };
+      adult.addEventListener("change",enforce);
+      child.addEventListener("change",enforce);
+    }
+  }
+
+  // Compartilhar
+  const share = document.getElementById("shareWedding");
+  if(share){
+    share.addEventListener("click",async()=>{
+      const data={title:"Casamento Samuel & Lorena",text:"Você está convidado para celebrar conosco em 14/02/2027 às 14h45.",url:location.href};
+      if(navigator.share){ try{await navigator.share(data)}catch(e){} }
+      else{
+        try{await navigator.clipboard.writeText(location.href);share.textContent="Link copiado ✓";setTimeout(()=>share.textContent="Compartilhar convite",1600)}catch(e){}
+      }
+    });
+  }
+
+  // Prazo RSVP configurável: deixe vazio para ocultar
+  const RSVP_DEADLINE = ""; // Ex.: "2027-01-31"
+  const deadlineBox=document.getElementById("rsvpDeadlineBox");
+  if(RSVP_DEADLINE && deadlineBox){
+    const dt=new Date(RSVP_DEADLINE+"T23:59:59-03:00");
+    deadlineBox.hidden=false;
+    document.getElementById("rsvpDeadlineText").textContent=dt.toLocaleDateString("pt-BR");
+    function upd(){
+      const days=Math.max(0,Math.ceil((dt-Date.now())/86400000));
+      document.getElementById("rsvpDeadlineCountdown").textContent=days?`${days} dias restantes`:"Prazo encerrado";
+    } upd(); setInterval(upd,3600000);
+  }
+
+  // Enviar comprovante WhatsApp
+  const receipt=document.getElementById("sendReceiptWhatsapp");
+  if(receipt){
+    const msg="Olá! Já realizei o pagamento da confirmação do casamento de Samuel & Lorena e gostaria de enviar o comprovante.";
+    receipt.href="https://wa.me/5519998350381?text="+encodeURIComponent(msg);
+  }
+
+  // Projetos
+  const projectData={
+    passagens:{title:"Duas passagens missionárias",text:"Este projeto ajudará a custear duas passagens para que a missão continue atravessando fronteiras, alcançando comunidades e levando serviço, cuidado e esperança.",goal:"Meta: R$ 20.000"},
+    container:{title:"Contêiner para as missões",text:"O contêiner será usado como estrutura de apoio para materiais, organização e recursos destinados a novos campos e ações missionárias.",goal:"Meta: R$ 40.000"},
+    guine:{title:"Salas e igreja em Guiné-Bissau",text:"O objetivo é construir salas e um espaço de igreja para acolher, ensinar, servir a comunidade e criar um ponto permanente de esperança.",goal:"Meta: R$ 60.000"}
+  };
+  const modal=document.getElementById("projectModal");
+  document.querySelectorAll(".project-detail-btn").forEach(btn=>{
+    btn.addEventListener("click",()=>{
+      const d=projectData[btn.dataset.project];
+      if(!d||!modal)return;
+      document.getElementById("projectModalTitle").textContent=d.title;
+      document.getElementById("projectModalText").textContent=d.text;
+      document.getElementById("projectModalGoal").textContent=d.goal;
+      modal.classList.add("open");modal.setAttribute("aria-hidden","false");document.body.style.overflow="hidden";
+    });
+  });
+  function closeProject(){if(!modal)return;modal.classList.remove("open");modal.setAttribute("aria-hidden","true");document.body.style.overflow=""}
+  const pmc=modal?modal.querySelector(".project-modal-close"):null;
+  if(pmc)pmc.addEventListener("click",closeProject);
+  if(modal)modal.addEventListener("click",e=>{if(e.target===modal)closeProject()});
+  const pmp=document.getElementById("projectModalPix");
+  if(pmp)pmp.addEventListener("click",closeProject);
+})();

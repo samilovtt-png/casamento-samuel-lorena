@@ -1,0 +1,14 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Samuel e Lorena//Casamento//PT-BR
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:samuel-lorena-20270214@casamento
+DTSTAMP:20260825T000000Z
+DTSTART;TZID=America/Sao_Paulo:20270214T144500
+SUMMARY:Casamento Samuel & Lorena
+DESCRIPTION:Casamento Samuel & Lorena - Unidos pelo amor. Chamados para a missão.
+LOCATION:Estr. José Moura, 1370 - Batistini, São Bernardo do Campo - SP, 09844-190
+END:VEVENT
+END:VCALENDAR
