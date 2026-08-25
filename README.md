@@ -120,3 +120,9 @@ Versão refinada do site com:
 - meta tags para compartilhamento
 - acessibilidade com reduced motion
 - refinamentos de enquadramento e botões mobile
+
+## V30 — Loader corrigido
+- tela S & L permanece apenas brevemente
+- liberação do site independente de imagens, música ou script principal
+- fallback em DOMContentLoaded, load, timeout e erro
+- loader é removido do DOM após a transição

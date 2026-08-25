@@ -1712,3 +1712,20 @@ html{scroll-behavior:smooth;scroll-padding-top:74px}
  .mission-gallery-v29 img:nth-child(n){grid-column:span 1!important;grid-row:span 1!important}
  .mission-gallery-v29 img:nth-child(1),.mission-gallery-v29 img:nth-child(6){grid-column:span 2!important;grid-row:span 2!important}
 }
+
+/* V30 — correção definitiva do preloader */
+.site-loader{
+  transition: opacity .55s ease, visibility .55s ease !important;
+}
+.site-loader.hide{
+  opacity:0 !important;
+  visibility:hidden !important;
+  pointer-events:none !important;
+}
+.site-ready .site-loader{
+  pointer-events:none !important;
+}
+/* O conteúdo do site nunca depende do loader para ficar visível */
+body > *:not(.site-loader){
+  visibility:visible;
+}

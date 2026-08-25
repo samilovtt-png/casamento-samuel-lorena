@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20260825-29">
+<link rel="stylesheet" href="styles.css?v=20260825-30">
 
 <style id="gallery-lightbox-style">
 .gallery img, .gallery-grid img, [class*="gallery"] img, [class*="galeria"] img {
@@ -79,6 +79,43 @@
 <body>
 <div class="site-loader" id="siteLoader">
   <div class="loader-monogram">S <span>&</span> L</div>
+
+<script id="loaderFailsafe">
+(function () {
+  function releaseSite() {
+    var loader = document.getElementById('siteLoader');
+    if (loader) {
+      loader.classList.add('hide');
+      loader.style.pointerEvents = 'none';
+      setTimeout(function () {
+        if (loader && loader.parentNode) loader.parentNode.removeChild(loader);
+      }, 700);
+    }
+    document.documentElement.classList.add('site-ready');
+    document.body.style.overflow = '';
+  }
+
+  // Libera logo após o DOM estar pronto.
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function () {
+      setTimeout(releaseSite, 850);
+    }, { once: true });
+  } else {
+    setTimeout(releaseSite, 850);
+  }
+
+  // Segurança absoluta: mesmo que JS, imagem ou música falhem.
+  setTimeout(releaseSite, 1800);
+  window.addEventListener('load', function () {
+    setTimeout(releaseSite, 250);
+  }, { once: true });
+
+  window.addEventListener('error', function () {
+    setTimeout(releaseSite, 100);
+  }, true);
+})();
+</script>
+
   <small>14 · 02 · 2027</small>
 </div>
 
@@ -319,7 +356,7 @@
 </footer>
 
 <div class="toast" id="toast">Pix Copia e Cola copiado</div>
-<script src="script.js?v=20260825-29"></script>
+<script src="script.js?v=20260825-30"></script>
 
 <div id="galleryLightbox" aria-hidden="true">
   <button class="gl-close" aria-label="Fechar">×</button>
