@@ -155,3 +155,6 @@ V46: upload de fotos usa diretamente a API REST do Supabase Storage, sem CDN sup
 - Corrigido o upload para as novas chaves publicáveis do Supabase.
 - Removido `Authorization: Bearer sb_publishable_...` do envio de fotos.
 - Mantido `apikey: sb_publishable_...` no navegador.
+
+
+V49: botão Compartilhar convite envia mensagem completa + link oficial; Open Graph atualizado para prévia no WhatsApp com foto.

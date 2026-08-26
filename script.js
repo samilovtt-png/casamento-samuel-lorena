@@ -230,14 +230,49 @@ async function copyPixPayload(){
     }
   }
 
-  // Compartilhar
+  // Compartilhar convite — mensagem completa + link oficial
   const share = document.getElementById("shareWedding");
   if(share){
     share.addEventListener("click",async()=>{
-      const data={title:"Casamento Samuel & Lorena",text:"Você está convidado para celebrar conosco em 14/02/2027 às 14h45.",url:location.href};
-      if(navigator.share){ try{await navigator.share(data)}catch(e){} }
-      else{
-        try{await navigator.clipboard.writeText(location.href);share.textContent="Link copiado ✓";setTimeout(()=>share.textContent="Compartilhar convite",1600)}catch(e){}
+      const url="https://casamento-samuel-lorena.vercel.app/";
+      const text=[
+        "💍 Samuel & Lorena",
+        "",
+        "Com muita alegria, queremos compartilhar com você um momento muito especial da nossa história.",
+        "",
+        "Nosso casamento será também a celebração de um propósito que Deus colocou em nosso coração. ❤️",
+        "",
+        "Preparamos nosso convite com todos os detalhes do casamento.",
+        "",
+        "Acesse nosso convite:",
+        url,
+        "",
+        "Esperamos celebrar esse dia com você!",
+        "",
+        "Samuel & Lorena",
+        "14 • 02 • 2027 — 14h45"
+      ].join("
+");
+
+      // No celular, usa o compartilhamento nativo.
+      if(navigator.share){
+        try{
+          await navigator.share({title:"Samuel & Lorena | Casamento Missionário",text,url});
+          return;
+        }catch(e){
+          if(e && e.name === "AbortError") return;
+        }
+      }
+
+      // No computador, abre WhatsApp Web com o convite pronto.
+      const wa="https://wa.me/?text="+encodeURIComponent(text);
+      const popup=window.open(wa,"_blank","noopener,noreferrer");
+      if(!popup){
+        try{
+          await navigator.clipboard.writeText(text);
+          share.textContent="Convite copiado ✓";
+          setTimeout(()=>share.textContent="Compartilhar convite",1800);
+        }catch(e){}
       }
     });
   }
