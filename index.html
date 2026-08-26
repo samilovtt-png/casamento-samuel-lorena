@@ -83,7 +83,12 @@
 
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon.png">
-<link rel="apple-touch-icon" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/app-icon-192.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Samuel & Lorena">
+<link rel="stylesheet" href="pwa.css?v=58">
 </head>
 <body>
 <!-- Loader removido para abertura imediata e confiável do site -->
@@ -616,9 +621,20 @@
   </div>
 </div>
 
+<nav class="pwa-bottom-nav" aria-label="Menu do aplicativo">
+  <a href="#inicio" class="active"><span class="pwa-nav-icon">⌂</span><span>Início</span></a>
+  <a href="#locais"><span class="pwa-nav-icon">⌖</span><span>Casamento</span></a>
+  <a href="#rsvp"><span class="pwa-nav-icon">✓</span><span>Confirmar</span></a>
+  <a href="#projetos"><span class="pwa-nav-icon">♡</span><span>Presentes</span></a>
+  <a href="#fotos-convidados"><span class="pwa-nav-icon">▣</span><span>Fotos</span></a>
+</nav>
+<button type="button" class="pwa-install-button" id="installAppButton" aria-label="Instalar aplicativo"><span>⇩</span> Instalar app</button>
+<div class="pwa-toast" id="pwaToast" role="status" aria-live="polite"></div>
+
 <a href="#rsvp" class="floating-rsvp" id="floatingRsvp">Confirmar presença</a>
 
 <script src="script.js?v=20260825-53"></script>
+<script src="pwa.js?v=58" defer></script>
 
 </body>
 </html>

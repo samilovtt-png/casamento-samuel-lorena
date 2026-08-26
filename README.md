@@ -158,3 +158,6 @@ V46: upload de fotos usa diretamente a API REST do Supabase Storage, sem CDN sup
 
 
 V52: baseada exclusivamente na V48 estável. Alteração isolada no botão Compartilhar convite e metatags Open Graph/Twitter. Demais funções preservadas.
+
+## V58 — App/PWA do casamento
+Esta versão mantém a V57 e adiciona uma camada PWA instalável: manifest, service worker, ícones, instalação na tela inicial e menu inferior mobile. RSVP, Pix, doações, Google Sheets e upload de fotos permanecem no código original.
