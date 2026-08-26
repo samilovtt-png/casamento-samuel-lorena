@@ -22,12 +22,12 @@ const openInviteBtn=document.getElementById("openInvite");
 if(openInviteBtn && intro){
   openInviteBtn.addEventListener("click", async()=>{
     intro.classList.add("hidden");
-    try{if(music) await music.play(); if(musicToggle) musicToggle.textContent="❚❚"}catch(e){}
+    try{if(music){music.volume=0.05; await music.play();} if(musicToggle) musicToggle.textContent="❚❚"}catch(e){}
   });
 }
 if(musicToggle && music){
   musicToggle.onclick=async()=>{
-    if(music.paused){try{await music.play();musicToggle.textContent="❚❚"}catch(e){}}
+    if(music.paused){try{music.volume=0.05;await music.play();musicToggle.textContent="❚❚"}catch(e){}}
     else{music.pause();musicToggle.textContent="♫"}
   };
 }
@@ -323,7 +323,7 @@ async function copyPixPayload(){
   const openInvite = document.getElementById("openInvite");
   if(!music) return;
 
-  const TARGET_VOLUME = 0.18;
+  const TARGET_VOLUME = 0.05;
   const FADE_MS = 5000;
   const FADE_STEP = 100;
   let fadeTimer = null;

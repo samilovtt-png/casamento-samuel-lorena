@@ -97,7 +97,7 @@
     <a href="#locais">Casamento</a>
     <a href="#galeria">Galeria</a>
     <a href="#fotos-convidados">Enviar fotos</a>
-    <a href="#presentes">Presentes</a>
+    <a href="#projetos">Presentes</a>
     <a href="#rsvp">Confirmar</a>
   </div>
   <a class="premium-rsvp" href="#rsvp">RSVP</a>
@@ -130,7 +130,7 @@
         intro.style.pointerEvents='none';
         setTimeout(function(){ intro.style.display='none'; }, 700);
         var music=document.getElementById('bgMusic');
-        if(music && music.play) music.play().catch(function(){});
+        if(music && music.play){ music.volume=0.05; music.play().catch(function(){}); }
       });
     }
   }
@@ -139,6 +139,7 @@
 </script>
 
 <audio id="bgMusic" loop preload="auto"><source src="assets/musica.mp3" type="audio/mpeg"></audio>
+<script>(function(){var a=document.getElementById("bgMusic");if(a)a.volume=0.05;})();</script>
 <button id="musicToggle" class="music-toggle" aria-label="Pausar ou tocar música"><span class="music-icon">♪</span><span class="music-label">Música</span></button>
 
 <header class="hero" id="inicio">
@@ -617,7 +618,7 @@
 
 <a href="#rsvp" class="floating-rsvp" id="floatingRsvp">Confirmar presença</a>
 
-<script src="script.js?v=20260825-46"></script>
+<script src="script.js?v=20260825-53"></script>
 
 </body>
 </html>
