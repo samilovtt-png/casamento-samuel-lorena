@@ -230,13 +230,13 @@ async function copyPixPayload(){
     }
   }
 
-  // Compartilhar convite — mensagem completa + link oficial
+  // Compartilhar convite — V52 (alteração isolada sobre a V48 estável)
   const share = document.getElementById("shareWedding");
   if(share){
-    share.addEventListener("click",async()=>{
-      const url="https://casamento-samuel-lorena.vercel.app/";
-      const text=[
-        "💍 Samuel & Lorena",
+    share.addEventListener("click", async () => {
+      const siteUrl = "https://casamento-samuel-lorena.vercel.app/";
+      const message = [
+        "💍 *Samuel & Lorena*",
         "",
         "Com muita alegria, queremos compartilhar com você um momento muito especial da nossa história.",
         "",
@@ -244,36 +244,30 @@ async function copyPixPayload(){
         "",
         "Preparamos nosso convite com todos os detalhes do casamento.",
         "",
-        "Acesse nosso convite:",
-        url,
+        "*Acesse nosso convite:*",
+        siteUrl,
         "",
         "Esperamos celebrar esse dia com você!",
         "",
-        "Samuel & Lorena",
-        "14 • 02 • 2027 — 14h45"
-      ].join("
-");
+        "*Samuel & Lorena*",
+        "14 • 02 • 2027"
+      ].join("\n");
 
-      // No celular, usa o compartilhamento nativo.
-      if(navigator.share){
+      const isMobile = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+
+      if(isMobile && navigator.share){
         try{
-          await navigator.share({title:"Samuel & Lorena | Casamento Missionário",text,url});
+          await navigator.share({
+            title: "Samuel & Lorena | Casamento Missionário",
+            text: message
+          });
           return;
-        }catch(e){
-          if(e && e.name === "AbortError") return;
+        }catch(err){
+          if(err && err.name === "AbortError") return;
         }
       }
 
-      // No computador, abre WhatsApp Web com o convite pronto.
-      const wa="https://wa.me/?text="+encodeURIComponent(text);
-      const popup=window.open(wa,"_blank","noopener,noreferrer");
-      if(!popup){
-        try{
-          await navigator.clipboard.writeText(text);
-          share.textContent="Convite copiado ✓";
-          setTimeout(()=>share.textContent="Compartilhar convite",1800);
-        }catch(e){}
-      }
+      window.open("https://wa.me/?text=" + encodeURIComponent(message), "_blank", "noopener,noreferrer");
     });
   }
 

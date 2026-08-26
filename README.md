@@ -157,4 +157,4 @@ V46: upload de fotos usa diretamente a API REST do Supabase Storage, sem CDN sup
 - Mantido `apikey: sb_publishable_...` no navegador.
 
 
-V49: botão Compartilhar convite envia mensagem completa + link oficial; Open Graph atualizado para prévia no WhatsApp com foto.
+V52: baseada exclusivamente na V48 estável. Alteração isolada no botão Compartilhar convite e metatags Open Graph/Twitter. Demais funções preservadas.
