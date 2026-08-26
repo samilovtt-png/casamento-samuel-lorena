@@ -150,3 +150,8 @@ V45: área de fotos corrigida. O seletor funciona antes do Supabase carregar; o 
 
 
 V46: upload de fotos usa diretamente a API REST do Supabase Storage, sem CDN supabase-js, com mensagens de diagnóstico HTTP/rede.
+
+## V48
+- Corrigido o upload para as novas chaves publicáveis do Supabase.
+- Removido `Authorization: Bearer sb_publishable_...` do envio de fotos.
+- Mantido `apikey: sb_publishable_...` no navegador.

@@ -682,7 +682,6 @@ async function copyPixPayload(){
         method:"POST",
         headers:{
           "apikey":SUPABASE_PUBLISHABLE_KEY,
-          "Authorization":`Bearer ${SUPABASE_PUBLISHABLE_KEY}`,
           "Content-Type":file.type || "application/octet-stream",
           "x-upsert":"false"
         },
