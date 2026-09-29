@@ -13,3 +13,28 @@
 /* V64 — Lista visual no formato da referência */
 .gift-feature{max-width:1180px;margin:50px auto 34px;display:grid;grid-template-columns:1.05fr .95fr;background:#fff;border:1px solid #e7dfd2;text-align:left;overflow:hidden}.gift-feature>img{width:100%;height:100%;min-height:570px;object-fit:cover}.gift-feature>div{padding:48px}.gift-feature h3{font:500 40px "Cormorant Garamond",serif;margin:8px 0 12px}.gift-feature h4{font:500 19px "Cormorant Garamond",serif;margin:30px 0 12px}.work-status{margin:25px 0}.work-status span,.work-status strong{font-size:10px;letter-spacing:.1em}.work-status>div{height:7px;background:#eee7dc;margin:10px 0}.work-status i{display:block;width:8%;height:100%;background:#69786c}.quota-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.quick-gift{border:1px solid #d9cfbf;background:#fbf8f2;padding:14px;color:#26332f;font:600 15px Montserrat,sans-serif;cursor:pointer}.quick-gift small{display:block;font-size:8px;font-weight:400;margin-top:5px;letter-spacing:.08em}.custom-quick{width:100%;margin-top:9px;background:#69786c;color:#fff}.gift-product>img{width:100%;height:210px;object-fit:cover;display:block}.gift-pages{display:flex;justify-content:center;gap:8px;margin:38px auto 0}.gift-pages button{width:35px;height:35px;border:1px solid #d8cfbf;background:#fff;color:#69786c}.gift-pages .active{background:#69786c;color:#fff}.gift-store{grid-template-columns:repeat(3,1fr)}
 @media(max-width:760px){.gift-feature{grid-template-columns:1fr}.gift-feature>img{min-height:280px;height:280px}.gift-feature>div{padding:28px}.quota-grid{grid-template-columns:1fr 1fr}.gift-store{grid-template-columns:1fr}.gift-product>img{height:240px}}
+
+/* V73 — Identidade luxo azul-marinho + dourado */
+:root{--navy:#071a33;--navy2:#0d2747;--gold:#c5a15a;--gold2:#e0c47f;--ivory:#fbf8f1;--paper:#f4efe5;--ink:#071a33}
+body{background:var(--ivory);color:var(--ink)}
+.topnav{background:rgba(7,26,51,.97);border-bottom:1px solid rgba(197,161,90,.38);color:#fff;box-shadow:0 10px 35px rgba(7,26,51,.12)}
+.monogram,.premium-links a{color:#fff}.monogram i,.kicker,.divider,.gift-product small{color:var(--gold)}
+.premium-links a:hover{color:var(--gold2)}
+.nav-cart{border:1px solid rgba(197,161,90,.6);padding:10px 14px!important}.nav-cart b,.cart-link b{background:var(--gold);color:var(--navy)}
+.hero-overlay{background:linear-gradient(rgba(7,26,51,.22),rgba(7,26,51,.64))}
+.hero h1 em,.hero .date{color:#f1dca9}.hero .primary{border-color:var(--gold2);background:rgba(7,26,51,.2)}
+.intro-simple{background:#fff}.intro-simple>p,.section>h2,.rsvp h2{color:var(--navy)}
+.gifts{background:linear-gradient(180deg,var(--ivory),#fff)}
+.gift-head h2{color:var(--navy)}.cart-link{border-color:var(--gold);color:var(--navy)}
+.gift-feature{border:1px solid rgba(197,161,90,.45);box-shadow:0 24px 70px rgba(7,26,51,.08)}
+.gift-feature>div{background:#fff}.gift-feature h3,.gift-product h3{color:var(--navy)}
+.work-status i{background:var(--gold)}.quick-gift{border-color:#d8c28f;background:#fff;color:var(--navy)}.quick-gift:hover{border-color:var(--gold);box-shadow:0 8px 24px rgba(7,26,51,.08)}
+.custom-quick,.add-gift{background:var(--navy);color:#fff}.custom-quick:hover,.add-gift:hover{background:var(--gold);color:var(--navy)}
+.gift-product{border:1px solid #e7dcc6;box-shadow:0 14px 38px rgba(7,26,51,.07);transition:.25s ease;overflow:hidden}.gift-product:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(7,26,51,.13)}
+.gift-product>img{height:240px;background:#eee;object-fit:cover}.gift-product strong{color:var(--gold);font-size:25px}
+.gift-pages button{border-color:#d8c28f;color:var(--navy)}.gift-pages .active{background:var(--navy);border-color:var(--navy);color:#fff}
+.gift-pix-note,.buffet-signup,footer{background:var(--navy)}.gift-pix-note a,.buffet-signup .pix-flow{border-color:var(--gold)!important}.signup-heading .kicker{color:var(--gold2)}
+.ceremony-card,.buffet-wrap{background:var(--paper);border-color:#e4d7bd}.map-btn,.ceremony-card a{border-color:var(--gold);color:var(--navy)}
+.buffet-signup .submit-rsvp{background:var(--gold)!important;border-color:var(--gold)!important;color:var(--navy)!important}
+.music-toggle{border-color:var(--gold);color:var(--navy)}
+@media(max-width:760px){.premium-links{background:var(--navy)}.nav-cart{margin:auto}.gift-product>img{height:260px}}
