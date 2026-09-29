@@ -1813,3 +1813,66 @@ html{scroll-behavior:smooth;scroll-padding-top:74px}
   .guest-photo-upload .guest-photo-form{max-width:720px !important;justify-self:stretch !important;}
   .guest-photo-upload .photo-upload-copy h2{font-size:clamp(2.4rem,8vw,4rem) !important;}
 }
+
+
+/* =========================================================
+   V59 — NOVA IDENTIDADE: CASAMENTO ELEGANTE
+   ========================================================= */
+:root{
+  --wedding-ink:#26332f;
+  --wedding-green:#69786c;
+  --wedding-sage:#aab5a8;
+  --wedding-cream:#fbf8f2;
+  --wedding-paper:#f3eee5;
+  --wedding-gold:#b89a67;
+}
+body{background:var(--wedding-cream)!important;color:var(--wedding-ink)!important}
+.premium-nav{background:rgba(251,248,242,.94)!important;backdrop-filter:blur(14px)!important}
+.premium-brand,.premium-links a{color:var(--wedding-ink)!important}
+.premium-rsvp{background:var(--wedding-green)!important;color:#fff!important}
+.hero{background-image:linear-gradient(180deg,rgba(27,38,34,.08),rgba(27,38,34,.58)),url('assets/hero.jpg')!important}
+.hero-shade{background:linear-gradient(180deg,rgba(30,39,35,.08),rgba(30,39,35,.64))!important}
+.hero h1 em,.gold{color:#e7d3ad!important}
+.hero-note-elegant{color:rgba(255,255,255,.82)!important}
+.countdown-pro{background:#fff!important;color:var(--wedding-ink)!important}
+.countdown-pro-grid div{border-color:rgba(105,120,108,.2)!important}
+.countdown-pro-grid strong{color:var(--wedding-green)!important}
+.story{background:var(--wedding-paper)!important}
+.story-copy strong{color:var(--wedding-green)!important}
+.locations{background:var(--wedding-cream)!important}
+.location-grid article,.project-grid article,.copy-card,.qr-card,.confirmation-form-card,.guest-photo-form{border-radius:2px!important;box-shadow:0 18px 50px rgba(38,51,47,.07)!important}
+.location-body>span,.project-grid article span{color:var(--wedding-gold)!important}
+.btn,.project-detail-btn{border-color:var(--wedding-green)!important;color:var(--wedding-green)!important}
+.btn:hover,.project-detail-btn:hover{background:var(--wedding-green)!important;color:#fff!important}
+.projects.wedding-gifts{background:#fff!important}
+.projects.wedding-gifts:before,.locations:before,.pix-section:before{display:none!important}
+.gift-grid article{min-height:290px;display:flex;align-items:center;background:var(--wedding-cream)!important}
+.gift-grid article div{padding:38px!important}
+.gift-grid .project-detail-btn{display:inline-block;margin-top:16px;padding:12px 20px;text-transform:uppercase;letter-spacing:.1em;font-size:.67rem}
+.pix-section{background:var(--wedding-paper)!important}
+.mission-gallery-section{
+  background:var(--wedding-green)!important;
+  color:#fff!important;
+}
+.mission-gallery-section:before{content:"SAMUEL  &  LORENA  ·  14  ·  02  ·  2027"!important;color:#fff!important;opacity:.16!important}
+.mission-gallery-v2 figure{background:#4f5f54!important;border-color:rgba(255,255,255,.18)!important}
+.mission-gallery-v2 figcaption{background:rgba(38,51,47,.78)!important;border-left-color:#d9c39c!important}
+.guest-photo-upload.section{background:var(--wedding-cream)!important}
+.guest-photo-upload .photo-upload-copy h2{color:var(--wedding-ink)!important}
+.guest-photo-submit,.guest-photo-choose{background:var(--wedding-green)!important}
+.guest-info{background:#fff!important}
+.rsvp{background:var(--wedding-green)!important}
+.confirmation-form-card{background:#fff!important;color:var(--wedding-ink)!important}
+.confirmation-btn,.payment-done-btn{border-radius:2px!important}
+.closing-shade{background:linear-gradient(rgba(38,51,47,.18),rgba(38,51,47,.68))!important}
+.premium-footer{background:#303d36!important}
+.footer-monogram span{color:#d9c39c!important}
+.pwa-bottom-nav a.active{color:var(--wedding-green)!important}
+.floating-rsvp{background:var(--wedding-green)!important}
+.music-toggle{background:rgba(65,82,72,.94)!important;border-color:rgba(231,211,173,.7)!important}
+@media(max-width:850px){
+  .hero{min-height:700px!important}
+  .hero h1{font-size:clamp(4rem,19vw,6.2rem)!important}
+  .hero-copy{padding-left:20px!important;padding-right:20px!important}
+  .gift-grid article{min-height:auto}
+}
