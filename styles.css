@@ -1876,3 +1876,24 @@ body{background:var(--wedding-cream)!important;color:var(--wedding-ink)!importan
   .hero-copy{padding-left:20px!important;padding-right:20px!important}
   .gift-grid article{min-height:auto}
 }
+
+
+/* V59.1 — composição inspirada na referência Ana Lara & Rafael */
+.hero-copy .tagline,.hero-copy .hero-note-elegant,.hero-copy blockquote,.wedding-utility-actions{display:none!important}
+.hero-copy{max-width:1050px!important}
+.hero-copy .eyebrow{margin-bottom:22px!important}
+.hero-copy .date{margin:24px 0 30px!important;font-size:.92rem!important;letter-spacing:.42em!important}
+.reference-actions{display:flex!important;justify-content:center;gap:14px!important;margin-top:22px!important}
+.reference-actions a{min-width:190px!important;padding:14px 22px!important;border:1px solid rgba(255,255,255,.8)!important;background:rgba(255,255,255,.04)!important;color:#fff!important;text-transform:uppercase!important;letter-spacing:.11em!important;font-size:.65rem!important}
+.reference-actions a:hover{background:#fff!important;color:#39483f!important}
+.projects.wedding-gifts{padding-top:110px!important;padding-bottom:110px!important}
+.projects.wedding-gifts>h2{margin-bottom:18px!important}
+.projects.wedding-gifts>.lead{max-width:760px!important}
+.gift-grid{margin-top:55px!important}
+.gift-grid article{border:1px solid rgba(105,120,108,.15)!important}
+.locations>h2:after{content:"";display:block;width:52px;height:1px;background:#b89a67;margin:25px auto 0}
+@media(max-width:700px){
+ .reference-actions{flex-direction:column!important;align-items:center!important}
+ .reference-actions a{width:min(300px,86vw)!important}
+ .hero-copy .date{letter-spacing:.24em!important}
+}
