@@ -6,13 +6,13 @@
 <meta property="og:title" content="Samuel & Lorena | Nosso Casamento"><meta property="og:description" content="14.02.2027 às 11h45 — celebre conosco."><meta property="og:image" content="https://casamento-samuel-lorena.vercel.app/assets/hero.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=73"><link rel="stylesheet" href="pwa.css?v=60">
+<link rel="stylesheet" href="styles.css?v=74"><link rel="stylesheet" href="pwa.css?v=60">
 <link rel="icon" href="favicon.ico"><link rel="manifest" href="/manifest.webmanifest">
 </head><body>
 <audio id="bgMusic" loop preload="auto"><source src="assets/musica.mp3" type="audio/mpeg"></audio>
 <button id="musicToggle" class="music-toggle" aria-label="Tocar ou pausar música">♪</button>
 
-<nav class="topnav"><a class="monogram" href="#inicio">S <i>&</i> L</a><button id="mobileMenuToggle" class="mobile-menu-toggle" aria-label="Abrir menu">☰</button><div class="premium-links"><a href="#inicio">Início</a><a href="#presentes">Lista de Presentes</a><a href="#locais">Local da Festa</a><a href="#rsvp">Confirmar Presença</a><a class="nav-cart" href="/checkout">🛒 Carrinho <b id="navCartCount">0</b></a></div></nav>
+<nav class="topnav"><a class="monogram" href="#inicio">S <i>&</i> L</a><button id="mobileMenuToggle" class="mobile-menu-toggle" aria-label="Abrir menu">☰</button><div class="premium-links"><a href="#inicio">Início</a><a href="#locais">Celebração</a><a href="#rsvp">Confirmar Presença</a><a href="#presentes">Presentes</a><a class="nav-cart" href="/checkout">🛒 Carrinho <b id="navCartCount">0</b></a></div></nav>
 
 <header class="hero" id="inicio"><div class="hero-overlay"></div><div class="hero-content">
 <div class="family-greeting" id="familyGreeting" hidden><span>CONVITE ESPECIAL PARA</span><strong id="familyGreetingName"></strong></div>
@@ -20,7 +20,9 @@
 <a class="primary" href="#rsvp">Confirmar Presença</a></div></header>
 
 <main>
-<section class="intro-simple"><p>Com alegria, convidamos você para celebrar conosco o início da nossa vida a dois.</p><div class="divider">S & L</div></section>
+<section class="intro-simple v74-intro"><p class="kicker">14 DE FEVEREIRO DE 2027</p><h2>Um dia para guardar para sempre.</h2><p>Com alegria, convidamos você para celebrar conosco o início da nossa vida a dois.</p><div class="divider">S & L</div></section>
+<section class="v74-countdown" aria-label="Contagem regressiva"><div><small>FALTAM</small><strong id="cdDays">—</strong><span>dias</span></div><div><strong id="cdHours">—</strong><span>horas</span></div><div><strong id="cdMinutes">—</strong><span>minutos</span></div><div><strong id="cdSeconds">—</strong><span>segundos</span></div></section>
+<section class="section v74-welcome"><div class="v74-welcome-copy"><p class="kicker">SAMUEL & LORENA</p><h2>Nosso grande dia</h2><p>Preparamos este espaço para reunir tudo o que você precisa para celebrar conosco. Aqui você encontra os locais, a confirmação para o buffet, nossa lista de presentes e, depois da festa, um espaço para compartilhar suas fotos.</p><a class="v74-text-link" href="#locais">Ver detalhes da celebração →</a></div><div class="v74-quick"><a href="#locais"><small>01</small><strong>Cerimônia</strong><span>São Bernardo do Campo</span></a><a href="#rsvp"><small>02</small><strong>Recepção</strong><span>Buffet & confirmação</span></a><a href="#presentes"><small>03</small><strong>Presentes</strong><span>Escolha com carinho</span></a><a href="#fotos-convidados"><small>04</small><strong>Memórias</strong><span>Compartilhe suas fotos</span></a></div></section>
 
 <section class="section gifts" id="presentes"><div class="gift-head"><div><p class="kicker">LISTA DE PRESENTES</p><h2>Lista de Presentes</h2><p class="lead">Para nós, o melhor presente é a sua presença. Mas, se desejar nos presentear, escolha uma das opções abaixo.</p></div><a class="cart-link" href="/checkout"><span>♡</span> Carrinho <b id="cartCount">0</b></a></div>
 
@@ -48,7 +50,7 @@
 <div id="toast"></div>
 <div class="pix-modal" id="pixModal" aria-hidden="true"><div class="pix-modal-card"><button class="pix-modal-close" type="button">×</button><p class="kicker">PAGAMENTO VIA PIX</p><h3>Finalize sua confirmação</h3><img src="assets/pix-qrcode.webp?v=24" alt="QR Code Pix"><textarea id="pixModalPayload" readonly>00020126360014BR.GOV.BCB.PIX01145204000053039865802BR5923SAMUEL F LAUREANO LOPEZ6011HORTOLANDIA62070503***63041773</textarea><button type="button" id="copyPixModal">Copiar Pix Copia e Cola</button></div></div>
 <button type="button" id="installAppButton" hidden>Instalar app</button><div id="pwaToast"></div><a href="#rsvp" class="floating-rsvp" id="floatingRsvp">Confirmar presença</a>
-<script src="script.js?v=73"></script><script src="pwa.js?v=60" defer></script>
+<script src="script.js?v=74"></script><script src="pwa.js?v=60" defer></script>
 <script>
 (function(){
  const KEY="slGiftCart";
@@ -63,4 +65,6 @@
  count();
  const pages=document.querySelectorAll("[data-gift-page]"), products=document.querySelectorAll(".gift-page-item"); function showPage(n){products.forEach(p=>p.hidden=p.dataset.page!==String(n));pages.forEach(b=>b.classList.toggle("active",b.dataset.giftPage===String(n)));} pages.forEach(b=>b.addEventListener("click",()=>showPage(b.dataset.giftPage))); showPage(1);
 })();
+</script><script>
+(function(){const target=new Date("2027-02-14T11:45:00-03:00").getTime();function tick(){const d=Math.max(0,target-Date.now()),day=Math.floor(d/864e5),h=Math.floor(d%864e5/36e5),m=Math.floor(d%36e5/6e4),sec=Math.floor(d%6e4/1e3);[["cdDays",day],["cdHours",h],["cdMinutes",m],["cdSeconds",sec]].forEach(([id,v])=>{const el=document.getElementById(id);if(el)el.textContent=String(v).padStart(2,"0")})}tick();setInterval(tick,1000)})();
 </script></body></html>
