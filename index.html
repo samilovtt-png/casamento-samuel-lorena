@@ -6,7 +6,7 @@
 <meta property="og:title" content="Samuel & Lorena | Nosso Casamento"><meta property="og:description" content="14.02.2027 às 11h45 — celebre conosco."><meta property="og:image" content="https://casamento-samuel-lorena.vercel.app/assets/hero.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=69"><link rel="stylesheet" href="pwa.css?v=60">
+<link rel="stylesheet" href="styles.css?v=71"><link rel="stylesheet" href="pwa.css?v=60">
 <link rel="icon" href="favicon.ico"><link rel="manifest" href="/manifest.webmanifest">
 </head><body>
 <audio id="bgMusic" loop preload="auto"><source src="assets/musica.mp3" type="audio/mpeg"></audio>
@@ -48,16 +48,16 @@
 <div id="toast"></div>
 <div class="pix-modal" id="pixModal" aria-hidden="true"><div class="pix-modal-card"><button class="pix-modal-close" type="button">×</button><p class="kicker">PAGAMENTO VIA PIX</p><h3>Finalize sua confirmação</h3><img src="assets/pix-qrcode.webp?v=24" alt="QR Code Pix"><textarea id="pixModalPayload" readonly>00020126360014BR.GOV.BCB.PIX01145204000053039865802BR5923SAMUEL F LAUREANO LOPEZ6011HORTOLANDIA62070503***63041773</textarea><button type="button" id="copyPixModal">Copiar Pix Copia e Cola</button></div></div>
 <button type="button" id="installAppButton" hidden>Instalar app</button><div id="pwaToast"></div><a href="#rsvp" class="floating-rsvp" id="floatingRsvp">Confirmar presença</a>
-<script src="script.js?v=69"></script><script src="pwa.js?v=60" defer></script>
+<script src="script.js?v=71"></script><script src="pwa.js?v=60" defer></script>
 <script>
 (function(){
  const KEY="slGiftCart";
  const read=()=>{try{return JSON.parse(localStorage.getItem(KEY)||"[]")}catch(e){return[]}};
  const save=x=>{localStorage.setItem(KEY,JSON.stringify(x));count()};
- const count=()=>{const el=document.getElementById("cartCount");if(el)el.textContent=read().reduce((n,x)=>n+(x.qty||1),0)};
+ const count=()=>{const n=read().reduce((a,x)=>a+(x.qty||1),0);["cartCount","navCartCount"].forEach(id=>{const el=document.getElementById(id);if(el)el.textContent=n})};
  document.querySelectorAll(".add-gift,.quick-gift").forEach(btn=>btn.addEventListener("click",()=>{
-  const p=btn.closest(".gift-product")||btn, cart=read(), id=p.dataset.id||btn.dataset.id, name=p.dataset.name||btn.dataset.name, price=Number(p.dataset.price||btn.dataset.price), found=cart.find(x=>x.id===id);
-  if(found)found.qty=(found.qty||1)+1;else cart.push({id,name,price,qty:1});
+  const p=btn.closest(".gift-product")||btn, cart=read(), id=p.dataset.id||btn.dataset.id, name=p.dataset.name||btn.dataset.name;let price=Number(p.dataset.price||btn.dataset.price);if(id==="livre"){const v=Number(prompt("Digite o valor do presente (mínimo R$ 200):","200"));if(!v||v<200){alert("O valor mínimo é R$ 200,00.");return}price=v}const found=cart.find(x=>x.id===id);
+  if(found){if(id==="livre"){found.custom=price;found.price=price;found.qty=1}else found.qty=(found.qty||1)+1}else cart.push(id==="livre"?{id,name:"Presente de valor livre",price,custom:price,qty:1}:{id,name,price,qty:1});
   save(cart);btn.textContent="Adicionado ✓";setTimeout(()=>btn.textContent="Adicionar ao carrinho",1200);
  }));
  count();
