@@ -114,3 +114,9 @@ html,body{margin:0!important;padding:0!important;background:#000!important}.hero
 
 /* V89 — acabamento inferior da capa */
 html,body{background:#18202a!important}.hero{background-color:#18202a!important}.hero::before{content:"";display:block!important;position:absolute;z-index:0;left:0;right:0;bottom:0;height:10px;background:rgba(9,19,32,.72);pointer-events:none}.hero-overlay,.hero-content{z-index:1}.v85-nav{background:rgba(9,19,32,.72)!important}
+
+/* V90 — corrige viewport sem pintar as bordas */
+html,body{margin:0!important;padding:0!important;background:#fcfbf8!important}
+.hero{height:100vh!important;height:100dvh!important;min-height:100vh!important;min-height:100dvh!important;background-color:transparent!important;margin:0!important}
+.hero::before{display:none!important;content:none!important}
+.v85-nav{background:rgba(9,19,32,.30)!important;backdrop-filter:blur(18px)!important;-webkit-backdrop-filter:blur(18px)!important}
