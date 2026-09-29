@@ -6,13 +6,13 @@
 <meta property="og:title" content="Samuel & Lorena | Nosso Casamento"><meta property="og:description" content="14.02.2027 às 11h45 — celebre conosco."><meta property="og:image" content="https://casamento-samuel-lorena.vercel.app/assets/hero.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=76"><link rel="stylesheet" href="pwa.css?v=60">
+<link rel="stylesheet" href="styles.css?v=77"><link rel="stylesheet" href="pwa.css?v=60">
 <link rel="icon" href="favicon.ico"><link rel="manifest" href="/manifest.webmanifest">
 </head><body>
 <audio id="bgMusic" loop preload="auto"><source src="assets/musica.mp3" type="audio/mpeg"></audio>
 <button id="musicToggle" class="music-toggle" aria-label="Tocar ou pausar música">♪</button>
 
-<nav class="topnav"><a class="monogram" href="#inicio">S <i>&</i> L</a><button id="mobileMenuToggle" class="mobile-menu-toggle" aria-label="Abrir menu">☰</button><div class="premium-links"><a href="#inicio">Início</a><a href="#informacoes">Informações</a><a href="#locais">Celebração</a><a href="#rsvp">Confirmar Presença</a><a href="#presentes">Presentes</a><a class="nav-cart" href="/checkout">🛒 Carrinho <b id="navCartCount">0</b></a></div></nav>
+<nav class="topnav"><a class="monogram" href="#inicio">S <i>&</i> L</a><button id="mobileMenuToggle" class="mobile-menu-toggle" aria-label="Abrir menu">☰</button><div class="premium-links"><a href="#inicio">Início</a><a href="#nossa-galeria">Nós</a><a href="#informacoes">Informações</a><a href="#locais">Celebração</a><a href="#rsvp">Confirmar Presença</a><a href="#presentes">Presentes</a><a class="nav-cart" href="/checkout">🛒 Carrinho <b id="navCartCount">0</b></a></div></nav>
 
 <header class="hero" id="inicio"><div class="hero-overlay"></div><div class="hero-content">
 <div class="family-greeting" id="familyGreeting" hidden><span>CONVITE ESPECIAL PARA</span><strong id="familyGreetingName"></strong></div>
@@ -44,13 +44,13 @@
 
 
 <section class="section photos" id="fotos-convidados"><p class="kicker">FOTOS DOS CONVIDADOS</p><h2>Compartilhe suas fotos conosco</h2><p class="lead">Depois da celebração, envie aqui os momentos que você registrou.</p><form id="guestPhotoForm"><label>Seu nome<input id="guestPhotoName" required placeholder="Digite seu nome"></label><div class="photo-file-box" id="photoFileBox"><strong>Escolher fotos</strong><span id="guestPhotoFileLabel">Selecione uma ou várias fotos</span><button type="button" id="guestPhotoChoose">Escolher fotos</button><input id="guestPhotoFiles" type="file" accept="image/jpeg,image/png,image/webp,image/heic,image/heif" multiple required hidden></div><div id="guestPhotoPreview" class="guest-photo-preview"></div><div id="photoUploadProgress" class="photo-upload-progress" hidden><div><span id="photoUploadBar"></span></div><small id="photoUploadText">Preparando envio...</small></div><button type="submit" id="guestPhotoSubmit">Enviar fotos</button><p id="guestPhotoFeedback"></p></form></section>
-<section class="v75-closing"><div class="v75-closing-line"></div><p class="kicker">NOSSO GRANDE DIA</p><h2>Esperamos você<br>para celebrar conosco.</h2><p class="v75-sign">Samuel <i>&</i> Lorena</p><span>14 · 02 · 2027 — 11h45</span><a href="#rsvp">Confirmar minha presença</a></section></main>
+<section class="v77-gallery" id="nossa-galeria"><div class="v77-gallery-head"><p class="kicker">SAMUEL & LORENA</p><h2>Alguns capítulos<br>da nossa história.</h2><p>Memórias que fazem parte do caminho até o nosso grande dia.</p></div><div class="v77-gallery-grid"><figure class="v77-g1"><img src="assets/galeria-nova-01.webp" alt="Samuel e Lorena" loading="lazy"></figure><figure class="v77-g2"><img src="assets/galeria-nova-02.webp" alt="Samuel e Lorena" loading="lazy"></figure><figure class="v77-g3"><img src="assets/galeria-nova-03.webp" alt="Samuel e Lorena" loading="lazy"></figure><figure class="v77-g4"><img src="assets/galeria-nova-04.webp" alt="Samuel e Lorena" loading="lazy"></figure><figure class="v77-g5"><img src="assets/galeria-nova-05.webp" alt="Samuel e Lorena" loading="lazy"></figure><figure class="v77-g6"><img src="assets/galeria-nova-06.webp" alt="Samuel e Lorena" loading="lazy"></figure></div><div class="v77-gallery-foot"><span>14 · 02 · 2027</span><i></i><span>SÃO BERNARDO DO CAMPO</span></div></section><section class="v75-closing"><div class="v75-closing-line"></div><p class="kicker">NOSSO GRANDE DIA</p><h2>Esperamos você<br>para celebrar conosco.</h2><p class="v75-sign">Samuel <i>&</i> Lorena</p><span>14 · 02 · 2027 — 11h45</span><a href="#rsvp">Confirmar minha presença</a></section></main>
 
 <footer><div class="monogram">S <i>&</i> L</div><p>Samuel & Lorena</p><small>14 de fevereiro de 2027 · 11h45</small></footer>
 <div id="toast"></div><div class="gift-toast" id="giftToast" role="status" aria-live="polite"></div>
 <div class="pix-modal" id="pixModal" aria-hidden="true"><div class="pix-modal-card"><button class="pix-modal-close" type="button">×</button><p class="kicker">PAGAMENTO VIA PIX</p><h3>Finalize sua confirmação</h3><img src="assets/pix-qrcode.webp?v=24" alt="QR Code Pix"><textarea id="pixModalPayload" readonly>00020126360014BR.GOV.BCB.PIX01145204000053039865802BR5923SAMUEL F LAUREANO LOPEZ6011HORTOLANDIA62070503***63041773</textarea><button type="button" id="copyPixModal">Copiar Pix Copia e Cola</button></div></div>
 <button type="button" id="installAppButton" hidden>Instalar app</button><div id="pwaToast"></div><a href="#rsvp" class="floating-rsvp" id="floatingRsvp">Confirmar presença</a>
-<script src="script.js?v=76"></script><script src="pwa.js?v=60" defer></script>
+<script src="script.js?v=77"></script><script src="pwa.js?v=60" defer></script>
 <script>
 (function(){
  const KEY="slGiftCart";
@@ -68,7 +68,7 @@
 </script><script>
 (function(){
  const io="IntersectionObserver" in window?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("is-visible");io.unobserve(e.target)}}),{threshold:.12}):null;
- document.querySelectorAll(".v74-welcome,.gift-feature,.gift-product,.ceremony-card,.buffet-wrap,.photos form,.v75-closing").forEach((el,i)=>{el.classList.add("reveal");el.style.setProperty("--delay",Math.min(i%3,2)*70+"ms");if(io)io.observe(el);else el.classList.add("is-visible")});
+ document.querySelectorAll(".v74-welcome,.gift-feature,.gift-product,.ceremony-card,.buffet-wrap,.photos form,.v77-gallery,.v75-closing").forEach((el,i)=>{el.classList.add("reveal");el.style.setProperty("--delay",Math.min(i%3,2)*70+"ms");if(io)io.observe(el);else el.classList.add("is-visible")});
 })();
 </script><script>
 document.getElementById("v76Calendar")?.addEventListener("click",function(e){e.preventDefault();const a=document.createElement("a");a.href="/casamento-samuel-lorena.ics";a.download="casamento-samuel-lorena.ics";document.body.appendChild(a);a.click();a.remove()});
