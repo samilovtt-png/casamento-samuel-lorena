@@ -1,5 +1,5 @@
 
-const weddingDate = new Date("2027-02-14T15:00:00-03:00");
+const weddingDate = new Date("2027-02-14T11:45:00-03:00");
 function tick(){
   let d = weddingDate - new Date();
   if(d <= 0) return;
@@ -97,7 +97,7 @@ async function copyPixPayload(){
 /* V22 — recursos adicionais */
 (function(){
   // Contagem regressiva
-  const target = new Date("2027-02-14T14:45:00-03:00").getTime();
+  const target = new Date("2027-02-14T11:45:00-03:00").getTime();
   function updateCountdownPro(){
     const now = Date.now();
     let diff = Math.max(0, target - now);
@@ -240,7 +240,7 @@ async function copyPixPayload(){
         "",
         "Com muita alegria, queremos compartilhar com você um momento muito especial da nossa história.",
         "",
-        "Nosso casamento será também a celebração de um propósito que Deus colocou em nosso coração. ❤️",
+        "Nosso grande dia está chegando e queremos muito celebrar esse momento com você. ❤️",
         "",
         "Preparamos nosso convite com todos os detalhes do casamento.",
         "",
@@ -258,7 +258,7 @@ async function copyPixPayload(){
       if(isMobile && navigator.share){
         try{
           await navigator.share({
-            title: "Samuel & Lorena | Casamento Missionário",
+            title: "Samuel & Lorena | Nosso Casamento",
             text: message
           });
           return;
