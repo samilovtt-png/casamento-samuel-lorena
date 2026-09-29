@@ -1,5 +1,5 @@
 {
-  "name": "Samuel & Lorena | Nosso Casamento",
+  "name": "Samuel & Lorena — 14.02.2027",
   "short_name": "Samuel & Lorena",
   "description": "Convite e aplicativo do casamento de Samuel & Lorena — 14 de fevereiro de 2027 às 11h45.",
   "id": "/",
@@ -7,10 +7,13 @@
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait-primary",
-  "background_color": "#071a35",
-  "theme_color": "#071a35",
+  "background_color": "#fcfbf8",
+  "theme_color": "#0b1d35",
   "lang": "pt-BR",
-  "categories": ["lifestyle", "social"],
+  "categories": [
+    "lifestyle",
+    "social"
+  ],
   "icons": [
     {
       "src": "/assets/app-icon-192.png",
