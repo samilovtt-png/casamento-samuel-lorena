@@ -19,6 +19,16 @@ const intro=document.getElementById("intro");
 const music=document.getElementById("bgMusic");
 const musicToggle=document.getElementById("musicToggle");
 const openInviteBtn=document.getElementById("openInvite");
+if(music){
+  music.volume=0.05;
+  const tryAutoplay=()=>music.play().catch(()=>{});
+  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",tryAutoplay,{once:true});
+  else tryAutoplay();
+  window.addEventListener("load",tryAutoplay,{once:true});
+  const unlock=()=>{tryAutoplay();document.removeEventListener("pointerdown",unlock);document.removeEventListener("keydown",unlock);};
+  document.addEventListener("pointerdown",unlock,{once:true});
+  document.addEventListener("keydown",unlock,{once:true});
+}
 if(openInviteBtn && intro){
   openInviteBtn.addEventListener("click", async()=>{
     intro.classList.add("hidden");
