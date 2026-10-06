@@ -840,3 +840,12 @@ async function copyPixPayload(){
   if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initPixModalV33);
   else initPixModalV33();
 })();
+
+/* V93 — abre RSVP pelo botão integrado à recepção */
+document.getElementById("v93RsvpInline")?.addEventListener("click",()=>{
+ const panel=document.getElementById("v82RsvpPanel");
+ if(!panel)return;
+ panel.classList.add("open");
+ panel.style.display="block";
+ setTimeout(()=>panel.scrollIntoView({behavior:"smooth",block:"start"}),60);
+});
