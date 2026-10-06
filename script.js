@@ -841,11 +841,16 @@ async function copyPixPayload(){
   else initPixModalV33();
 })();
 
-/* V93 — abre RSVP pelo botão integrado à recepção */
-document.getElementById("v93RsvpInline")?.addEventListener("click",()=>{
+/* V94 — abre/fecha RSVP pelo botão integrado à recepção */
+(function(){
+ const btn=document.getElementById("v93RsvpInline");
  const panel=document.getElementById("v82RsvpPanel");
- if(!panel)return;
- panel.classList.add("open");
- panel.style.display="block";
- setTimeout(()=>panel.scrollIntoView({behavior:"smooth",block:"start"}),60);
-});
+ if(!btn||!panel)return;
+ btn.addEventListener("click",()=>{
+   const opening=!panel.classList.contains("open");
+   panel.classList.toggle("open",opening);
+   btn.setAttribute("aria-expanded",String(opening));
+   btn.textContent=opening?"Fechar confirmação":"Confirmar presença";
+   if(opening)setTimeout(()=>panel.scrollIntoView({behavior:"smooth",block:"start"}),80);
+ });
+})();
