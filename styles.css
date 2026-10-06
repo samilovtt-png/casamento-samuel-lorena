@@ -188,3 +188,10 @@ body.confirmation-page .submit-rsvp{width:100%!important;min-height:52px!importa
 body.confirmation-page .submit-rsvp:hover{background:#132b4a!important}
 body.confirmation-page #rsvpSuccess{font:400 13px/1.6 Montserrat,sans-serif!important;text-align:center!important}
 @media(max-width:650px){body.confirmation-page .confirmation-card{padding:38px 22px 42px!important}body.confirmation-page .signup-heading h3{font-size:39px!important}body.confirmation-page #rsvpForm .two{grid-template-columns:1fr!important}}
+
+/* V99 — upload como continuação da galeria, não como etapa principal */
+body #nossa-galeria + #fotos-convidados{margin-top:0!important;padding-top:58px!important;border-top:1px solid #e8dfd0!important;background:#f8f5ee!important}
+body #nossa-galeria + #fotos-convidados>p.kicker{color:#b89658!important}
+body #nossa-galeria + #fotos-convidados>h2{font-family:"Cormorant Garamond",Georgia,serif!important;font-size:clamp(40px,4.5vw,58px)!important;font-weight:500!important;color:#0b1d35!important;margin:10px 0 12px!important}
+body #nossa-galeria + #fotos-convidados>.lead{font-size:12px!important;color:#68717a!important;margin-bottom:32px!important}
+body #nossa-galeria + #fotos-convidados #guestPhotoForm{max-width:680px!important;margin:0 auto!important;background:#fff!important}
