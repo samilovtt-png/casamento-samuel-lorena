@@ -195,3 +195,16 @@ body #nossa-galeria + #fotos-convidados>p.kicker{color:#b89658!important}
 body #nossa-galeria + #fotos-convidados>h2{font-family:"Cormorant Garamond",Georgia,serif!important;font-size:clamp(40px,4.5vw,58px)!important;font-weight:500!important;color:#0b1d35!important;margin:10px 0 12px!important}
 body #nossa-galeria + #fotos-convidados>.lead{font-size:12px!important;color:#68717a!important;margin-bottom:32px!important}
 body #nossa-galeria + #fotos-convidados #guestPhotoForm{max-width:680px!important;margin:0 auto!important;background:#fff!important}
+
+
+/* V101 — lista de presentes: navegação progressiva e carrinho minimalista */
+.gift-head .v101-cart-icon{position:relative!important;width:48px!important;height:48px!important;min-width:48px!important;padding:0!important;display:grid!important;place-items:center!important;border:1px solid #d2b06a!important;background:transparent!important;color:#0b1d35!important;text-decoration:none!important}
+.gift-head .v101-cart-icon svg{width:20px!important;height:20px!important;fill:none!important;stroke:currentColor!important;stroke-width:1.45!important;stroke-linecap:round!important;stroke-linejoin:round!important}
+.gift-head .v101-cart-icon b{position:absolute!important;top:-8px!important;right:-8px!important;width:20px!important;height:20px!important;border-radius:50%!important;display:grid!important;place-items:center!important;background:#cda65b!important;color:#fff!important;font:500 8px Montserrat,sans-serif!important}
+.gift-pages,.gift-pix-note{display:none!important}
+.v101-more-wrap{display:flex!important;justify-content:center!important;margin:54px 0 12px!important}
+.v101-more-wrap button{min-width:210px!important;padding:15px 26px!important;border:1px solid #0b1d35!important;background:transparent!important;color:#0b1d35!important;font:500 9px Montserrat,sans-serif!important;letter-spacing:.15em!important;text-transform:uppercase!important;cursor:pointer!important;transition:.2s ease!important}
+.v101-more-wrap button:hover{background:#0b1d35!important;color:#fff!important}
+.v101-more-wrap button[hidden]{display:none!important}
+.gift-page-item[hidden]{display:none!important}
+@media(max-width:760px){.gift-head .v101-cart-icon{width:44px!important;height:44px!important;min-width:44px!important}.v101-more-wrap{margin-top:38px!important}.v101-more-wrap button{width:100%!important}}
