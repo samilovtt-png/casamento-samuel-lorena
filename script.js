@@ -467,12 +467,12 @@ async function copyPixPayload(){
   const adults=document.getElementById("adultGuests"), children=document.getElementById("childGuests"), summary=document.getElementById("guestSummary");
   function updateSummary(){
     if(!adults||!children||!summary)return;
-    const a=Number(adults.value||0),c=Number(children.value||0),total=a*200+c*100;
+    const a=Number(adults.value||0),c=Number(children.value||0);
     if(a+c===0){summary.textContent="Selecione os convidados para ver o resumo.";return}
     const parts=[];
     if(a)parts.push(`${a} ${a===1?"adulto":"adultos"}`);
     if(c)parts.push(`${c} ${c===1?"criança":"crianças"}`);
-    summary.textContent=`${parts.join(" + ")} — Total ${total.toLocaleString("pt-BR",{style:"currency",currency:"BRL"})}`;
+    summary.textContent=`${parts.join(" + ")} — ${a+c} ${(a+c)===1?"convidado confirmado":"convidados confirmados"}`;
   }
   if(adults)adults.addEventListener("change",updateSummary);
   if(children)children.addEventListener("change",updateSummary);
