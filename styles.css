@@ -159,3 +159,10 @@ body .buffet-signup{margin:0 auto!important;padding:0!important;background:trans
 body .buffet-signup>.v82-rsvp-open{display:none!important}
 body .v82-rsvp-panel{margin:0 auto!important;border-top:0!important}
 @media(max-width:760px){body .buffet-info{grid-template-columns:1fr!important;min-height:0!important}body .buffet-photo{grid-column:1!important;grid-row:1!important;min-height:360px!important}body .buffet-copy{grid-column:1!important;grid-row:2!important;padding:38px 26px 42px!important}body .buffet-copy>h2{font-size:50px!important;max-width:none!important}body .buffet-prices strong{font-size:24px!important}}
+
+/* V94 — estado confiável do formulário RSVP */
+body #rsvp .buffet-signup{display:block!important;width:100%!important;max-width:760px!important;margin:0 auto!important}
+body #rsvp #v82RsvpPanel{display:none!important;width:100%!important;margin:0 auto!important;padding:52px 58px!important;background:#fff!important;border:1px solid #e8dfd0!important}
+body #rsvp #v82RsvpPanel.open{display:block!important}
+body #rsvp #v82RsvpPanel.open form{display:block!important}
+@media(max-width:760px){body #rsvp #v82RsvpPanel{padding:34px 20px!important}}
