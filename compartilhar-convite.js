@@ -3,7 +3,7 @@
   const message = 'Samuel & Lorena\n\nEsperamos você para celebrar conosco!\n14 de fevereiro de 2027 · 11h45\n\nAcesse o nosso convite:\n' + url;
   let invitationPhoto;
   const photoButton = document.getElementById('shareInvitationPhoto');
-  fetch('/assets/casal2.jpg').then(response => {
+  fetch('/assets/hero.jpg').then(response => {
     if (!response.ok) throw new Error('Foto indisponível');
     return response.blob();
   }).then(blob => {
