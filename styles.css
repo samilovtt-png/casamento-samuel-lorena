@@ -221,3 +221,7 @@ body #nossa-galeria + #fotos-convidados #guestPhotoForm{max-width:680px!importan
 .v102-cart-bottom a:hover{background:#0b1d35;border-color:#0b1d35;color:#fff}
 .v101-more-wrap{display:none!important}
 @media(max-width:760px){.v102-gift-pages{margin-top:38px}.v102-cart-bottom a{width:100%;max-width:330px}}
+
+/* Capa atualizada em 18/10/2026; foco no casal. */
+.hero{background-image:url("assets/capa-outubro-2026.jpg")!important;background-position:40% center!important}
+@media(max-width:760px){.hero{background-position:40% center!important}}
