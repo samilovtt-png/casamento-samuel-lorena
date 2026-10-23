@@ -16,3 +16,10 @@ test('unauthenticated and other authenticated users cannot access dashboard data
  const response=()=>({code:200,headers:{},setHeader(k,v){this.headers[k]=v;},status(n){this.code=n;return this;},json(body){this.body=body;return this;}});
  try{let res=response();await handler({method:'GET',headers:{}},res);assert.equal(res.code,401);assert.equal(calls,0);assert.equal(res.headers['Cache-Control'],'private, no-store');res=response();await handler({method:'GET',headers:{authorization:'Bearer other'}},res);assert.equal(res.code,401);assert.equal(calls,1);}finally{global.fetch=old;}
 });
+test('diet choices survive RSVP normalization and dashboard; legacy requests retain their payload',()=>{
+ const body={id:'diet-12345',nome:'Responsável',pessoas:[{nome:'Maria',categoria:'mulher',alimentacao:'vegetariano'},{nome:'José',categoria:'homem',alimentacao:'come_carne'},{nome:'Bia',categoria:'crianca',alimentacao:'nao_informado'}]};
+ const row=normalize(body);assert.deepEqual(row.pessoas.map(p=>p.alimentacao),['vegetariano','come_carne','nao_informado']);
+ const report=summarize([{...row,status:'confirmado'}],[],[],[]);assert.equal(report.convidados[0].alimentacao,'vegetariano');assert.equal(report.convidados[1].alimentacao,'come_carne');
+ assert.throws(()=>normalize({...body,pessoas:[{nome:'Maria',categoria:'mulher',alimentacao:'invalid'}]}),/alimentação/);
+ const legacy=normalize({...body,pessoas:[{nome:'Maria',categoria:'mulher'}]});assert.deepEqual(legacy.pessoas,[{nome:'Maria',categoria:'mulher',presente:false}]);
+});
