@@ -2,6 +2,7 @@ const {ready,verify,api}=require('./_galeria');
 const {summarize}=require('../lib/painel');
 async function all(table,select){let rows=[];for(let offset=0;offset<20000;offset+=1000){const page=await api('/rest/v1/'+table+'?select='+select+'&order=id.asc&limit=1000&offset='+offset);rows.push(...page);if(page.length<1000)return rows;}throw Error('Volume excedido');}
 module.exports=async(req,res)=>{
+ if(req.query?.lista==='1')return require('../lib/lista-convidados-api')(req,res);
  res.setHeader('Cache-Control','private, no-store');res.setHeader('Vary','Authorization');
  if(!['GET','PATCH'].includes(req.method))return res.status(405).json({error:'Método inválido'});
  if(!ready())return res.status(503).json({error:'Painel indisponível'});
