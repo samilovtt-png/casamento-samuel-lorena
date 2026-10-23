@@ -5,6 +5,7 @@ const KEY="slGiftCart";let cart=[];try{cart=JSON.parse(localStorage.getItem(KEY)
  const buyer=document.getElementById("giftBuyerName");if(!buyer.value.trim()||!buyer.reportValidity())return;
  if(!cart.length)return alert("Adicione um presente primeiro.");
  const items=cart.map(x=>({quantity:x.qty||1,price:Math.round(price(x)*100),description:x.name}));
+ if(cart.some(x=>String(x.id).startsWith("reforma-")&&price(x)<300))return alert("Atualize a contribuição de Reforma e Mobília para um valor a partir de R$ 300,00.");
  if(items.some(x=>x.price<=0))return alert("Digite um valor válido para o presente.");
  document.querySelectorAll(".trackedPay").forEach(x=>x.disabled=true);
  const original=btn.textContent;btn.textContent="Abrindo pagamento...";

@@ -1,4 +1,4 @@
-const CACHE='samuel-lorena-trajes-20261018';
+const CACHE='samuel-lorena-contribuicoes-20261023';
 const CORE=['/','/index.html','/styles.css?v=cover20261018','/script.js?v=83','/pwa.css?v=60','/pwa.js','/manifest.webmanifest','/favicon.ico?v=sl4','/favicon.svg?v=sl4','/assets/app-icon-192-sl-white.png','/assets/app-icon-512-sl-white.png','/assets/casal2.jpg','/assets/cerimonia.webp?v=24','/assets/recepcao.webp?v=24'];
 self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(CORE)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
