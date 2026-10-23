@@ -4,3 +4,5 @@
 .person-row{grid-template-columns:minmax(180px,1.3fr) minmax(150px,1fr) minmax(160px,1fr) auto}
 @media(max-width:900px){.person-row{grid-template-columns:1fr 1fr}.person-row button{grid-column:auto;margin-top:25px}}
 @media(max-width:600px){.person-row{grid-template-columns:1fr}.person-row button{grid-column:1;margin-top:0}}
+
+#plannedDialog{width:min(650px,calc(100% - 24px));max-height:90dvh;overflow:auto;border:1px solid #d8c6a7;padding:28px;color:#122743;background:#fff}#plannedDialog::backdrop{background:#122743aa}#plannedDialog input,#plannedDialog select,#plannedDialog textarea{box-sizing:border-box;width:100%;padding:12px;border:1px solid #d8c6a7;font:inherit}#plannedDialog label{display:grid;gap:8px;margin:16px 0}#plannedDialog .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}.planned-actions button{margin:3px;padding:9px 12px}#plannedDialog button{padding:12px 20px}#plannedDialog h2{font-family:Georgia,serif;font-weight:normal}@media(max-width:600px){#plannedDialog .two{grid-template-columns:1fr;gap:0}.tabs{flex-wrap:wrap}}
